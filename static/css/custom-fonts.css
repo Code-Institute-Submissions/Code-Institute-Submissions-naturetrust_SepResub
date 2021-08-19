@@ -1,0 +1,23 @@
+/* ==========================================================================
+CUSTOM FONTS
+========================================================================== */
+
+@font-face {
+    font-family: 'Chinese Rocks';
+    src: local('ChineseRocks'), url('/static/fonts/ChineseRocks.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'RDR Lino';
+    src: local('RDRLinoRegular'), url('/static/fonts/RDRLinoRegular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'SFCovington Bold';
+    src: local('SFCovington-Bold'), url('/static/fonts/SFCovington-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: local('UniversCondensed'), url('/static/fonts/UniversCondensed.ttf') format("truetype");
+}
