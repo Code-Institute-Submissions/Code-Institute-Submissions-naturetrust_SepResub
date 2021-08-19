@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #FFFFFF;
+    background-color: #112A49;  /* fallback color */
+
+    /*
+        Colour gradients were taken or based upon the following source:
+        'https://cssgradient.io/gradient-backgrounds/' 
+    */
+
+    background: linear-gradient( to bottom,  #537895 25%, #09203F 85% ) no-repeat center center fixed;
+    background-size: cover;
+}
