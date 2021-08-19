@@ -1,3 +1,7 @@
+/* ==========================================================================
+BASE STYLES
+========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,4 +18,123 @@ body {
 
     background: linear-gradient( to bottom,  #537895 25%, #09203F 85% ) no-repeat center center fixed;
     background-size: cover;
+}
+
+/* ======================================================
+Global styles
+====================================================== */
+
+p {
+    font-family: 'Univers Condensed', sans-serif, serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.title {
+    font-family: 'Chinese Rocks', Times, serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 0 15px;
+}
+
+br {
+    margin-top: 10px;
+}
+
+/* ======================================================
+Navbar styles
+====================================================== */
+
+nav {
+    color: #FFFFFF;
+    background-color: rgba(24, 24, 24, 0);
+    box-shadow: none;
+}
+
+/* ======================================================
+Parallax and image styles
+====================================================== */
+
+#firstParallax {
+    height: 80vh;
+}
+
+.parallax-container {
+    height: 65vh;
+}
+
+.parallax img {
+    object-fit: cover;
+    opacity: 1 !important;
+}
+
+.img-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 35%);
+    z-index: 1;
+}
+
+/* ==========================================================================
+MEDIA QUERIES FOR RESPONSIVE DESIGN
+========================================================================== */
+
+/* ======================================================
+RESPONSIVE STYLES FOR LARGER SCREENS
+====================================================== */
+
+@media (min-width: 992px) {
+    /* Home parallax styles
+    =========================== */
+    .parallax-title {
+        margin: 75px 60px 25px;
+    }
+    #firstParallax .parallax-title {
+        margin-bottom: 0;
+    }
+    #firstParallax .parallax-title:nth-child(3) {
+        margin-top: 0;
+    }
+    .parallax-title h1,
+    .parallax-title h2,
+    .parallax-title h4 {
+        width: 50%;
+        margin: 15px auto;
+    }
+    #firstParallax .parallax-title h1,
+    #firstParallax .parallax-title h4 {
+        margin-left: 0;
+    }
+    .parallax-title.right h2 {
+        margin-right: 0;
+    }
+}
+
+/* ======================================================
+RESPONSIVE STYLES FOR SMALLER SCREENS
+====================================================== */
+
+@media (max-width: 992px) {
+    /* Global styles
+    =========================== */
+    p {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 38px;
+    }
+    h4 {
+        font-size: 22px;
+    }
+    /* Home parallax styles
+    =========================== */
+    .parallax-title {
+        margin: 35px auto;
+        text-align: center;
+    }
 }

@@ -3,4 +3,7 @@ $(document).ready(function () {
     $('.sidenav').sidenav({
         inDuration: 350,
     });
+
+    // Initialize parallax
+    $('.parallax').parallax();
 });
