@@ -78,8 +78,13 @@ br {
     font-size: 32px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background-color: red;
-    color: white;
+    background-color: #FF003C;
+    color: #FFFFFF;
+}
+
+#shopping-cart-icon {
+    width: 22px;
+    height: 22px;
 }
 
 /* ======================================================
@@ -188,5 +193,13 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .parallax-title {
         margin: 35px auto;
         text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Navbar styles
+    =========================== */
+    #nav-purchase-btn {
+        margin: 8px auto;
     }
 }
