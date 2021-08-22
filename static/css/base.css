@@ -41,6 +41,47 @@ br {
     margin-top: 10px;
 }
 
+/* The following code to add folded corners to the button:
+'https://dev.to/leandroruel/how-to-make-a-cyberpunk-2077-button-with-css-c9m' */
+
+.btn-folded-corners {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 25px;
+    position: relative;
+    margin: 0 auto;
+    /* I used the following clip-path generator to get the desired look:
+    'https://www.cssportal.com/css-clip-path-generator/' */
+    clip-path: polygon(12% 0, 100% 0, 100% 30%, 100% 58%, 86% 100%, 30% 100%, 0 100%, 0 44%);
+    clip-path: polygon(10% 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+}
+
+.btn-folded-corners__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+}
+
+.purchase-btn {
+    width: 225px;
+    height: 55px;
+    font-family: 'Chinese Rocks', Times, serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: red;
+    color: white;
+}
+
 /* ======================================================
 Navbar styles
 ====================================================== */
@@ -49,6 +90,17 @@ nav {
     color: #FFFFFF;
     background-color: rgba(24, 24, 24, 0);
     box-shadow: none;
+}
+
+.purchase-btn-list-item {
+    height: 64px;
+}
+
+#nav-purchase-btn {
+    width: 165px;
+    height: 35px;
+    margin: 12px auto;
+    font-size: 22px;
 }
 
 /* ======================================================
