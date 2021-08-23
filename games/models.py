@@ -7,6 +7,7 @@ from django.utils import timezone
 
 class Game(models.Model):
     name = models.CharField(max_length=254)
+    url_name = models.CharField(max_length=254, null=True, blank=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     publisher = models.CharField(max_length=254)
     publisher_friendly_name = models.CharField(max_length=254, null=True, blank=True)

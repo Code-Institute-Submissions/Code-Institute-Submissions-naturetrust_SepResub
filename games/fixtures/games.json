@@ -4,6 +4,7 @@
         "model": "games.game",
         "fields": {
             "name": "red_dead_redemption_2",
+            "url_name": "reddeadredemption2",
             "friendly_name": "Red Dead Redemption 2",
             "publisher": "rockstar",
             "publisher_friendly_name": "Rockstar Games",
@@ -18,6 +19,7 @@
         "model": "games.game",
         "fields": {
             "name": "planet_zoo",
+            "url_name": "planetzoo",
             "friendly_name": "Planet Zoo",
             "publisher": "frontier",
             "publisher_friendly_name": "Frontier Developments",

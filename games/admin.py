@@ -35,7 +35,7 @@ class GameAdmin(admin.ModelAdmin):
     readonly_fields = ('date_added',)
 
     fields = (
-        'friendly_name', 'name', 'publisher',
+        'friendly_name', 'name', 'url_name', 'publisher',
         'publisher_friendly_name', 'developer',
         'description', 'image_url', 'image',
         'date_added',
