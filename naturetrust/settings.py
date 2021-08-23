@@ -46,9 +46,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
     'home',
     'games',
+
+    # Other
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
