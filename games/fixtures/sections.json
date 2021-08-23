@@ -1,0 +1,62 @@
+[
+    {
+        "pk": 1,
+        "model": "games.section",
+        "fields": {
+            "game": 1,
+            "name": "storymode_content",
+            "friendly_name": "Storymode Content",
+            "friendly_name_extended": "Get exclusive storymode content including:"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "games.section",
+        "fields": {
+            "game": 1,
+            "name": "online_content",
+            "friendly_name": "Online Content",
+            "friendly_name_extended": "Plus bonus content in Red Dead Online, including:"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "games.section",
+        "fields": {
+            "game": 1,
+            "name": "naturetrust_content",
+            "friendly_name": "NatureTrust Edition Content",
+            "friendly_name_extended": "Plus bonus content in Red Dead Online, including:"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "games.section",
+        "fields": {
+            "game": 2,
+            "name": "deluxe_content",
+            "friendly_name": "Deluxe Content",
+            "friendly_name_extended": "Unlock three unique animals and more, including:"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "games.section",
+        "fields": {
+            "game": 2,
+            "name": "dlc_content",
+            "friendly_name": "DLC Content",
+            "friendly_name_extended": "Gain access to DLCS, including:"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "games.section",
+        "fields": {
+            "game": 2,
+            "name": "naturetrust_content",
+            "friendly_name": "NatureTrust Edition Content",
+            "friendly_name_extended": "Unlock three exclusive animals, including:"
+        }
+    }
+]

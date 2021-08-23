@@ -1,0 +1,101 @@
+[
+    {
+        "pk": 1,
+        "model": "games.edition",
+        "fields": {
+            "game": 1,
+            "name": "naturetrust",
+            "friendly_name": "NatureTrust Editon",
+            "friendly_name_full": "Red Dead Redemption 2: NatureTrust Editon",
+            "price": 89.99
+        }
+    },
+    {
+        "pk": 2,
+        "model": "games.edition",
+        "fields": {
+            "game": 1,
+            "name": "ultimate",
+            "friendly_name": "Ultimate Editon",
+            "friendly_name_full": "Red Dead Redemption 2: Ultimate Editon",
+            "price": 79.99
+        }
+    },
+    {
+        "pk": 3,
+        "model": "games.edition",
+        "fields": {
+            "game": 1,
+            "name": "standard",
+            "friendly_name": "Standard Editon",
+            "friendly_name_full": "Red Dead Redemption 2: Standard Editon",
+            "price": 49.99
+        }
+    },
+    {
+        "pk": 4,
+        "model": "games.edition",
+        "fields": {
+            "game": 1,
+            "name": "red_dead_online",
+            "friendly_name": "Red Dead Online",
+            "friendly_name_full": "Red Dead Online",
+            "price": 19.99
+        }
+    },
+    {
+        "pk": 5,
+        "model": "games.edition",
+        "fields": {
+            "game": 2,
+            "name": "standard",
+            "friendly_name": "Standard Edition",
+            "friendly_name_full": "Planet Zoo: Standard Edition",
+            "price": 34.99
+        }
+    },
+    {
+        "pk": 6,
+        "model": "games.edition",
+        "fields": {
+            "game": 2,
+            "name": "deluxe",
+            "friendly_name": "Deluxe Edition",
+            "friendly_name_full": "Planet Zoo: Deluxe Edition",
+            "price": 42.99
+        }
+    },
+    {
+        "pk": 7,
+        "model": "games.edition",
+        "fields": {
+            "game": 2,
+            "name": "premium",
+            "friendly_name": "Premium Edition",
+            "friendly_name_full": "Planet Zoo: Premium Edition",
+            "price": 62.99
+        }
+    },
+    {
+        "pk": 8,
+        "model": "games.edition",
+        "fields": {
+            "game": 2,
+            "name": "naturetrust",
+            "friendly_name": "NatureTrust Edition (Adoption)",
+            "friendly_name_full": "Planet Zoo: NatureTrust Edition",
+            "price": 72.99
+        }
+    },
+    {
+        "pk": 9,
+        "model": "games.edition",
+        "fields": {
+            "game": 2,
+            "name": "naturetrust_premium",
+            "friendly_name": "NatureTrust Premium (Adoption)",
+            "friendly_name_full": "Planet Zoo: NatureTrust Premium",
+            "price": 79.99
+        }
+    }
+]
