@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def all_games(request):
+    """ A view to render all games available for purchase """
+
+    return render(request, 'games/games.html')

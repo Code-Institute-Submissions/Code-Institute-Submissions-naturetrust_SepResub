@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <section id="allGames">
+            <div class="row my-5">
+                <div class="col s12 center">
+                    <h1 class="title">Games</h1>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col s12 l6 xl5 offset-xl1">
+                    <!-- Game cover -->
+                    <div class="game-img-container">
+                        <a href="#!"><img src="{{ MEDIA_URL }}red-dead-redemption-2.jpg" alt="Game cover image"
+                            class="game-page-img"></a>
+                        <div class="game-img-overlay">
+                            <a href="#!" class="btn btn-cyan img-overlay-btn btn-folded-corners">
+                                <span class="border-hack"></span>
+                                <span class="btn-text">Game Details</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="row mt-5">
+                        <div class="col s12 hide-on-large-only">
+                            <a href="#!" class="btn btn-cyan btn-folded-corners game-details-btn">
+                                <span class="border-hack"></span>
+                                <span class="btn-text">Game Details</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a href="#!" class="btn purchase-btn btn-folded-corners">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 l6 xl5">
+                    <!-- Game cover -->
+                    <div class="game-img-container">
+                        <a href="#!"><img src="{{ MEDIA_URL }}red-dead-redemption-2.jpg" alt="Game cover image"
+                            class="game-page-img"></a>
+                        <div class="game-img-overlay">
+                            <a href="#!" class="btn btn-cyan img-overlay-btn btn-folded-corners">
+                                <span class="border-hack"></span>
+                                <span class="btn-text">Game Details</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="row mt-5">
+                        <div class="col s12 hide-on-large-only">
+                            <a href="#!" class="btn btn-cyan btn-folded-corners game-details-btn">
+                                <span class="border-hack"></span>
+                                <span class="btn-text">Game Details</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a href="#!" class="btn purchase-btn btn-folded-corners">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

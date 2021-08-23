@@ -41,6 +41,15 @@ br {
     margin-top: 10px;
 }
 
+.my-5 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
 /* The following code to add folded corners to the button:
 'https://dev.to/leandroruel/how-to-make-a-cyberpunk-2077-button-with-css-c9m' */
 
@@ -56,7 +65,6 @@ br {
     margin: 0 auto;
     /* I used the following clip-path generator to get the desired look:
     'https://www.cssportal.com/css-clip-path-generator/' */
-    clip-path: polygon(12% 0, 100% 0, 100% 30%, 100% 58%, 86% 100%, 30% 100%, 0 100%, 0 44%);
     clip-path: polygon(10% 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
 }
 
@@ -85,6 +93,35 @@ br {
 #shopping-cart-icon {
     width: 22px;
     height: 22px;
+}
+
+/* I used the following source to add a border to the clip-path element:
+'https://stackoverflow.com/questions/31854185/how-to-add-border-in-my-clip-path-polygon-css-style' */
+
+.btn-cyan.btn-folded-corners .border-hack {
+    position: absolute;
+    top: 2px; /* equal to border thickness */
+    left: 2px; /* equal to border thickness */
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    clip-path: polygon(10% 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+
+    background-color: #42AFAA;  /* fallback color */
+    background-image: linear-gradient(to right, #42AFAA 0%, #18385E  51%, #42AFAA  100%);
+    background-image: linear-gradient(to right, #18385E 0%, #42AFAA  51%, #18385E  100%);
+    background-size: 200% auto;
+}
+
+.btn-cyan {
+    background-color: #8BE8E3;
+}
+
+.btn-cyan.btn-folded-corners .btn-text {
+    font-family: 'Chinese Rocks', Times, serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 50;
 }
 
 /* ======================================================
@@ -134,6 +171,67 @@ Parallax and image styles
     z-index: 1;
 }
 
+/* ======================================================
+Games page styles
+====================================================== */
+
+.game-img-container {
+    position: relative;
+    width: 435px;
+    height: 425px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.game-page-img {
+    display: block;
+    width: 435px;
+    height: 425px;
+    object-fit: cover;
+}
+
+.game-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn-folded-corners.img-overlay-btn {
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+}
+
+/* The following code is based upon this source:
+'https://www.w3schools.com/css/tryit.asp?filename=trycss_css_image_overlay_slideleft' */
+
+.game-img-overlay {
+    width: 0;
+    transition: .8s ease;
+    overflow: hidden;
+}
+
+.game-img-container:hover .game-img-overlay {
+    width: 35%;
+}
+
+.game-img-overlay .btn-text {
+    white-space: nowrap; 
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.btn-cyan.btn-folded-corners.img-overlay-btn .border-hack {
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+}
+
+.game-details-btn {
+    width: 165px;
+    height: 45px;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -141,6 +239,34 @@ MEDIA QUERIES FOR RESPONSIVE DESIGN
 /* ======================================================
 RESPONSIVE STYLES FOR LARGER SCREENS
 ====================================================== */
+
+@media (min-width: 1920px) {
+    /* Games page styles
+    =========================== */
+    .game-img-container {
+        width: 635px;
+        height: 625px;
+    }
+    .game-page-img {
+        width: 635px;
+        height: 625px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1420px) and (max-width: 1920px) {
+    /* Games page styles
+    =========================== */
+    .game-img-container {
+        width: 535px;
+        height: 525px;
+    }
+    .game-page-img {
+        width: 535px;
+        height: 525px;
+        object-fit: cover;
+    }
+}
 
 @media (min-width: 992px) {
     /* Home parallax styles
@@ -194,6 +320,29 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         margin: 35px auto;
         text-align: center;
     }
+    /* Games page styles
+    =========================== */
+    #allGames .col.s12.l6.xl5 {
+        margin-top: 50px;
+    }
+    #allGames .title {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 645px) {
+    /* Games page styles
+    =========================== */
+    .game-img-container {
+        width: 315px;
+        height: 305px;
+    }
+    .game-page-img {
+        width: 315px;
+        height: 305px;
+        object-fit: cover;
+    }
 }
 
 @media (max-width: 600px) {
@@ -201,5 +350,19 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     =========================== */
     #nav-purchase-btn {
         margin: 8px auto;
+    }
+}
+
+@media (max-width: 345px) {
+    /* Games page styles
+    =========================== */
+    .game-img-container {
+        width: 265px;
+        height: 260px;
+    }
+    .game-page-img {
+        width: 265px;
+        height: 260px;
+        object-fit: cover;
     }
 }
