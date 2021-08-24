@@ -23,16 +23,6 @@
         "pk": 3,
         "model": "games.section",
         "fields": {
-            "game": 1,
-            "name": "naturetrust_content",
-            "friendly_name": "NatureTrust Edition Content",
-            "friendly_name_extended": "Plus bonus content in Red Dead Online, including:"
-        }
-    },
-    {
-        "pk": 4,
-        "model": "games.section",
-        "fields": {
             "game": 2,
             "name": "deluxe_content",
             "friendly_name": "Deluxe Content",
@@ -40,7 +30,7 @@
         }
     },
     {
-        "pk": 5,
+        "pk": 4,
         "model": "games.section",
         "fields": {
             "game": 2,
@@ -50,7 +40,7 @@
         }
     },
     {
-        "pk": 6,
+        "pk": 5,
         "model": "games.section",
         "fields": {
             "game": 2,

@@ -143,8 +143,8 @@
         "fields": {
             "game": 1,
             "edition": 1,
-            "section": 3,
-            "content": "Ardennes War Horse for Story Mode",
+            "section": 1,
+            "content": "Ardennes War Horse",
             "image_url": "https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.helpfulhorsehints.com/wp-content/uploads/blue-roan-ardenes-horse-online-1024x572.jpg",
             "image": "rdr-bonus-img-13.jpg"
         }
@@ -155,7 +155,7 @@
         "fields": {
             "game": 1,
             "edition": 1,
-            "section": 3,
+            "section": 2,
             "content": "Free Access to the Naturist Role for Red Dead Online",
             "image_url": "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/07/Red-Dead-Online-The-Naturalist.jpg",
             "image": "rdr-bonus-img-14.jpg"
@@ -352,7 +352,7 @@
         "fields": {
             "game": 2,
             "edition": 6,
-            "section": 4,
+            "section": 3,
             "content": "Pygmy Hippopatamus",
             "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/b/b2/PygmyHippopotamus.jpg/revision/latest?cb=20191112123745",
             "image": "pz-bonus-1.jpg"
@@ -364,7 +364,7 @@
         "fields": {
             "game": 2,
             "edition": 6,
-            "section": 4,
+            "section": 3,
             "content": "Thomoson's Gazelle",
             "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/1/11/ThomsonsGazelle.jpg/revision/latest?cb=20191112093637",
             "image": "pz-bonus-2.jpg"
@@ -376,7 +376,7 @@
         "fields": {
             "game": 2,
             "edition": 6,
-            "section": 4,
+            "section": 3,
             "content": "Komodo Dragon",
             "image_url": "https://www.planet-france.fr/wp-content/uploads/hm_bbpui/5682/nzf8rch2dftk2g0gmcmw5g1kgqlmqofc.jpg",
             "image": "pz-bonus-3.jpg"
@@ -388,7 +388,7 @@
         "fields": {
             "game": 2,
             "edition": 6,
-            "section": 4,
+            "section": 3,
             "content": "Official Planet Zoo Soundtrack"
         }
     },
@@ -398,7 +398,7 @@
         "fields": {
             "game": 2,
             "edition": 6,
-            "section": 4,
+            "section": 3,
             "content": "Set of Digiital Wallpapers"
         }
     },
@@ -417,7 +417,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Artic Pack",
             "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
             "image": "pz-dlc-1.jpg"
@@ -429,7 +429,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: South America Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/03/31222509/planetzoo-3-31-20.jpg",
             "image": "pz-dlc-2.jpg"
@@ -441,7 +441,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Australia Pack",
             "image_url": "https://www.gamespew.com/wp-content/uploads/2020/08/Planet-Zoo-Australia.jpg",
             "image": "pz-dlc-3.jpg"
@@ -453,7 +453,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Aquatic Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/12/01213904/planetzoo12-1-20-1536x864.jpg",
             "image": "pz-dlc-4.jpg"
@@ -465,7 +465,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Southeast Asia Animal Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2021/03/19003435/planetzoo3-18-21-1536x864.jpg",
             "image": "pz-dlc-5.jpg"
@@ -477,7 +477,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Africa Pack",
             "image_url": "https://gamermatters.com/wp-content/uploads/2021/06/planet-zoo-africa-pack-screenshot-3.jpg",
             "image": "pz-dlc-6.jpg"
@@ -498,7 +498,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Artic Pack",
             "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
             "image": "pz-dlc-1.jpg"
@@ -510,7 +510,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: South America Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/03/31222509/planetzoo-3-31-20.jpg",
             "image": "pz-dlc-2.jpg"
@@ -522,7 +522,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Australia Pack",
             "image_url": "https://www.gamespew.com/wp-content/uploads/2020/08/Planet-Zoo-Australia.jpg",
             "image": "pz-dlc-3.jpg"
@@ -534,7 +534,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Aquatic Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/12/01213904/planetzoo12-1-20-1536x864.jpg",
             "image": "pz-dlc-4.jpg"
@@ -546,7 +546,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Southeast Asia Animal Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2021/03/19003435/planetzoo3-18-21-1536x864.jpg",
             "image": "pz-dlc-5.jpg"
@@ -558,7 +558,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Africa Pack",
             "image_url": "https://gamermatters.com/wp-content/uploads/2021/06/planet-zoo-africa-pack-screenshot-3.jpg",
             "image": "pz-dlc-6.jpg"
@@ -570,7 +570,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 6,
+            "section": 5,
             "content": "Bat-eared Fox",
             "image_url": "https://staticdelivery.nexusmods.com/mods/3100/images/350/350-1629587843-512200306.png",
             "image": "pz-bonus-4.png"
@@ -582,7 +582,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 6,
+            "section": 5,
             "content": "North American River Otter",
             "image_url": "https://staticdelivery.nexusmods.com/mods/3100/images/191/191-1620160466-1955807565.png",
             "image": "pz-bonus-5.png"
@@ -594,7 +594,7 @@
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 6,
+            "section": 5,
             "content": "Green Sea Turtle",
             "image_url": "https://staticdelivery.nexusmods.com/mods/3100/images/558/558-1626713308-1849819038.png",
             "image": "pz-bonus-6.png"
@@ -615,7 +615,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Artic Pack",
             "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
             "image": "pz-dlc-1.jpg"
@@ -627,7 +627,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: South America Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/03/31222509/planetzoo-3-31-20.jpg",
             "image": "pz-dlc-2.jpg"
@@ -639,7 +639,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Australia Pack",
             "image_url": "https://www.gamespew.com/wp-content/uploads/2020/08/Planet-Zoo-Australia.jpg",
             "image": "pz-dlc-3.jpg"
@@ -651,7 +651,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Aquatic Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/12/01213904/planetzoo12-1-20-1536x864.jpg",
             "image": "pz-dlc-4.jpg"
@@ -663,7 +663,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Southeast Asia Animal Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2021/03/19003435/planetzoo3-18-21-1536x864.jpg",
             "image": "pz-dlc-5.jpg"
@@ -675,7 +675,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 5,
+            "section": 4,
             "content": "Planet Zoo: Africa Pack",
             "image_url": "https://gamermatters.com/wp-content/uploads/2021/06/planet-zoo-africa-pack-screenshot-3.jpg",
             "image": "pz-dlc-6.jpg"
@@ -687,7 +687,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 6,
+            "section": 5,
             "content": "Bat-eared Fox",
             "image_url": "https://staticdelivery.nexusmods.com/mods/3100/images/350/350-1629587843-512200306.png",
             "image": "pz-bonus-4.png"
@@ -699,7 +699,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 6,
+            "section": 5,
             "content": "North American River Otter",
             "image_url": "https://staticdelivery.nexusmods.com/mods/3100/images/191/191-1620160466-1955807565.png",
             "image": "pz-bonus-5.png"
@@ -711,7 +711,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 6,
+            "section": 5,
             "content": "Green Sea Turtle",
             "image_url": "https://staticdelivery.nexusmods.com/mods/3100/images/558/558-1626713308-1849819038.png",
             "image": "pz-bonus-6.png"
@@ -723,7 +723,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 4,
+            "section": 3,
             "content": "Pygmy Hippopatamus",
             "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/b/b2/PygmyHippopotamus.jpg/revision/latest?cb=20191112123745",
             "image": "pz-bonus-1.jpg"
@@ -735,7 +735,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 4,
+            "section": 3,
             "content": "Thomoson's Gazelle",
             "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/1/11/ThomsonsGazelle.jpg/revision/latest?cb=20191112093637",
             "image": "pz-bonus-2.jpg"
@@ -747,7 +747,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 4,
+            "section": 3,
             "content": "Komodo Dragon",
             "image_url": "https://www.planet-france.fr/wp-content/uploads/hm_bbpui/5682/nzf8rch2dftk2g0gmcmw5g1kgqlmqofc.jpg",
             "image": "pz-bonus-3.jpg"
@@ -759,7 +759,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 4,
+            "section": 3,
             "content": "Official Planet Zoo Soundtrack"
         }
     },
@@ -769,7 +769,7 @@
         "fields": {
             "game": 2,
             "edition": 9,
-            "section": 4,
+            "section": 3,
             "content": "Set of Digiital Wallpapers"
         }
     }
