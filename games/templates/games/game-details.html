@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <section id="gameDetails">
+            <div class="row my-5">
+                <div class="col s12 center">
+                    <p>Add an adoptation pack to your game purchase to recieve a unique game bonus!</p>
+                </div>
+            </div>
+            <!-- Choose edition to purchase  -->
+            <div class="row cover-and-editions">
+                <!-- Game cover -->
+                <div class="col s12 l5 offset-l1 xl4 offset-xl2">
+                    {% if game.image %}
+                        <img src="{{ game.image.url }}" alt="{{ game.name }}"
+                        class="game-details-img"></a>
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ game.name }}"
+                        class="game-details-img"></a>
+                    {% endif %}
+                </div>
+                <!-- Game editions -->
+                <div class="col s12 l4">
+                    <div class="row">
+                        <div class="col s12">
+                            <h4 class="title">Select Edition:</h4>
+                        </div>
+                    </div>
+                    <!-- Editions -->
+                    <div class="row">
+                    {% for e in editions %}
+                        <div class="col s12 select-edition">
+                            <a href="#!" class="btn btn-cyan btn-folded-corners edition-btn" id="editionBtn{{ e.pk }}">
+                                <span class="border-hack"></span>
+                                <span class="btn-text">
+                                    {{ e.friendly_name }}
+                                    {% if e.name == "naturetrust" %}
+                                        (Adoption)
+                                    {% endif %}
+                                </span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <!-- Platform -->
+                    <div class="row">
+                        <div class="col s12">
+                            <h4 class="title">Select Platform:</h4>
+                        </div>
+                    </div>
+                    {% if game.platform %}
+                        <div class="row">
+                            <div class="col s12"></div>
+                        </div>
+                    {% else %}
+                        <h6>This game is only available on PC</h6>
+                    {% endif %}
+                    <!-- Purchase -->
+                    <div class="row buy-game mt-5">
+                        <div class="col s12">
+                            <a href="#!" class="btn purchase-btn btn-folded-corners">Buy Now</a>
+                        </div>
+                        <div class="col s12 helper-text">
+                            <p class="center">Red Dead Online is included in every version</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider my-5"></div>
+            <!-- Edition details -->
+            {% for e in editions %}
+                <div class="row edition-details {% if not forloop.counter == 1 %}hide{% else %}active{% endif %}" id="editionDetails{{ forloop.counter }}">
+                    <div class="col s12">
+                        <h2 class="title center">{{ e.friendly_name }}</h2>
+                    </div>
+                    <div class="col s12">
+                        {% for s in sections %}
+                        <div class="row section-header">
+                            <div class="col s12">
+                                <h4 class="title center">{{ s.friendly_name_extended }}</h4>
+                            </div>
+                        </div>
+                        <div class="row section-content">
+                            {% for c in content %}
+                                {% if c.section.pk == s.pk and c.edition.pk == e.pk %}
+                                       <div class="col s12 m6">
+                                           <h6 class="title center">{{ c.content }}</h6>
+                                       </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+{% endblock %}
+
+{% block postloadjs %}
+<!-- Hide section headers that do not have content -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        var sectionContent = $('.active .section-content');
+        for (i=0; i < sectionContent.length; i++) {
+            var findString = $(sectionContent[i]).text().match(/[abcdefghijklmnopqrstuvwxyz]/g)
+            if (!findString) {
+                $(sectionContent[i]).prev('.section-header').addClass('hide');
+            };
+        };
+    });
+</script>
+{% endblock %}

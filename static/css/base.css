@@ -232,6 +232,56 @@ Games page styles
     height: 45px;
 }
 
+/* ======================================================
+Game details styles
+====================================================== */
+
+.game-details-img {
+    width: 325px;
+    height: 395px;
+    object-fit: cover;
+}
+
+.select-edition {
+    text-align: left;
+    margin-left: 0;
+}
+
+.edition-btn {
+    width: 375px;
+    height: 30px;
+    margin: 5px auto;
+    margin-left: 15px;
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+}
+
+.edition-btn .btn-text {
+    position: absolute;
+    left: 15px;
+    font-family: 'SFCovington' !important;
+    font-size: 18px !important;
+    letter-spacing: 1px !important;
+    text-transform: none !important;
+}
+
+.btn-cyan.btn-folded-corners.edition-btn .border-hack {
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+}
+
+#gameDetails h4 {
+    margin-bottom: 0;
+}
+
+.cover-and-editions h6 {
+    font-family: 'SFCovington';
+    letter-spacing: 1px;
+    padding-left: 15px;
+}
+
+.helper-text {
+    margin-top: 10px;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -293,6 +343,37 @@ RESPONSIVE STYLES FOR LARGER SCREENS
     .parallax-title.right h2 {
         margin-right: 0;
     }
+    /* Game details styles
+    =========================== */
+    .cover-and-editions .col.l5 {
+        text-align: right;
+    }
+    .game-details-img {
+        width: 385px;
+        height: 575px;
+        object-fit: cover;
+    }
+    .edition-btn {
+        width: 375px;
+        height: 30px;
+        margin: 5px auto;
+        margin-left: 15px;
+    }
+    .buy-game .purchase-btn {
+        margin-left: 0;
+    }
+    .cover-and-editions .purchase-btn {
+        width: 370px;
+        clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
+    }
+    #gameDetails .divider {
+        width: 80%;
+        margin: auto;
+    }
+    .helper-text {
+        width: 380px !important;
+        padding: 0 !important;
+    }
 }
 
 /* ======================================================
@@ -329,6 +410,27 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         margin-top: 0;
         margin-bottom: 0;
     }
+    /* Game details styles
+    =========================== */
+    #gameDetails {
+        text-align: center;
+        margin: auto;
+    }
+    #gameDetails h4 {
+        font-size: 22px;
+        margin-top: 35px;
+        margin-bottom: 0;
+    }
+    .select-edition {
+        text-align: center;
+    }
+    .select-edition .btn {
+        margin: 10px auto;
+    }
+    #gameDetails .divider {
+        width: 90%;
+        margin: auto;
+    }
 }
 
 @media (max-width: 645px) {
@@ -353,6 +455,15 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
+@media (max-width: 400px) {
+    /* Game details styles
+    =========================== */
+    .edition-btn {
+        width: 325px;
+        height: 30px;
+    }
+}
+
 @media (max-width: 345px) {
     /* Games page styles
     =========================== */
@@ -363,6 +474,27 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .game-page-img {
         width: 265px;
         height: 260px;
+        object-fit: cover;
+    }
+    /* Game details styles
+    =========================== */
+    .edition-btn {
+        width: 275px;
+        height: 30px;
+    }
+    .game-details-img {
+        width: 285px;
+        height: 345px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 305px) {
+    /* Game details styles
+    =========================== */
+    .game-details-img {
+        width: 265px;
+        height: 345px;
         object-fit: cover;
     }
 }

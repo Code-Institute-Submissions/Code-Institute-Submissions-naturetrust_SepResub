@@ -12,7 +12,7 @@
                     <div class="col s12 l6 xl5 {% if not forloop.counter|divisibleby:2 %}offset-xl1{% endif %}">
                         <!-- Game cover -->
                         <div class="game-img-container">
-                            <a href="#!">
+                            <a href="{% url 'game_details' game.url_name %}">
                                 {% if game.image %}
                                     <img src="{{ game.image.url }}" alt="{{ game.name }}"
                                     class="game-page-img"></a>
@@ -21,7 +21,7 @@
                                     class="game-page-img"></a>
                                 {% endif %}
                             <div class="game-img-overlay">
-                                <a href="#!" class="btn btn-cyan img-overlay-btn btn-folded-corners">
+                                <a href="{% url 'game_details' game.url_name %}" class="btn btn-cyan img-overlay-btn btn-folded-corners">
                                     <span class="border-hack"></span>
                                     <span class="btn-text">Game Details</span>
                                 </a>
@@ -30,7 +30,7 @@
                         <!-- Buttons -->
                         <div class="row mt-5">
                             <div class="col s12 hide-on-large-only">
-                                <a href="#!" class="btn btn-cyan btn-folded-corners game-details-btn">
+                                <a href="{% url 'game_details' game.url_name %}" class="btn btn-cyan btn-folded-corners game-details-btn">
                                     <span class="border-hack"></span>
                                     <span class="btn-text">Game Details</span>
                                 </a>
