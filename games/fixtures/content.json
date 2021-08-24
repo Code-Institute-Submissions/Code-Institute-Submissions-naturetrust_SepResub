@@ -347,7 +347,7 @@
         }
     },
     {
-        "pk": 31,
+        "pk": 32,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -356,18 +356,6 @@
             "content": "Pygmy Hippopatamus",
             "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/b/b2/PygmyHippopotamus.jpg/revision/latest?cb=20191112123745",
             "image": "pz-bonus-1.jpg"
-        }
-    },
-    {
-        "pk": 32,
-        "model": "games.content",
-        "fields": {
-            "game": 2,
-            "edition": 6,
-            "section": 3,
-            "content": "Thomoson's Gazelle",
-            "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/1/11/ThomsonsGazelle.jpg/revision/latest?cb=20191112093637",
-            "image": "pz-bonus-2.jpg"
         }
     },
     {
@@ -377,9 +365,9 @@
             "game": 2,
             "edition": 6,
             "section": 3,
-            "content": "Komodo Dragon",
-            "image_url": "https://www.planet-france.fr/wp-content/uploads/hm_bbpui/5682/nzf8rch2dftk2g0gmcmw5g1kgqlmqofc.jpg",
-            "image": "pz-bonus-3.jpg"
+            "content": "Thomoson's Gazelle",
+            "image_url": "https://vignette.wikia.nocookie.net/planetzoo/images/1/11/ThomsonsGazelle.jpg/revision/latest?cb=20191112093637",
+            "image": "pz-bonus-2.jpg"
         }
     },
     {
@@ -389,7 +377,9 @@
             "game": 2,
             "edition": 6,
             "section": 3,
-            "content": "Official Planet Zoo Soundtrack"
+            "content": "Komodo Dragon",
+            "image_url": "https://www.planet-france.fr/wp-content/uploads/hm_bbpui/5682/nzf8rch2dftk2g0gmcmw5g1kgqlmqofc.jpg",
+            "image": "pz-bonus-3.jpg"
         }
     },
     {
@@ -399,7 +389,7 @@
             "game": 2,
             "edition": 6,
             "section": 3,
-            "content": "Set of Digiital Wallpapers"
+            "content": "Official Planet Zoo Soundtrack"
         }
     },
     {
@@ -407,8 +397,9 @@
         "model": "games.content",
         "fields": {
             "game": 2,
-            "edition": 7,
-            "content": "Planet Zoo Base Game"
+            "edition": 6,
+            "section": 3,
+            "content": "Set of Digiital Wallpapers"
         }
     },
     {
@@ -417,10 +408,7 @@
         "fields": {
             "game": 2,
             "edition": 7,
-            "section": 4,
-            "content": "Planet Zoo: Artic Pack",
-            "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
-            "image": "pz-dlc-1.jpg"
+            "content": "Planet Zoo Base Game"
         }
     },
     {
@@ -430,9 +418,9 @@
             "game": 2,
             "edition": 7,
             "section": 4,
-            "content": "Planet Zoo: South America Pack",
-            "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/03/31222509/planetzoo-3-31-20.jpg",
-            "image": "pz-dlc-2.jpg"
+            "content": "Planet Zoo: Artic Pack",
+            "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
+            "image": "pz-dlc-1.jpg"
         }
     },
     {
@@ -442,9 +430,9 @@
             "game": 2,
             "edition": 7,
             "section": 4,
-            "content": "Planet Zoo: Australia Pack",
-            "image_url": "https://www.gamespew.com/wp-content/uploads/2020/08/Planet-Zoo-Australia.jpg",
-            "image": "pz-dlc-3.jpg"
+            "content": "Planet Zoo: South America Pack",
+            "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/03/31222509/planetzoo-3-31-20.jpg",
+            "image": "pz-dlc-2.jpg"
         }
     },
     {
@@ -454,9 +442,9 @@
             "game": 2,
             "edition": 7,
             "section": 4,
-            "content": "Planet Zoo: Aquatic Pack",
-            "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/12/01213904/planetzoo12-1-20-1536x864.jpg",
-            "image": "pz-dlc-4.jpg"
+            "content": "Planet Zoo: Australia Pack",
+            "image_url": "https://www.gamespew.com/wp-content/uploads/2020/08/Planet-Zoo-Australia.jpg",
+            "image": "pz-dlc-3.jpg"
         }
     },
     {
@@ -466,13 +454,25 @@
             "game": 2,
             "edition": 7,
             "section": 4,
+            "content": "Planet Zoo: Aquatic Pack",
+            "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/12/01213904/planetzoo12-1-20-1536x864.jpg",
+            "image": "pz-dlc-4.jpg"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "games.content",
+        "fields": {
+            "game": 2,
+            "edition": 7,
+            "section": 4,
             "content": "Planet Zoo: Southeast Asia Animal Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2021/03/19003435/planetzoo3-18-21-1536x864.jpg",
             "image": "pz-dlc-5.jpg"
         }
     },
     {
-        "pk": 42,
+        "pk": 43,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -484,24 +484,12 @@
         }
     },
     {
-        "pk": 43,
-        "model": "games.content",
-        "fields": {
-            "game": 2,
-            "edition": 8,
-            "content": "Planet Zoo Base Game"
-        }
-    },
-    {
         "pk": 44,
         "model": "games.content",
         "fields": {
             "game": 2,
             "edition": 8,
-            "section": 4,
-            "content": "Planet Zoo: Artic Pack",
-            "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
-            "image": "pz-dlc-1.jpg"
+            "content": "Planet Zoo Base Game"
         }
     },
     {
@@ -511,13 +499,25 @@
             "game": 2,
             "edition": 8,
             "section": 4,
+            "content": "Planet Zoo: Artic Pack",
+            "image_url": "https://cms-cdn.zaonce.net/2019-12/PZ_Arctic_Keyart_4k--centered.jpg",
+            "image": "pz-dlc-1.jpg"
+        }
+    },
+    {
+        "pk": 46,
+        "model": "games.content",
+        "fields": {
+            "game": 2,
+            "edition": 8,
+            "section": 4,
             "content": "Planet Zoo: South America Pack",
             "image_url": "https://media.nichegamer.com/wp-content/uploads/2020/03/31222509/planetzoo-3-31-20.jpg",
             "image": "pz-dlc-2.jpg"
         }
     },
     {
-        "pk": 46,
+        "pk": 47,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -529,7 +529,7 @@
         }
     },
     {
-        "pk": 47,
+        "pk": 48,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -541,7 +541,7 @@
         }
     },
     {
-        "pk": 48,
+        "pk": 49,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -553,7 +553,7 @@
         }
     },
     {
-        "pk": 49,
+        "pk": 50,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -565,7 +565,7 @@
         }
     },
     {
-        "pk": 50,
+        "pk": 51,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -577,7 +577,7 @@
         }
     },
     {
-        "pk": 51,
+        "pk": 52,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -589,7 +589,7 @@
         }
     },
     {
-        "pk": 52,
+        "pk": 53,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -601,7 +601,7 @@
         }
     },
     {
-        "pk": 53,
+        "pk": 54,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -610,7 +610,7 @@
         }
     },
     {
-        "pk": 54,
+        "pk": 55,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -622,7 +622,7 @@
         }
     },
     {
-        "pk": 55,
+        "pk": 56,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -634,7 +634,7 @@
         }
     },
     {
-        "pk": 56,
+        "pk": 57,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -646,7 +646,7 @@
         }
     },
     {
-        "pk": 57,
+        "pk": 58,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -658,7 +658,7 @@
         }
     },
     {
-        "pk": 58,
+        "pk": 59,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -670,7 +670,7 @@
         }
     },
     {
-        "pk": 59,
+        "pk": 60,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -682,7 +682,7 @@
         }
     },
     {
-        "pk": 60,
+        "pk": 61,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -694,7 +694,7 @@
         }
     },
     {
-        "pk": 61,
+        "pk": 62,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -706,7 +706,7 @@
         }
     },
     {
-        "pk": 62,
+        "pk": 63,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -718,7 +718,7 @@
         }
     },
     {
-        "pk": 63,
+        "pk": 64,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -730,7 +730,7 @@
         }
     },
     {
-        "pk": 64,
+        "pk": 65,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -742,7 +742,7 @@
         }
     },
     {
-        "pk": 65,
+        "pk": 66,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -754,7 +754,7 @@
         }
     },
     {
-        "pk": 66,
+        "pk": 67,
         "model": "games.content",
         "fields": {
             "game": 2,
@@ -764,7 +764,7 @@
         }
     },
     {
-        "pk": 67,
+        "pk": 68,
         "model": "games.content",
         "fields": {
             "game": 2,
