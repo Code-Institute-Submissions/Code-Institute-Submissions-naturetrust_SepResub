@@ -13,6 +13,11 @@ CUSTOM FONTS
 }
 
 @font-face {
+    font-family: 'SFCovington';
+    src: local('SFCovington'), url('/static/fonts/SFCovington.ttf') format("truetype");
+}
+
+@font-face {
     font-family: 'SFCovington Bold';
     src: local('SFCovington-Bold'), url('/static/fonts/SFCovington-Bold.ttf') format("truetype");
 }
