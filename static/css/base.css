@@ -283,6 +283,15 @@ Game details styles
     margin-top: 10px;
 }
 
+.edition-desc {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.section-header {
+    margin: 65px auto 45px;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -305,6 +314,15 @@ RESPONSIVE STYLES FOR LARGER SCREENS
     }
 }
 
+@media (min-width: 1865px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 485px;
+        height: 295px;
+    }
+}
+
 @media (min-width: 1420px) and (max-width: 1920px) {
     /* Games page styles
     =========================== */
@@ -316,6 +334,61 @@ RESPONSIVE STYLES FOR LARGER SCREENS
         width: 535px;
         height: 525px;
         object-fit: cover;
+    }
+}
+
+@media (min-width: 1375px) and (max-width: 1865px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 445px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 1375px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 415px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 1280px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 395px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 1205px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 375px;
+        height: 195px;
+    }
+}
+
+
+@media (max-width: 1175px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 345px;
+        height: 195px;
+    }
+}
+
+@media (max-width: 1080px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 325px;
+        height: 175px;
     }
 }
 
@@ -375,6 +448,10 @@ RESPONSIVE STYLES FOR LARGER SCREENS
         width: 380px !important;
         padding: 0 !important;
     }
+    .edition-desc {
+        margin: 25px auto;
+        font-size: 18px;
+    }
 }
 
 /* ======================================================
@@ -432,6 +509,55 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         width: 90%;
         margin: auto;
     }
+    .content-img {
+        width: 445px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 920px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 400px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 840px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 375px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 765px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 345px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 710px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 325px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 675px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 300px;
+        height: 180px;
+    }
 }
 
 @media (max-width: 645px) {
@@ -448,11 +574,61 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
+@media (max-width: 615px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 280px;
+        height: 180px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 845px) {
+    /* Game details styles
+    =========================== */
+    .section-content .col.m6,
+    .section-content .col.m6 .col.s12 {
+        padding: 0;
+    }
+    .section-content .col.m6 .row:nth-child(2) {
+        width: 90% !important;
+        margin: 10px auto 25px;
+    }
+    .section-content h6 {
+        width: 90% !important;
+        margin: auto;
+    }
+}
+
 @media (max-width: 600px) {
     /* Navbar styles
     =========================== */
     #nav-purchase-btn {
         margin: 8px auto;
+    }
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 445px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 395px;
+        height: 225px;
+    }
+}
+
+@media (max-width: 435px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 375px;
+        height: 215px;
     }
 }
 
@@ -462,6 +638,19 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .edition-btn {
         width: 325px;
         height: 30px;
+    }
+    .content-img {
+        width: 345px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 365px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 300px;
+        height: 180px;
     }
 }
 
@@ -490,6 +679,15 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
+@media (max-width: 325px) {
+    /* Game details styles
+    =========================== */
+    .content-img {
+        width: 280px;
+        height: 180px;
+    }
+}
+
 @media (max-width: 305px) {
     /* Game details styles
     =========================== */
@@ -497,5 +695,9 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         width: 265px;
         height: 345px;
         object-fit: cover;
+    }
+    .content-img {
+        width: 250px;
+        height: 160px;
     }
 }

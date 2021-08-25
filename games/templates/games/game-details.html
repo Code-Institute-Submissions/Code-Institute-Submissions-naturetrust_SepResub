@@ -74,6 +74,9 @@
                     <div class="col s12">
                         <h2 class="title center">{{ e.friendly_name }}</h2>
                     </div>
+                    <div class="col s12 center">
+                        <p class="edition-desc">{{ e.desc|linebreaksbr }}</p>
+                    </div>
                     <div class="col s12">
                         {% for s in sections %}
                         <div class="row section-header">
@@ -84,27 +87,26 @@
                         <div class="row section-content">
                             {% for c in content %}
                                 {% if c.section.pk == s.pk and c.edition.pk == e.pk %}
-                                {% if c.image %}
-                                <div class="col s12 m6 l4">
-                                    <div class="row">
-                                        <div class="col s12 center">
-                                            <img src="{{ c.image.url }}" alt=""
-                                            style="width: 445px; height: 250px;">
+                                    {% if c.image %}
+                                        <div class="col s12 m6 l4">
+                                            <div class="row">
+                                                <div class="col s12 center">
+                                                    <img src="{{ c.image.url }}" alt="" class="content-img">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s12">
+                                                    <h6 class="title center">{{ c.content }}</h6>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <h6 class="title center">{{ c.content }}</h6>
+                                    {% else %}
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <h6 class="title center">{{ c.content }}</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                {% else %}
-                                <div class="row">
-                                    <div class="col s12">
-                                        <h6 class="title center">{{ c.content }}</h6>
-                                    </div>
-                                </div>
-                                {% endif %}
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </div>
