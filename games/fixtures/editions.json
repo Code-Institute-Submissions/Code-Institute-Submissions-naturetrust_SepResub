@@ -7,7 +7,7 @@
             "name": "naturetrust",
             "friendly_name": "NatureTrust Editon",
             "friendly_name_full": "Red Dead Redemption 2: NatureTrust Editon",
-            "desc": "The Red Dead Redemption 2: Ultimate Edition delivers all the Story Mode content from the Special Edition plus additional bonuses for Red Dead Online.\\n\\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
+            "desc": "The Red Dead Redemption 2: Ultimate Edition delivers all the Story Mode content from the Special Edition plus additional bonuses for Red Dead Online.",
             "helper_text": "Red Dead Online is included in every version",
             "price": 89.99
         }
@@ -20,7 +20,7 @@
             "name": "ultimate",
             "friendly_name": "Ultimate Editon",
             "friendly_name_full": "Red Dead Redemption 2: Ultimate Editon",
-            "desc": "The Red Dead Redemption 2: Ultimate Edition delivers all the Story Mode content from the Special Edition plus additional bonuses for Red Dead Online.\\n\\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
+            "desc": "The Red Dead Redemption 2: Ultimate Edition delivers all the Story Mode content from the Special Edition plus additional bonuses for Red Dead Online.\n\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
             "helper_text": "Red Dead Online is included in every version",
             "price": 79.99
         }
@@ -33,7 +33,7 @@
             "name": "standard",
             "friendly_name": "Standard Editon",
             "friendly_name_full": "Red Dead Redemption 2: Standard Editon",
-            "desc": "The Standard Edition includes both Story Mode and Red Dead Online.\\n\\nUpgrade to Ultimate Edition or NatureTrust Edition to exclusive in-game benefits.\\n\\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
+            "desc": "The Standard Edition includes both Story Mode and Red Dead Online.\n\nUpgrade to Ultimate Edition or NatureTrust Edition to exclusive in-game benefits.\n\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
             "helper_text": "Red Dead Online is included in every version",
             "price": 49.99
         }
@@ -46,7 +46,7 @@
             "name": "red_dead_online",
             "friendly_name": "Red Dead Online",
             "friendly_name_full": "Red Dead Online",
-            "desc": "Step into the vibrant, ever-evolving world of Red Dead Online and experience life in frontier America. Chase down bounties, battle outlaw gangs and other players, hunt, fish and trade, search for exotic treasures, run Moonshine, and much more to discover in a world of astounding depth and detail.\\n\\nUpgrade to either Standard Edition, Ultimate Edition, or NatureTrust Edition to gain access to story-mode and other in-game benefits.\\n\\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
+            "desc": "Step into the vibrant, ever-evolving world of Red Dead Online and experience life in frontier America. Chase down bounties, battle outlaw gangs and other players, hunt, fish and trade, search for exotic treasures, run Moonshine, and much more to discover in a world of astounding depth and detail.\n\nUpgrade to either Standard Edition, Ultimate Edition, or NatureTrust Edition to gain access to story-mode and other in-game benefits.\n\nUpgrade to the Red Dead Redemption 2: NatureTrust Edition to gain unique access to exclusive in-game content for Story Mode and additional bonuses for Red Dead Online. This edition is only available through our store.",
             "helper_text": "Red Dead Redemption 2: Story Mode sold separately. Internet connection required.",
             "price": 19.99
         }
@@ -72,7 +72,7 @@
             "name": "deluxe",
             "friendly_name": "Deluxe Edition",
             "friendly_name_full": "Planet Zoo: Deluxe Edition",
-            "desc": "Planet Zoo Deluxe Edition includes the Planet Zoo base game, with additional bonus digital content.\\n\\nThe Deluxe Edition grants access to the Planet Zoo base game plus the following bonus digital content:",
+            "desc": "Planet Zoo Deluxe Edition includes the Planet Zoo base game, with additional bonus digital content.\n\nThe Deluxe Edition grants access to the Planet Zoo base game plus the following bonus digital content:",
             "helper_text": "This edition includes the base game plus bonus content",
             "price": 42.99
         }
@@ -85,7 +85,7 @@
             "name": "premium",
             "friendly_name": "Premium Edition",
             "friendly_name_full": "Planet Zoo: Premium Edition",
-            "desc": "Build a world for wildlife in Planet Zoo. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.\\n\\nThe Premium Edition grants access to the Planet Zoo base game and all DLCS.",
+            "desc": "Build a world for wildlife in Planet Zoo. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.\n\nThe Premium Edition grants access to the Planet Zoo base game and all DLCS.",
             "helper_text": "This edition includes the base game and all DLCS",
             "price": 62.99
         }
@@ -98,7 +98,7 @@
             "name": "naturetrust",
             "friendly_name": "NatureTrust Edition (Adoption)",
             "friendly_name_full": "Planet Zoo: NatureTrust Edition",
-            "desc": "Build a world for wildlife in Planet Zoo. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.\\n\\nThe NatureTrust Edition grants access to the Planet Zoo base game, the Deluxe Edition bonus content and exclusive content only available through our store.",
+            "desc": "Build a world for wildlife in Planet Zoo. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.\n\nThe NatureTrust Edition grants access to the Planet Zoo base game, the Deluxe Edition bonus content and exclusive content only available through our store.",
             "helper_text": "This edition includes the base game plus exclusive bonus content",
             "price": 72.99
         }
@@ -111,7 +111,7 @@
             "name": "naturetrust_premium",
             "friendly_name": "NatureTrust Premium (Adoption)",
             "friendly_name_full": "Planet Zoo: NatureTrust Premium",
-            "desc": "Build a world for wildlife in Planet Zoo. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.\\n\\nThe NatureTrust Edition grants access to the Planet Zoo base game plus all DLCS, the Deluxe Edition bonus content and exclusive content only available through our store.",
+            "desc": "Build a world for wildlife in Planet Zoo. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.\n\nThe NatureTrust Edition grants access to the Planet Zoo base game plus all DLCS, the Deluxe Edition bonus content and exclusive content only available through our store.",
             "helper_text": "This edition includes the base game, all DLCS and exlusive bonus content",
             "price": 79.99
         }
