@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="buyGame-review">
+    <!-- Game cover -->
+    <div class="header-container">
+        <!-- Game cover -->
+        <div class="row">
+            <div class="col s12 center">
+                {% if game.image %}
+                    <img src="{{ game.image.url }}" alt="{{ game.name }}"
+                    class="game-details-img"></a>
+                {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ game.name }}"
+                    class="game-details-img"></a>
+                {% endif %}
+            </div>
+            <div class="col s12 center">
+                <h5 class="title">Buy {{ game.friendly_name }}</h5>
+            </div>
+        </div>
+        <!-- See editions button -->
+        <div class="row">
+            <div class="col s12 center">
+                <a href="#gameEditions" class="btn btn-cyan btn-folded-corners game-details-btn">
+                    <span class="border-hack"></span>
+                    <span class="btn-text">Compare Editions</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="details-and-editions">
+        <!-- Game details -->
+        <div class="row">
+            <div class="col s12">
+                <h5 class="title">Game details</h5>
+            </div>
+        </div>
+        <!-- Game developer publisher and description -->
+        <div class="hide-on-large-only">
+            <div class="row">
+                <div class="col s12">
+                    <table>
+                        <tr>
+                            <td class="center">Developer</td>
+                            <td class="center">{{ game.developer }}</td>
+                        </tr>
+                        <tr>
+                            <td class="center">Publisher</td>
+                            <td class="center">{{ game.publisher_friendly_name }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Game description -->
+            <div class="row">
+                <div class="col s12 center">
+                    <p>{{ game.description|linebreaksbr }}</p>
+                </div>
+            </div>
+            <!-- Game official website -->
+            <div class="row">
+                <div class="col s12">
+                    <table>
+                        <tr>
+                            <td class="center">Website</td>
+                            <td class="center"><a href="#!">Website Name</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row hide-on-med-and-down">
+            <div class="col m6">
+                <p>{{ game.description|linebreaksbr }}</p>
+            </div>
+            <div class="col m6">
+                <table>
+                    <tr>
+                        <td class="center">Developer</td>
+                        <td class="center">{{ game.developer }}</td>
+                    </tr>
+                    <tr>
+                        <td class="center">Publisher</td>
+                        <td class="center">{{ game.publisher_friendly_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="center">Website</td>
+                        <td class="center"><a href="#!">Website Name</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Game editions -->
+        <div class="row my-5">
+            <div class="col s12 center">
+                <h5 class="title">Compare Editions</h5>
+            </div>
+        </div>
+        <div class="row" id="gameEditions">
+            {% for e in editions %}
+                <div class="col s12 m6 l4">
+                    <div class="card-panel" style="background-color: #04101B;">
+                        <!-- Edition cover -->
+                        <div class="row">
+                            <div class="col s12 center">
+                                {% if e.image %}
+                                    <img src="{{ e.image.url }}" alt="{{ game.name }}"
+                                        class="game-details-img"></a>
+                                {% else %}
+                                    {% if game.image %}
+                                        <img src="{{ game.image.url }}" alt="{{ game.name }}"
+                                            class="game-details-img"></a>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- Edition title -->
+                        <div class="row">
+                            <div class="col s12 center">
+                                <h5 class="title">{{ e.friendly_name_full }}</h5>
+                            </div>
+                        </div>
+                        <!-- Edition content -->
+                        <div class="row">
+                            <div class="col s12">
+                                <ul>
+                                    {% for c in content %}
+                                        {% if c.edition.pk == e.pk %}
+                                            {% if not c.section %}
+                                                <li>
+                                                    <i class="material-icons">check</i>
+                                                    {{ c.content }}
+                                                </li>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            {% for s in sections %}
+                                <div class="col s12">
+                                    <h4 class="title game-card-section-title">{{ s.friendly_name }}</h4>
+                                    <ul class="game-card-edition-content">
+                                        {% for c in content %}
+                                            {% if c.edition.pk == e.pk %}
+                                                {% if c.section.pk == s.pk %}
+                                                    <li>
+                                                        <i class="material-icons">check</i>
+                                                        {{ c.content }}
+                                                    </li>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Buy edition -->
+                        <div class="row">
+                            <div class="col s12">
+                                <a href="#!" class="btn purchase-btn btn-folded-corners">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+<!-- Hide section headers that do not have content  -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var sectionContent = $('.game-card-edition-content');
+            for (i=0; i < sectionContent.length; i++) {
+                var findString = $(sectionContent[i]).text().match(/[abcdefghijklmnopqrstuvwxyz]/g)
+                if (!findString) {
+                    $(sectionContent[i]).prev('.game-card-section-title').addClass('hide');
+                };
+            };
+        });
+    </script>
+{% endblock %}

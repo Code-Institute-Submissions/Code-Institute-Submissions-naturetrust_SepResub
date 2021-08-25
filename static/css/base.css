@@ -7,6 +7,10 @@ BASE STYLES
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: #FFFFFF;
     background-color: #112A49;  /* fallback color */
@@ -292,6 +296,32 @@ Game details styles
     margin: 65px auto 45px;
 }
 
+/* ======================================================
+Buy game review styles
+====================================================== */
+
+#buyGame-review .header-container {
+    background-color: #0A2033;
+    padding: 25px;
+}
+
+#buyGame-review .game-details-btn {
+    width: 225px;
+    height: 45px;
+}
+
+#buyGame-review table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 60%);
+}
+
+#buyGame-review table a {
+    color: #FFFFFF;
+}
+
+.details-and-editions p {
+    padding: 15px;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -452,6 +482,14 @@ RESPONSIVE STYLES FOR LARGER SCREENS
         margin: 25px auto;
         font-size: 18px;
     }
+    /* Buy game review styles
+    =========================== */
+    .details-and-editions {
+        padding: 0 75px;
+    }
+    .header-container {
+        margin-bottom: 25px;
+    }
 }
 
 /* ======================================================
@@ -512,6 +550,11 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .content-img {
         width: 445px;
         height: 250px;
+    }
+    /* Buy game review styles
+    =========================== */
+    .details-and-editions .title {
+        text-align: center;
     }
 }
 
