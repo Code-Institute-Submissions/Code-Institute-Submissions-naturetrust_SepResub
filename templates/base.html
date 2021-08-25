@@ -38,7 +38,7 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" data-target="sidenav-main" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-                <a href="#!" class="brand-logo title hide-on-med-and-down">NatureTrust</a>
+                <a href="{% url 'home' %}" class="brand-logo title hide-on-med-and-down">NatureTrust</a>
                 <ul class="right">
                     <li><a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners" id="nav-purchase-btn">Buy Games</a></li>
                     <li><a href="#!">
@@ -48,10 +48,10 @@
             </div>
         </nav>
         <ul class="sidenav" id="sidenav-main">
-            <li><a href="#!">Sass</a></li>
-            <li><a href="#!">Components</a></li>
-            <li><a href="#!">Javascript</a></li>
-            <li><a href="#!">Mobile</a></li>
+            <li><a href="{% url 'games' %}">Buy Games</a></li>
+            <li><a href="#!">About Us</a></li>
+            <li><a href="#!">Adoption Packs</a></li>
+            <li><a href="#!">Contact Us</a></li>
         </ul>
     </header>
 
