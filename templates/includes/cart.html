@@ -7,4 +7,40 @@
     {% else %}
         <li class="center">You have no items in your shopping cart</li>
     {% endif %}
+    <li style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="cart-item">
+            <div class="row" style="margin: 0;">
+                <!-- Item image -->
+                <div class="col s4 l3 item-img">
+                    <img src="{{ MEDIA_URL }}red-dead-redemption-2.jpg" alt="Item image">
+                </div>
+                <!-- Item details -->
+                <div class="col s8 l9 item-details">
+                    <div class="row">
+                        <div class="col s12 item-heading">
+                            <h6 class="title">Item title goes here</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <p class="title">qty:</p>
+                        </div>
+                        <div class="col s8 qty-btn">
+                            <span class="decrement-qty"><i class="material-icons white-text">remove</i></span>
+                            <span class="qty-val">1</span>
+                            <span class="increment-qty"><i class="material-icons white-text">add</i></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <h5 class="title price">£50.00</h5>
+                        </div>
+                        <div class="col s4 remove-item">
+                            <a href="#!"><i class="material-icons white-text">delete_forever</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>

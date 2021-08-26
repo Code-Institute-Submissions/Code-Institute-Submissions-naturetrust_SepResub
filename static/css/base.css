@@ -190,6 +190,98 @@ Shopping cart sidenav styles
     padding: 0 15px;
 }
 
+.cart-item {
+    background: linear-gradient( to bottom,  #42AFAA 10%, #18385E 90% ) no-repeat center center fixed;
+    background-image: linear-gradient(to top, #30cfd0 0%, #112947 100%);
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: 1px solid #029A93;
+}
+
+.cart-item .row:first-child {
+    margin: 0 !important;
+}
+
+.cart-item .item-img {
+    padding-left: 0; 
+    height: 125px;
+}
+
+.cart-item .item-img img {
+    width: 75px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.cart-item .item-details {
+    padding-left: 0;
+}
+
+.cart-item .item-details .row {
+    position: relative;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    text-align: left;
+}
+
+.cart-item .item-details .row:first-child {
+    margin-top: 10px;
+}
+
+.cart-item .item-details .title {
+    width: 100%;
+    margin: 0;
+    padding:0;
+    font-family: 'AgencyFB';
+    font-size: 16px;
+    line-height: auto;
+    letter-spacing: 1px;
+}
+
+.cart-item .item-heading {
+    padding: 0 !important;
+}
+
+.cart-item .price {
+    width: 100%;
+    margin: 0;
+    padding:0;
+    font-family: 'AgencyCYB';
+    font-size: 22px !important;
+    line-height: auto;
+    letter-spacing: 1px;
+    color: #00FF85;
+}
+
+.cart-item .remove-item {
+    text-align: right;
+}
+
+.cart-item .remove-item i {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.cart-item .qty-btn {
+    text-align: right;
+}
+
+.cart-item .decrement-qty,
+.cart-item .increment-qty {
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.cart-item .qty-val {
+    font-family: 'AgencyCYB';
+    padding: 0 15px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
 /* ======================================================
 Parallax and image styles
 ====================================================== */
