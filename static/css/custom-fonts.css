@@ -26,3 +26,18 @@ CUSTOM FONTS
     font-family: 'Univers Condensed';
     src: local('UniversCondensed'), url('/static/fonts/UniversCondensed.ttf') format("truetype");
 }
+
+@font-face {
+    font-family: 'Agency';
+    src: local('Agency'), url('/static/fonts/Agency.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'AgencyCYB';
+    src: local('AgencyCYB'), url('/static/fonts/AgencyCYB.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'AgencyFB';
+    src: local('AgencyFB'), url('/static/fonts/AgencyFB.ttf') format("truetype");
+}
