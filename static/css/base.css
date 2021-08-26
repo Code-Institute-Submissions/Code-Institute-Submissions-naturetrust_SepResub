@@ -151,6 +151,46 @@ nav {
 }
 
 /* ======================================================
+Sidenav styles
+====================================================== */
+
+#sidenav-main {
+    background-color: #0A2033;
+}
+
+#sidenav-main li a {
+    color: #FFFFFF;
+}
+
+#sidenav-main h4 {
+    padding: 32px;
+    margin: 0;
+}
+
+.sidenav-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 10px;
+}
+
+.sidenav-close i {
+    margin: 0 !important;
+}
+
+/* ======================================================
+Shopping cart sidenav styles
+====================================================== */
+
+#shoppingCart {
+    background-color: #0A2033;
+}
+
+#shoppingCart li {
+    padding: 0 15px;
+}
+
+/* ======================================================
 Parallax and image styles
 ====================================================== */
 
@@ -423,6 +463,9 @@ RESPONSIVE STYLES FOR LARGER SCREENS
 }
 
 @media (min-width: 992px) {
+    .sidenav {
+        width: 500px;
+    }
     /* Home parallax styles
     =========================== */
     .parallax-title {

@@ -1,7 +1,14 @@
 $(document).ready(function () {
     // Initialize sidenav
     $('.sidenav').sidenav({
-        inDuration: 350,
+        inDuration: 450,
+        outDuration: 350,
+    });
+
+    $('.sidenav-right').sidenav({
+        edge: 'right',
+        inDuration: 450,
+        outDuration: 350,
     });
 
     // Initialize parallax

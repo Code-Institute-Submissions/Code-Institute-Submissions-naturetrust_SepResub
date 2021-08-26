@@ -1,0 +1,10 @@
+<ul class="sidenav sidenav-right" id="shoppingCart">
+    <li><a href="#!" class="sidenav-close"><i class="material-icons white-text">close</i></a></li>
+    <li class="my-5">
+        <h4 class="title center">My Cart</h4>
+    </li>
+    {% if bag_items %}
+    {% else %}
+        <li class="center">You have no items in your shopping cart</li>
+    {% endif %}
+</ul>
