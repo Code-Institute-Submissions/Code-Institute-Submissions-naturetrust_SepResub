@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
 
-# Create your views here.
+
+def view_cart(request):
+    """ A view that renders the shopping cart contents """
+
+    return render(request, 'cart/cart.html')

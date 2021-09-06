@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="shoppingCart">
+        <div class="row my-5">
+            <div class="col s12 center">
+                <h1 class="title">My cart</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 xl10 offset-xl1">
+                <!-- Shopping cart items -->
+                <div class="row">
+                    <div class="col s12">
+                        <!-- For smaller screens -->
+                        <div class="card-panel hide-on-large-only card-item-card">
+                            <div class="row">
+                                <!-- Image -->
+                                <div class="col s3 m2">
+                                    <img src="{{ MEDIA_URL }}red-dead-redemption-2.jpg" alt="">
+                                </div>
+                                <!-- Name and quantity -->
+                                <div class="col s7">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <h6 class="title product-name">Product title goes here</h6>
+                                        </div>
+                                        <div class="col s12" style="padding: 10px 20px;">
+                                            <div class="qty-btn">
+                                                <span class="decrement-qty"><i class="material-icons white-text">remove</i></span>
+                                                <span class="qty-val">1</span>
+                                                <span class="increment-qty"><i class="material-icons white-text">add</i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Remove item -->
+                                <div class="col s2 right">
+                                    <a href="#!"><i class="material-icons white-text">delete_forever</i></a>
+                                </div>
+                                <!-- Description -->
+                                <div class="col s12">
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A quibusdam iusto esse optio ea quod sunt cum
+                                        consequuntur! Accusamus exercitationem repudiandae quaerat! Accusantium perferendis laudantium quae nihil
+                                        consequatur quod autem!
+                                    </p>
+                                </div>
+                                <!-- Subtotal -->
+                                <table>
+                                    <tr>
+                                        <th><h6 class="title">Subtotal</h6></th>
+                                        <th class="right"><h6 class="title">£50.00</h6></th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- For larger screens -->
+                        <table class="hide-on-med-and-down">
+                            <!-- Table header -->
+                            <tr class="table-header">
+                                <th style="width: 35%;"><h6 class="title center">Product</h6></th>
+                                <th style="width: 20%;"><h6 class="title center">Desc</h6></th>
+                                <th style="width: 15%;"><h6 class="title center">Quantity</h6></th>
+                                <th style="width: 10%;"><h6 class="title center">Subtotal</h6></th>
+                                <th style="width: 12%;"></th>
+                            </tr>
+                            <!-- Shopping cart items -->
+                            <tr class="table-cart-item">
+                                <!-- Product image and name -->
+                                <th class="th-first">
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <img src="{{ MEDIA_URL }}red-dead-redemption-2.jpg" alt="">
+                                        </div>
+                                        <div class="col s9">
+                                            <h6 class="title">Item title goes here</h6>
+                                        </div>
+                                    </div>
+                                </th>
+                                <!-- Brief product description -->
+                                <th class="center">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, accusamus cumque! Velit quis voluptate minima.
+                                        Tempore optio adipisci debitis sapiente iste quisquam quidem tempora? Qui autem nobis architecto sunt ipsam!
+                                    </p>
+                                </th>
+                                <!-- Quantity -->
+                                <th class="center">
+                                    <div class="qty-btn">
+                                        <span class="decrement-qty"><i class="material-icons white-text">remove</i></span>
+                                        <span class="qty-val">1</span>
+                                        <span class="increment-qty"><i class="material-icons white-text">add</i></span>
+                                    </div>
+                                </th>
+                                <!-- Subtotal -->
+                                <th class="center">
+                                    <h5 class="title">£50.00</h5>
+                                </th>
+                                <!-- Remove item -->
+                                <th class="center th-last">
+                                    <a href="#!"><i class="material-icons white-text">delete_forever</i></a>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Update cart and apply discount -->
+                    <div class="col s12 l6">
+                        <div class="row">
+                            <!-- Update shopping cart -->
+                            <div class="col s12 my-2 update-cart">
+                                <a href="#!" class="btn btn-green">Update shopping cart</a>
+                                <div class="divider my-5 hide-on-large-only"></div>
+                            </div>
+                            <!-- Apply discount -->
+                            <div class="col s12">
+                                <div class="card-panel">
+                                    <h6 class="title">Discount code</h6>
+                                    <div class="row">
+                                        <div class="col s12 input-field">
+                                            <input type="text" name="discount" id="discount">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12 center">
+                                            <a href="#!" class="btn discount-btn btn-cyan-solid">Apply discount</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider my-5 hide-on-large-only"></div>
+                    </div>
+                    <!-- Checkout and order total -->
+                    <div class="col s12 l6">
+                        <div class="card-panel order-summary">
+                            <!-- Order total -->
+                            <table>
+                                <tr>
+                                    <th><h5 class="title">Subtotal</h5></th>
+                                    <th class="right"><h5 class="title">£50.00</h5></th>
+                                </tr>
+                                <tr>
+                                    <th><h5 class="title">Discount</h5></th>
+                                    <th class="right"><h5 class="title"> -£50.00</h5></th>
+                                </tr>
+                                <tr class="order-total">
+                                    <th><h4 class="title">Order total</h4></th>
+                                    <th class="right"><h4 class="title">£40.00</h4></th>
+                                </tr>
+                            </table>
+                            <!-- Checkout -->
+                            <div class="card-action my-5">
+                                <div class="row">
+                                    <div class="col s12 center">
+                                        <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg checkout-btn">Secure checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

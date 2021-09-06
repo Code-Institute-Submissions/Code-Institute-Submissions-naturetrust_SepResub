@@ -46,6 +46,11 @@ br {
     margin-top: 10px;
 }
 
+.my-2 {
+    margin-top: 20px;
+    margin-bottom: 20px;  
+}
+
 .my-5 {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -144,6 +149,25 @@ br {
     background-color: #42AFAA;  /* fallback color */
     background-image: linear-gradient(to right, #18385E 0%, #42AFAA  51%, #18385E  100%);
     background-size: 200% auto;
+}
+
+.btn-green {
+    font-family: 'AgencyCYB';
+    font-size: 16px;
+    letter-spacing: 2px;
+    background: #20C293;
+    border: 1px solid rgba(1, 55, 40, 65%);
+    border-radius: 25px;
+    padding: 0 35px;
+}
+
+.btn-cyan-solid {
+    font-family: 'Agency';
+    font-size: 16px;
+    letter-spacing: 2px;
+    background: #188093;
+    border-radius: 25px;
+    padding: 0 35px;
 }
 
 /* ======================================================
@@ -484,6 +508,65 @@ Buy game review styles
     padding: 15px;
 }
 
+/* ======================================================
+Shopping cart page styles
+====================================================== */
+
+#shoppingCart .table-header {
+    background-color: #000000;
+}
+
+#shoppingCart .table-cart-item {
+    background-color: #0A2033;
+}
+
+#shoppingCart .table-cart-item th {
+    border: 1px solid rgba(0, 251, 239, 50%);
+} 
+
+#shoppingCart .th-first {
+    padding: 20px;
+    border-left: 1px solid #00FBEF !important;
+}
+
+#shoppingCart .th-last {
+    padding: 20px;
+    border-right: 1px solid #00FBEF !important;
+}
+
+#shoppingCart .table-cart-item.last th {
+    border-bottom: 1px solid #00FBEF !important;
+}
+
+#shoppingCart .order-summary th h5.title {
+    font-size: 18px !important;
+}
+
+#shoppingCart .card-panel {
+    background-color: #0A2033;
+}
+
+#shoppingCart .card-item-card {
+    padding: 15px 10px;
+}
+
+#shoppingCart .card-item-card .col.s3.m2 {
+    padding-left: 15px;
+}
+
+#shoppingCart .card-item-card .s2 {
+    text-align: right;
+}
+
+#shoppingCart .card-item-card .col.s12 {
+    padding: 5px 20px;
+}
+
+#shoppingCart p {
+    font-family: 'AgencyFB';
+    font-weight: 400;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -512,6 +595,17 @@ RESPONSIVE STYLES FOR LARGER SCREENS
     .content-img {
         width: 485px;
         height: 295px;
+    }
+}
+
+@media (min-width: 1665px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .table-cart-item img {
+        width: 125px;
+        height: 185px;
+        border-radius: 5px;
+        object-fit: cover;
     }
 }
 
@@ -581,6 +675,17 @@ RESPONSIVE STYLES FOR LARGER SCREENS
     .content-img {
         width: 325px;
         height: 175px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1665px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .table-cart-item img {
+        width: 95px;
+        height: 165px;
+        border-radius: 5px;
+        object-fit: cover;
     }
 }
 
@@ -731,6 +836,11 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .details-and-editions .title {
         text-align: center;
     }
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .update-cart {
+        text-align: center;
+    }
 }
 
 @media (max-width: 920px) {
@@ -757,6 +867,28 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .content-img {
         width: 345px;
         height: 200px;
+    }
+}
+
+@media (min-width: 715px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .card-item-card img {
+        width: 105px;
+        height: 165px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 365px) and (max-width: 715px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .card-item-card img {
+        width: 85px;
+        height: 145px;
+        border-radius: 5px;
+        object-fit: cover;
     }
 }
 
@@ -830,6 +962,11 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         width: 445px;
         height: 250px;
     }
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .product-name {
+        font-size: 14px !important;
+    }
 }
 
 @media (max-width: 500px) {
@@ -839,6 +976,25 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         width: 395px;
         height: 225px;
     }
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .order-summary {
+        padding: 15px 5px;
+    }
+}
+
+@media (min-width: 325px) and (max-width: 500px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .order-summary {
+        padding: 15px 5px;
+    }
+    #shoppingCart .order-summary th h4.title {
+        font-size: 18px !important;
+    }
+    #shoppingCart .order-summary th h5.title {
+        font-size: 16px !important;
+    }
 }
 
 @media (max-width: 435px) {
@@ -847,6 +1003,14 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .content-img {
         width: 375px;
         height: 215px;
+    }
+}
+
+@media (min-width: 415px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .checkout-btn {
+        padding: 0 65px;
     }
 }
 
@@ -863,12 +1027,20 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
-@media (max-width: 365px) {
+@media (min-width: 325px) and (max-width: 365px) {
     /* Game details styles
     =========================== */
     .content-img {
         width: 300px;
         height: 180px;
+    }
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .card-item-card img {
+        width: 75px;
+        height: 125px;
+        border-radius: 5px;
+        object-fit: cover;
     }
 }
 
@@ -903,6 +1075,25 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .content-img {
         width: 280px;
         height: 180px;
+    }
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .card-item-card img {
+        width: 65px;
+        height: 115px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .order-summary th h4.title {
+        font-size: 16px !important;
+    }
+    #shoppingCart .order-summary th h5.title {
+        font-size: 14px !important;
+    }
+    #shoppingCart .product-name {
+        font-size: 12px !important;
     }
 }
 
