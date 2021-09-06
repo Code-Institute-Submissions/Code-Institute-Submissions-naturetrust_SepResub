@@ -112,7 +112,6 @@ br {
     clip-path: polygon(10% 0, 100% 0, 100% 30%, 100% 55%, 90% 100%, 30% 100%, 0 100%, 0 50%);
 
     background-color: #42AFAA;  /* fallback color */
-    background-image: linear-gradient(to right, #42AFAA 0%, #18385E  51%, #42AFAA  100%);
     background-image: linear-gradient(to right, #18385E 0%, #42AFAA  51%, #18385E  100%);
     background-size: 200% auto;
 }
@@ -127,6 +126,24 @@ br {
     text-transform: uppercase;
     letter-spacing: 1px;
     z-index: 50;
+}
+
+.btn-cyan-rounded {
+    height: 55px !important;
+    line-height: 55px !important;
+    font-family: 'Chinese Rocks', Times, serif;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: none;
+    border: 2px solid #00FBEF;
+    border-radius: 25px;
+}
+
+.btn-cyan-linear-bg {
+    background-color: #42AFAA;  /* fallback color */
+    background-image: linear-gradient(to right, #18385E 0%, #42AFAA  51%, #18385E  100%);
+    background-size: 200% auto;
 }
 
 /* ======================================================
@@ -182,12 +199,17 @@ Sidenav styles
 Shopping cart sidenav styles
 ====================================================== */
 
-#shoppingCart {
+#shoppingCartNav {
     background-color: #0A2033;
 }
 
-#shoppingCart li {
+#shoppingCartNav li {
     padding: 0 15px;
+}
+
+.outer-cart-item {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .cart-item {
@@ -280,6 +302,14 @@ Shopping cart sidenav styles
     padding: 0 15px;
     font-size: 18px;
     vertical-align: middle;
+}
+
+#shoppingCartNav .sidenav-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 80px;
 }
 
 /* ======================================================
@@ -555,6 +585,13 @@ RESPONSIVE STYLES FOR LARGER SCREENS
 }
 
 @media (min-width: 992px) {
+    /* Global styles
+    =========================== */
+    .btn-cyan-rounded {
+        font-size: 28px !important;
+    }
+    /* Sidenav
+    =========================== */
     .sidenav {
         width: 500px;
     }
@@ -645,6 +682,9 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
     h4 {
         font-size: 22px;
+    }
+    .btn-cyan-rounded {
+        font-size: 22px !important;
     }
     /* Home parallax styles
     =========================== */
