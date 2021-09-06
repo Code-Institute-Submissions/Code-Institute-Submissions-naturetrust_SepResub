@@ -159,11 +159,17 @@
                             {% endfor %}
                         </div>
                         <!-- Buy edition -->
-                        <div class="row">
-                            <div class="col s12">
-                                <a href="#!" class="btn purchase-btn btn-folded-corners">Buy Now</a>
+                        <form action="{% url 'add_to_cart' e.pk %}" method="POST">
+                            {% csrf_token %}
+                            <!-- The quantity is 1 by default-->
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <div class="row">
+                                <div class="col s12">
+                                    <button type="submit" value="Buy Now" class="btn purchase-btn btn-folded-corners">Buy Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             {% endfor %}
@@ -173,7 +179,7 @@
 {% endblock %}
 
 {% block postloadjs %}
-<!-- Hide section headers that do not have content  -->
+    <!-- Hide section headers that do not have content  -->
     <script type="text/javascript">
         $(document).ready(function() {
             var sectionContent = $('.game-card-edition-content');
@@ -182,6 +188,26 @@
                 if (!findString) {
                     $(sectionContent[i]).prev('.game-card-section-title').addClass('hide');
                 };
+            };
+        });
+    </script>
+    <!-- Trigger shopping cart sidenav once the purchase button is clicked -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function showCart() {
+                $('#shoppingCartNav').sidenav('open');
+                setTimeout(() => {
+                    sessionStorage['addedToCart'] = false;
+                }, 100);
+            };
+
+            $('.purchase-btn').on('click', function() {
+                sessionStorage['addedToCart'] = true;
+            });
+
+            var addedToCart = sessionStorage['addedToCart'];
+            if (addedToCart == 'true') {
+                showCart();
             };
         });
     </script>
