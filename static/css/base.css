@@ -231,6 +231,12 @@ Shopping cart sidenav styles
     padding: 0 15px;
 }
 
+.cart-items {
+    height: 70%;
+    padding-bottom: 45px;
+    overflow-y: scroll;
+}
+
 .outer-cart-item {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -311,28 +317,40 @@ Shopping cart sidenav styles
     right: 10px;
 }
 
-.cart-item .qty-btn {
-    text-align: right;
-}
-
-.cart-item .decrement-qty,
-.cart-item .increment-qty {
+.qty-btn .decrement-qty,
+.qty-btn .increment-qty {
+    width: 28px;
+    height: 28px;
     vertical-align: middle;
     font-size: 20px;
+    background-image: linear-gradient(to right, #18385E 0%, #42AFAA  51%, #18385E  100%);
+    background-size: 200% auto;
+    border-radius: 50%;
+    border: 2px solid #00FBEF;
+    cursor: pointer;
 }
 
-.cart-item .qty-val {
-    font-family: 'AgencyCYB';
-    padding: 0 15px;
-    font-size: 18px;
+.qty-btn .qty-val {
+    font-family: 'AgencyCYB' !important;
+    font-size: 18px !important;
     vertical-align: middle;
+    text-align: center;
+    color: #FFFFFF;
+    border: none !important;
+    margin-bottom: 0 !important;
+}
+
+.cart-item .update-qty {
+    display: none;
 }
 
 #shoppingCartNav .sidenav-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: #0A2033;
+    padding-top: 25px;
     padding-bottom: 80px;
 }
 
@@ -840,6 +858,15 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     =========================== */
     #shoppingCart .update-cart {
         text-align: center;
+    }
+    .update-qty {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        padding: 0 25px;
     }
 }
 
