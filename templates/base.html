@@ -88,9 +88,9 @@
             $('.increment-qty').click(function(e) {
                 e.preventDefault();
                 var closestInput = $(this).closest('.qty-btn').find('.qty-val')[0];
-                console.log(closestInput)
                 // Cache the value that's currently in it into a variable called currentValue
                 var currentValue = parseInt($(closestInput).val());
+
                 // Use that variable to set the input boxes new value to the current value plus one
                 $(closestInput).val(currentValue + 1);
                 var itemId = $(this).data('item_id');

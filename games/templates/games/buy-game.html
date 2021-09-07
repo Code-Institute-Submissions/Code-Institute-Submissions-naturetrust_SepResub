@@ -159,7 +159,7 @@
                             {% endfor %}
                         </div>
                         <!-- Buy edition -->
-                        <form action="{% url 'add_to_cart' e.pk %}" method="POST">
+                        <form action="{% url 'add_to_cart' e.pk %}" method="POST" class="update-cart">
                             {% csrf_token %}
                             <!-- The quantity is 1 by default-->
                             <input type="hidden" name="quantity" value="1">

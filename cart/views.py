@@ -1,3 +1,4 @@
+from django.db.models.query_utils import Q
 from django.shortcuts import get_object_or_404, render, redirect
 
 from games.models import Edition
@@ -28,5 +29,21 @@ def add_to_cart(request, item_id):
 
     # Overwrite session variable with updated one
     request.session['cart'] = cart
-    print(request.session['cart'])
+    return redirect(redirect_url)
+
+
+def update_cart(request, item_id):
+    """ Update the quantity of the specified product
+    to the specified amount """
+
+    if request.method == 'POST':
+
+        redirect_url = request.POST.get('redirect_url')
+        quantity = int(request.POST.get('quantity'))
+
+        cart = request.session.get('cart', {})
+        cart[item_id] = quantity
+
+        request.session['cart'] = cart
+
     return redirect(redirect_url)

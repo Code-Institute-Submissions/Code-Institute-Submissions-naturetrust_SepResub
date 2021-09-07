@@ -26,8 +26,9 @@
                                 </div>
                             </div>
                             <!-- Update item quantity -->
-                            <form action="">
+                            <form action="{% url 'update_cart' item.item_id %}" method="POST">
                                 {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 <div class="row">
                                     <div class="col s12" style="height: 32px;">
                                         <p class="title">qty:</p>
@@ -35,16 +36,16 @@
                                     <!-- Quantity buttons -->
                                     <div class="col s8 l6 qty-btn">
                                         <div class="row">
-                                            <div class="col s1 l3" style="padding-left: 0;">
+                                            <div class="col s1 l2" style="padding-left: 0;">
                                                 <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
                                                     <i class="material-icons white-text">remove</i>
                                                 </button>
                                             </div>
-                                            <div class="col s4 offset-s2 l3">
+                                            <div class="col s4 offset-s2 l5">
                                                 <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                                 data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
                                             </div>
-                                            <div class="col s1 l3">
+                                            <div class="col s1 l2">
                                                 <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
                                                     <i class="material-icons white-text">add</i>
                                                 </button>
