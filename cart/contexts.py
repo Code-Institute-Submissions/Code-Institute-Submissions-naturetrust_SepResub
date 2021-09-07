@@ -16,12 +16,14 @@ def cart_contents(request):
 
     for item_id, quantity in cart.items():
         game_edition = get_object_or_404(Edition, pk=item_id)
+        subtotal = quantity * game_edition.price
         total += quantity * game_edition.price
         product_count += quantity
         cart_items.append({
             'item_id': item_id,
-            'quantity': quantity,
             'edition': game_edition,
+            'quantity': quantity,
+            'subtotal': subtotal,
         })
 
     context = {
