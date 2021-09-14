@@ -124,8 +124,29 @@
                     itemId = $(this).attr('id');
                     idNumber = itemId.split('qty_');
                     idNumber = idNumber[1]
+                    $(`#updateQtyNav-${idNumber}`).fadeIn(400);
                     $(`#updateQty-${idNumber}`).fadeIn(400);
                 };
+            });
+        });
+    </script>
+    <!-- Remove item from shopping cartn -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.remove-item-from-cart').on('click', function(e) {
+
+                var csrfToken = "{{ csrf_token }}";
+                var itemId = $(this).attr('id').split('remove_')[1];
+
+                console.log(itemId)
+
+                var url = `/cart/remove/${itemId}/`;
+                var data = {'csrfmiddlewaretoken': csrfToken}
+
+                $.post(url, data)
+                .done(function() {
+                    location.reload();
+                });
             });
         });
     </script>

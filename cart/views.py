@@ -1,5 +1,5 @@
-from django.db.models.query_utils import Q
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, render, redirect, HttpResponse
+from django.contrib import messages
 
 from games.models import Edition
 
@@ -47,3 +47,26 @@ def update_cart(request, item_id):
         request.session['cart'] = cart
 
     return redirect(redirect_url)
+
+
+def remove_from_cart(request, item_id):
+    """ Remove item from shopping cart """
+
+    game_edition = get_object_or_404(Edition, pk=item_id)
+
+    try:
+        cart = request.session.get('cart', {})
+        cart.pop(item_id)
+
+        request.session['cart'] = cart
+        messages.success(
+            request,
+            f'Removed {game_edition.friendly_name_full} from your cart'
+        )
+
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+
+        return HttpResponse(status=500)

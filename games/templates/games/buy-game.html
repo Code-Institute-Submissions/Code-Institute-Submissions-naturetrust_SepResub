@@ -179,6 +179,7 @@
 {% endblock %}
 
 {% block postloadjs %}
+    {{ block.super }}
     <!-- Hide section headers that do not have content  -->
     <script type="text/javascript">
         $(document).ready(function() {
