@@ -80,6 +80,7 @@
                             <tr class="table-header">
                                 <th style="width: 35%;"><h6 class="title center">Product</h6></th>
                                 <th style="width: 20%;"><h6 class="title center">Desc</h6></th>
+                                <th style="width: 8%;"><h6 class="title center">Price</h6></th>
                                 <th style="width: 15%;"><h6 class="title center">Quantity</h6></th>
                                 <th style="width: 10%;"><h6 class="title center">Subtotal</h6></th>
                                 <th style="width: 12%;"></th>
@@ -107,27 +108,39 @@
                                         <th class="center">
                                             <p>{{ item.edition.desc|slice:":254" }}...</p>
                                         </th>
-                                        <!-- Quantity -->
+                                        <!-- Price -->
                                         <th class="center">
-                                            <div class="qty-btn">
-                                                <div class="row">
-                                                    <div class="col s3 offset-s2" style="padding-left: 0;">
-                                                        <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
-                                                            <i class="material-icons white-text">remove</i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
-                                                            <i class="material-icons white-text">add</i>
-                                                        </button>
+                                            <h6 class="title">{{ item.edition.price }}</h6>
+                                        </th>
+                                        <!-- Quantity -->
+                                        <form action="{% url 'update_cart' item.item_id %}" method="POST" id="updateCartItem-{{item.item_id}}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <th class="center">
+                                                <div class="qty-btn">
+                                                    <div class="row">
+                                                        <div class="col s3 offset-s2" style="padding-left: 0;">
+                                                            <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
+                                                                <i class="material-icons white-text">remove</i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col s3">
+                                                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                            data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
+                                                        </div>
+                                                        <div class="col s3">
+                                                            <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
+                                                                <i class="material-icons white-text">add</i>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </th>
+                                                <!-- Update quantity -->
+                                                <div class="col s12">
+                                                    <button type="submit" class="btn btn-green update-qty" id="updateQty-{{ item.item_id }}">Update</button>
+                                                </div>
+                                            </th>
+                                        </form>
                                         <!-- Subtotal -->
                                         <th class="center">
                                             <h5 class="title">£{{ item.subtotal }}</h5>
@@ -146,11 +159,6 @@
                     <!-- Update cart and apply discount -->
                     <div class="col s12 l6">
                         <div class="row">
-                            <!-- Update shopping cart -->
-                            <div class="col s12 my-2 update-cart">
-                                <a href="#!" class="btn btn-green">Update shopping cart</a>
-                                <div class="divider my-5 hide-on-large-only"></div>
-                            </div>
                             <!-- Apply discount -->
                             <div class="col s12">
                                 <div class="card-panel">

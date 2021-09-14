@@ -340,7 +340,7 @@ Shopping cart sidenav styles
     margin-bottom: 0 !important;
 }
 
-.cart-item .update-qty {
+.update-qty {
     display: none;
 }
 

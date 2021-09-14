@@ -54,7 +54,7 @@
                                     </div>
                                     <!-- Update quantity -->
                                     <div class="col l6">
-                                        <button type="submit" class="btn btn-green update-qty" id="updateQty-{{ item.item_id }}">Update</button>
+                                        <button type="submit" class="btn btn-green update-qty" id="updateQtyNav-{{ item.item_id }}">Update</button>
                                     </div>
                                 </div>
                             </form>
@@ -86,7 +86,7 @@
                 <h5 class="title">Subtotal</h5>
             </div>
             <div class="col s6">
-                <h5 class="title right">£50.00</h5>
+                <h5 class="title right">£{{ total }}</h5>
             </div>
         </div>
         <!-- View cart -->
