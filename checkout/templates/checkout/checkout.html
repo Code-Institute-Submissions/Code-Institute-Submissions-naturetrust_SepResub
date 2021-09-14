@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="Checkout">
+        <div class="row my-5">
+            <div class="col s12 center">
+                <h1 class="title">Secure Checkout</h1>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Billing information -->
+            <div class="col s12 m6 l5 xl4 offset-l1 offset-xl2">
+                <fieldset class="billing-info">
+                    <legend class="center title">Billing Information</legend>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col s12 center mt-5">
+                            <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Confirm Address</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <!-- Payment and order summary -->
+            <div class="col s12 m6 l5 xl4">
+                <!-- Payment method -->
+                <div class="row">
+                    <div class="col s12">
+                        <fieldset class="payment-method">
+                            <legend class="title center">Payment Method</legend>
+                            <div class="row">
+                                <div class="col s12">
+                                    <p>
+                                        <label>
+                                            <input name="group1" type="radio" checked />
+                                            <span class="title">Credit card</span>
+                                        </label>
+                                    </p>
+                                    <div class="input-field">
+                                        <input type="text" name="email" class="validate" id="email">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="text" name="email" class="validate" id="email">
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- Order summary -->
+                <div class="row mt-5">
+                    <div class="col s12">
+                        <fieldset class="order-summary">
+                            <legend class="title center">Order summary</legend>
+                            <div class="row my-2">
+                                {% if cart_items %}
+                                    {% for item in cart_items %}
+                                    <div class="col s12">
+                                        <div class="cart-item">
+                                            <div class="row" style="margin: 0;">
+                                                <!-- Item image -->
+                                                <div class="col s4 l3 item-img">
+                                                    {% if item.edition.image %}
+                                                        <img src="{{ item.edition.image.url }}" alt="{{ item.edition.friendly_name_full }}">
+                                                    {% else %}
+                                                        <img src="{{ item.edition.game.image.url }}" alt="{{ item.edition.friendly_name }}">
+                                                    {% endif %}
+                                                </div>
+                                                <!-- Item details -->
+                                                <div class="col s8 l9 item-details">
+                                                    <div class="row">
+                                                        <div class="col s12 item-heading">
+                                                            <h6 class="title">{{ item.edition.friendly_name_full }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Update item quantity -->
+                                                    <form action="{% url 'update_cart' item.item_id %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                                        <div class="row">
+                                                            <div class="col s12" style="height: 32px;">
+                                                                <p class="title">qty:</p>
+                                                            </div>
+                                                            <!-- Quantity buttons -->
+                                                            <div class="col s8 l6 qty-btn">
+                                                                <div class="row">
+                                                                    <div class="col s1 l2" style="padding-left: 0;">
+                                                                        <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
+                                                                            <i class="material-icons white-text">remove</i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="col s4 offset-s2 l5">
+                                                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                                        data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
+                                                                    </div>
+                                                                    <div class="col s1 l2">
+                                                                        <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
+                                                                            <i class="material-icons white-text">add</i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Update quantity -->
+                                                            <div class="col l6">
+                                                                <button type="submit" class="btn btn-green update-qty" id="updateQtyNav-{{ item.item_id }}">Update</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <!-- Item price and remove button -->
+                                                    <div class="row">
+                                                        <!-- Price -->
+                                                        <div class="col s6">
+                                                            <h5 class="title price">£{{ item.edition.price }}</h5>
+                                                        </div>
+                                                        <!-- Remove item -->
+                                                        <div class="col s4 remove-item">
+                                                            <a href="#!" class="remove-item-from-cart" id="remove_{{ item.item_id }}"><i class="material-icons white-text">delete_forever</i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- Discount code -->
+                <div class="row mt-5">
+                    <div class="col s12">
+                        <div class="divider my-2"></div>
+                        <h6 class="title center">Discount code</h6>
+                        <div class="input-field">
+                            <input type="text" name="email" class="validate" id="email">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="col s12 center">
+                        <a href="#!" class="btn btn-cyan-solid">Apply discount</a>
+                        <div class="divider my-2"></div>
+                    </div>
+                </div>
+                <!-- Place order -->
+                <div class="row my-2">
+                    <div class="col s12 center">
+                        <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Place Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'home',
     'games',
     'cart',
+    'checkout',
 
     # Other
     'django_extensions',

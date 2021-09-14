@@ -585,6 +585,67 @@ Shopping cart page styles
     font-weight: 400;
 }
 
+/* ======================================================
+Checkout page
+====================================================== */
+
+#Checkout fieldset {
+    background: #0A2033;
+    color: #FFFFFF;
+    padding: 25px;
+    border: 1px solid rgba(0, 251, 239, 75%);
+}
+
+#Checkout fieldset legend {
+    background-color: #207975;  /* fallback color */
+    background-image: linear-gradient(to top, #18385E 0%, #42AFAA  100%);
+    background-size: 200% auto;
+    border: 2px solid rgba(0, 251, 239, 75%);
+    padding: 5px 25px;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+#Checkout .input-field {
+    height: 50px;
+    background: rgba(3, 0, 9, 50%);
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+#Checkout .input-field input {
+    width: 90%;
+    color: #FFFFFF;
+    font-family: 'AgencyCYB';
+    letter-spacing: 2px;
+    font-size: 18px;
+    margin-left: 5%;
+    border-bottom: none;
+}
+
+#Checkout .input-field label {
+    margin-left: 5%;
+    font-family: 'AgencyCYB';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+#Checkout .input-field label.active {
+    top: -5px;
+    left: -10px;
+}
+
+#Checkout .input-field:focus {
+    border: 2px solid red;
+}
+
+#Checkout .input-field input.validate,
+#Checkout .input-field input.validate.valid {
+    border-bottom: none;
+    box-shadow: none;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
