@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <section id="allAdoptions">
+            <div class="row my-5">
+                <div class="col s12 center">
+                    <h1 class="title">Adoption An Animal</h1>
+                </div>
+            </div>
+            <!-- About -->
+            <div class="row center">
+                <div class="col s12 l10 offset-l1">
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde asperiores quisquam eaque totam magnam ab deserunt
+                        numquam aperiam deleniti? Veniam adipisci at maxime, laudantium non sequi excepturi perferendis suscipit culpa.
+                        Officia est laboriosam obcaecati porro dignissimos sit quasi, dicta natus! Obcaecati accusantium tempore sunt
+                        laudantium doloremque? Voluptatibus magnam odit consequuntur voluptate expedita quos, debitis et, iure atque
+                        cupiditate dignissimos laudantium.
+                        Nobis enim nemo alias impedit dicta odio necessitatibus, sint veniam odit aliquam facilis. Praesentium quam sapiente
+                        ipsum facere laborum architecto possimus obcaecati dicta officiis voluptatibus. Vitae dolorem consequatur dicta
+                        nihil?
+                        Amet molestiae adipisci nostrum sed dolore ut quaerat illum officiis at numquam est eum sunt dolor necessitatibus
+                        et, ex mollitia aperiam minima porro iure odit. Blanditiis tenetur incidunt iste qui.
+                        Culpa ad qui rem possimus? Necessitatibus velit minus asperiores cum ullam similique commodi recusandae, eaque,
+                        nobis dolore molestias voluptates nemo inventore quae adipisci repudiandae eligendi sit. Et suscipit ducimus
+                        voluptas?
+                    </p>
+                    <br>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus at cupiditate laudantium consequuntur rem
+                        vitae nulla hic blanditiis, doloribus ex quibusdam. Architecto et, inventore commodi nihil minima iure quos natus?
+                        Vel optio minus tenetur non distinctio assumenda illo quod voluptate molestiae sapiente obcaecati, voluptas soluta
+                        earum maiores expedita nobis vero necessitatibus quos id. Quibusdam similique dolore ipsam ullam sapiente quasi!
+                    </p>
+                </div>
+
+            </div>
+            <!-- Adoption packs -->
+            <div class="row my-5">
+                {% for animal in adoptions %}
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <h4 class="card-title title center">{{ animal.animal_plural }}</h4>
+                            <div class="card-image">
+                                <div class="contrast-card"></div>
+                                <div class="img-card">
+                                    <img src="{{ animal.image.url }}" alt="{{ animal.animal }}">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="center">{{ animal.desc }}</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="row">
+                                    <div class="col s5">
+                                        <a href="#!" class="text-link">More info</a>
+                                    </div>
+                                    <div class="col s7">
+                                        <a href="#!" class="btn btn-cyan img-overlay-btn btn-folded-corners">
+                                            <span class="border-hack"></span>
+                                            <span class="btn-text">Adopt Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+{% endblock %}

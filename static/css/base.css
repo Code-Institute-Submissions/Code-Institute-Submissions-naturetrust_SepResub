@@ -30,7 +30,7 @@ Global styles
 ====================================================== */
 
 p {
-    font-family: 'Univers Condensed', sans-serif, serif;
+    font-family: 'AgencyFB', sans-serif, serif;
     font-size: 16px;
     letter-spacing: 1px;
 }
@@ -168,6 +168,27 @@ br {
     background: #188093;
     border-radius: 25px;
     padding: 0 35px;
+}
+
+.text-link {
+    font-family: 'Chinese Rocks';
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #FFFFFF !important;
+}
+
+.text-link:after {
+    content: "";
+    display: block;
+    margin: 0;
+    width: 55%;
+    height: 4px ;
+    border-bottom: solid 2px #63c6d6e6;
+    transition: width .8s;
+}
+
+.text-link:hover:after {
+    width: 0
 }
 
 /* ======================================================
@@ -498,6 +519,58 @@ Game details styles
 
 .section-header {
     margin: 65px auto 45px;
+}
+
+/* ======================================================
+Adoption page styles
+====================================================== */
+
+#allAdoptions .card {
+    max-width: 460px;
+    background: #122439;
+    padding: 20px;
+    margin: 35px auto;
+    border-radius: 10px;
+}
+
+#allAdoptions .card-title {
+    margin-bottom: 25px;
+}
+
+#allAdoptions .card-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: auto;
+}
+
+#allAdoptions .contrast-card {
+    width: 250px;
+    height: 265px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #6713D2; /* fallback color */
+    background-image: linear-gradient(to bottom, #6713D2 0%, #CC208E  50%);
+    background-size: cover;
+    border: 1px solid rgba(66, 175, 170, 75%);
+    border-radius: 5px;
+}
+
+#allAdoptions .img-card {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#allAdoptions .img-card img {
+    width: 285px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px; 
+    margin: auto;
+    border: 2px solid #42AFAA;
 }
 
 /* ======================================================
@@ -931,6 +1004,17 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
+@media (max-width: 970px) {
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .text-link {
+        font-size: 16px;
+    }
+    #allAdoptions .text-link::after {
+        min-width: 75px;
+    }
+}
+
 @media (max-width: 920px) {
     /* Game details styles
     =========================== */
@@ -958,6 +1042,19 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
+@media (min-width: 745px) and (max-width: 875px){
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .contrast-card {
+        width: 225px;
+        height: 250px;
+    }
+    #allAdoptions .img-card img {
+        width: 265px;
+        height: 260px;
+    }
+}
+
 @media (min-width: 715px) {
     /* Shopping cart page styles
     =========================== */
@@ -969,14 +1066,32 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
-@media (min-width: 365px) and (max-width: 715px) {
-    /* Shopping cart page styles
+@media (min-width: 680px) and (max-width: 745px){
+    /* Adoption page styles
     =========================== */
-    #shoppingCart .card-item-card img {
-        width: 85px;
-        height: 145px;
-        border-radius: 5px;
-        object-fit: cover;
+    #allAdoptions .contrast-card {
+        width: 205px;
+        height: 250px;
+    }
+    #allAdoptions .img-card img {
+        width: 245px;
+        height: 260px;
+    }
+}
+
+@media (min-width: 630px) and (max-width: 680px){
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .contrast-card {
+        width: 195px;
+        height: 220px;
+    }
+    #allAdoptions .img-card {
+        top: 25px;
+    }
+    #allAdoptions .img-card img {
+        width: 225px;
+        height: 260px;
     }
 }
 
@@ -1035,6 +1150,33 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .section-content h6 {
         width: 90% !important;
         margin: auto;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 695px) {
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .btn-folded-corners {
+        padding: 20px 15px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 630px) {
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .card-image {
+        height: 250px;
+    }
+    #allAdoptions .contrast-card {
+        width: 160px;
+        height: 200px;
+    }
+    #allAdoptions .img-card {
+        top: 25px;
+    }
+    #allAdoptions .img-card img {
+        width: 200px;
+        height: 220px;
     }
 }
 
@@ -1114,6 +1256,63 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         height: 200px;
     }
 }
+
+@media (max-width: 390px){
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .contrast-card {
+        width: 225px;
+        height: 250px;
+    }
+    #allAdoptions .img-card img {
+        width: 265px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 365px){
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .contrast-card {
+        width: 205px;
+        height: 240px;
+    }
+    #allAdoptions .img-card {
+        top: 30px;
+    }
+    #allAdoptions .img-card img {
+        width: 245px;
+        height: 250px;
+    }
+}
+
+@media (min-width: 365px) and (max-width: 715px) {
+    /* Shopping cart page styles
+    =========================== */
+    #shoppingCart .card-item-card img {
+        width: 85px;
+        height: 145px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 345px){
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .contrast-card {
+        width: 190px;
+        height: 240px;
+    }
+    #allAdoptions .img-card {
+        top: 30px;
+    }
+    #allAdoptions .img-card img {
+        width: 215px;
+        height: 250px;
+    }
+}
+
 
 @media (min-width: 325px) and (max-width: 365px) {
     /* Game details styles
@@ -1196,5 +1395,18 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .content-img {
         width: 250px;
         height: 160px;
+    }
+    /* Adoption page styles
+    =========================== */
+    #allAdoptions .contrast-card {
+        width: 175px;
+        height: 225px;
+    }
+    #allAdoptions .img-card {
+        top: 30px;
+    }
+    #allAdoptions .img-card img {
+        width: 200px;
+        height: 240px;
     }
 }
