@@ -6,8 +6,12 @@
     <div class="header-container">
         <!-- Adoption cover -->
         <div class="row">
-            <div class="col s12 center">
-                {% if animal.image %}
+            <div class="col s12 center hero-image">
+                <div class="overlay"></div>
+                {% if animal.image_header %}
+                    <img src="{{ animal.image_header.url }}" alt="{{ animal.animal }}"
+                    class="animal-details-img"></a>
+                {% elif animal.image %}
                     <img src="{{ animal.image.url }}" alt="{{ animal.animal }}"
                     class="animal-details-img"></a>
                 {% else %}
@@ -30,35 +34,29 @@
         <!-- Adoption details -->
         <div class="row my-5">
             <div class="col s12">
-                <h5 class="title center">Adopt a {{ animal.animal }} to help protect them and our ecosystem!</h5>
+                <h5 class="title center">
+                    Adopt {% if animal.animal != 'plankton' %}a{% endif %} {{ animal.animal }} to help protect them and our ecosystem!
+                </h5>
             </div>
         </div>
         <div class="row">
             <div class="col s12 center">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus laboriosam alias beatae! Ratione dolore rerum
-                    optio deleniti! Velit omnis hic quod obcaecati, voluptatum ipsa optio consectetur nam et ad quisquam.
-                    Corrupti odit sint, ut excepturi autem corporis inventore, ad similique rem hic molestiae dolor quisquam
-                    exercitationem iste reiciendis dolorem unde voluptatum deserunt dolores nobis, cupiditate laboriosam at. Voluptate,
-                    iusto facilis.
-                    Sunt voluptatem architecto, est, saepe deserunt aut consequuntur repellendus distinctio sit veritatis quis magnam
-                    iure aliquam a aspernatur repudiandae expedita ut error? Ullam culpa temporibus nemo eveniet! Laudantium, nostrum
-                    delectus.
-                    Quod placeat sapiente aut odit officiis fuga hic maiores inventore assumenda similique corporis cumque saepe veniam
-                    unde, libero accusamus tenetur id neque debitis repellat magni provident eveniet aspernatur dignissimos?
-                    Repellendus!
-                </p>
+                <p>{{ animal.desc }}</p>
             </div>
         </div>
         <!-- Packages -->
         <div class="row" id="adoptionPackages">
             {% for package in packages %}
+                {% if package.adoption == animal %}
                 <div class="col s12 m6 l4">
                     <div class="card-panel" style="background-color: #04101B;">
                         <!-- Adoption cover -->
                         <div class="row">
                             <div class="col s12 center">
-                                {% if animal.image %}
+                                {% if package.image %}
+                                    <img src="{{ package.image.url }}" alt="{{ animal.animal }}"
+                                    class="game-details-img"></a>
+                                {% elif animal.image %}
                                     <img src="{{ animal.image.url }}" alt="{{ animal.animal }}"
                                     class="game-details-img"></a>
                                 {% else %}
@@ -70,7 +68,7 @@
                         <!-- Package name -->
                         <div class="row">
                             <div class="col s12 center">
-                                <h5 class="title">{{ package.friendly_name }}</h5>
+                                <h5 class="title">{{ package.pk }} {{ package.friendly_name }}</h5>
                             </div>
                         </div>
                         <!-- Package details -->
@@ -94,6 +92,7 @@
                         </form>
                     </div>
                 </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
