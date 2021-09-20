@@ -75,10 +75,10 @@
                     var csrfToken = "{{ csrf_token }}";
                     var itemId = $(this).attr('id').split('remove_')[1];
 
-                    console.log(itemId)
+                    var productType = $(`#productType_${itemId}`).val()
 
                     var url = `/cart/remove/${itemId}/`;
-                    var data = {'csrfmiddlewaretoken': csrfToken}
+                    var data = {'csrfmiddlewaretoken': csrfToken, 'product_type': productType}
 
                     $.post(url, data)
                     .done(function() {

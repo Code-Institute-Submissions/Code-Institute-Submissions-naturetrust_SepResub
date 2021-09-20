@@ -54,9 +54,10 @@ def update_cart(request, item_id):
 
         redirect_url = request.POST.get('redirect_url')
         quantity = int(request.POST.get('quantity'))
+        product_type = request.POST.get('product_type')
 
         cart = request.session.get('cart', {})
-        cart[item_id] = quantity
+        cart[product_type][item_id] = quantity
 
         request.session['cart'] = cart
 
@@ -66,17 +67,31 @@ def update_cart(request, item_id):
 def remove_from_cart(request, item_id):
     """ Remove item from shopping cart """
 
-    game_edition = get_object_or_404(Edition, pk=item_id)
+    product_type = request.POST.get('product_type')
+
+    if product_type == 'game':
+        product = get_object_or_404(Edition, sku=item_id)
+        title = product.friendly_name_full
+    elif product_type == 'adoption':
+        product = get_object_or_404(Package, sku=item_id)
+        title = product.adoption.animal.title() + ' ' + product.friendly_name
 
     try:
         cart = request.session.get('cart', {})
-        cart.pop(item_id)
+        cart[product_type].pop(item_id)
 
         request.session['cart'] = cart
-        messages.success(
-            request,
-            f'Removed {game_edition.friendly_name_full} from your cart'
-        )
+
+        if product_type == 'game':
+            messages.success(
+                request,
+                f'Removed {title} from your cart'
+            )
+        elif product_type == 'adoption':
+            messages.success(
+                request,
+                f'Removed {title} from your cart'
+            )
 
         return HttpResponse(status=200)
 
