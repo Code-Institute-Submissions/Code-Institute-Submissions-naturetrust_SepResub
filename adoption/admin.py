@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Adoption
+from .models import Adoption, Package
 
 
 class AdoptionAdmin(admin.ModelAdmin):
@@ -22,4 +22,22 @@ class AdoptionAdmin(admin.ModelAdmin):
     )
 
 
+class PackageAdmin(admin.ModelAdmin):
+    list_display = (
+        'pk',
+        'name',
+        'price'
+    )
+
+    fields = (
+        'name', 'friendly_name',
+        'desc', 'price',
+    )
+
+    ordering = (
+        'pk',
+    )
+
+
 admin.site.register(Adoption, AdoptionAdmin)
+admin.site.register(Package, PackageAdmin)

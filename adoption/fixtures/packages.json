@@ -1,0 +1,42 @@
+[
+    {
+        "pk": 1,
+        "model": "adoption.package",
+        "fields": {
+            "name": "adventurer",
+            "friendly_name": "Adventurer Package",
+            "desc": "A welcome letter and information leaflet about the species you have adopted. The information leaflet goes into greater detail about the species' crucial role within the ecosystem and how you can help protect them and their welfare.",
+            "price": "25.00"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "adoption.package",
+        "fields": {
+            "name": "warrior",
+            "friendly_name": "Warrior Package",
+            "desc": "A gift pack including a welcome letter, a photograph, information leaflet and custom mug relating to the species you have adopted. The information leaflet goes into greater detail about the species' crucial role within the ecosystem and how you can help protect them and their welfare.",
+            "price": "35.00"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "adoption.package",
+        "fields": {
+            "name": "champion",
+            "friendly_name": "Champion Package",
+            "desc": "A gift pack including a welcome letter, a photograph, information leaflet, custom mug and phone case relating to the species you have adopted. The information leaflet goes into greater detail about the species' crucial role within the ecosystem and how you can help protect them and their welfare.",
+            "price": "42.00"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "adoption.package",
+        "fields": {
+            "name": "hero",
+            "friendly_name": "Hero Package",
+            "desc": "A gift pack including a welcome letter, a photograph, information leaflet, custom mug, phone case and beautiful tote bag relating to the species you have adopted. The information leaflet goes into greater detail about the species' crucial role within the ecosystem and how you can help protect them and their welfare.",
+            "price": "49.99"
+        }
+    }
+]
