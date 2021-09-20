@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Adoption
+from django.shortcuts import get_object_or_404, render
+from .models import Adoption, Package
 
 
 def all_adoptions(request):
@@ -11,6 +11,21 @@ def all_adoptions(request):
     template = 'adoption/adoptions.html'
     context = {
         'adoptions': adoptions,
+    }
+
+    return render(request, template, context)
+
+
+def adoption_package(request, animal):
+    """ A view to purchase an adoption package """
+
+    animal = get_object_or_404(Adoption, animal=animal)
+    packages = Package.objects.all()
+
+    template = 'adoption/adoption-packages.html'
+    context = {
+        'animal': animal,
+        'packages': packages,
     }
 
     return render(request, template, context)

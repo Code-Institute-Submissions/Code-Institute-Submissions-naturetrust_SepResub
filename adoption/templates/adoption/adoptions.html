@@ -50,13 +50,13 @@
                             <div class="card-content">
                                 <p class="center">{{ animal.desc }}</p>
                             </div>
-                            <div class="card-action">
+                        <div class="card-action">
                                 <div class="row">
                                     <div class="col s5">
                                         <a href="#!" class="text-link">More info</a>
                                     </div>
                                     <div class="col s7">
-                                        <a href="#!" class="btn btn-cyan img-overlay-btn btn-folded-corners">
+                                        <a href="{% url 'adopt' animal.animal %}" class="btn btn-cyan img-overlay-btn btn-folded-corners">
                                             <span class="border-hack"></span>
                                             <span class="btn-text">Adopt Now</span>
                                         </a>

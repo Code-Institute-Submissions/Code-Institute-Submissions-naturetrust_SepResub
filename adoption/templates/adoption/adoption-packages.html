@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="adoptAnimal">
+    <div class="header-container">
+        <!-- Adoption cover -->
+        <div class="row">
+            <div class="col s12 center">
+                {% if animal.image %}
+                    <img src="{{ animal.image.url }}" alt="{{ animal.animal }}"
+                    class="animal-details-img"></a>
+                {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ animal.animal }}"
+                    class="game-details-img"></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row hero-text">
+            <h4 class="title my-5">Purchase your adoption pack today</h4>
+            <!-- See packages button -->
+            <a href="#!" class="btn btn-cyan btn-folded-corners game-details-btn">
+                <span class="border-hack"></span>
+                <span class="btn-text">Compare Packages</span>
+            </a>
+        </div>
+    </div>
+    <div class="details-and-editions">
+    <div class="divider my-5"></div>
+        <!-- Adoption details -->
+        <div class="row my-5">
+            <div class="col s12">
+                <h5 class="title center">Adopt a {{ animal.animal }} to help protect them and our ecosystem!</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus laboriosam alias beatae! Ratione dolore rerum
+                    optio deleniti! Velit omnis hic quod obcaecati, voluptatum ipsa optio consectetur nam et ad quisquam.
+                    Corrupti odit sint, ut excepturi autem corporis inventore, ad similique rem hic molestiae dolor quisquam
+                    exercitationem iste reiciendis dolorem unde voluptatum deserunt dolores nobis, cupiditate laboriosam at. Voluptate,
+                    iusto facilis.
+                    Sunt voluptatem architecto, est, saepe deserunt aut consequuntur repellendus distinctio sit veritatis quis magnam
+                    iure aliquam a aspernatur repudiandae expedita ut error? Ullam culpa temporibus nemo eveniet! Laudantium, nostrum
+                    delectus.
+                    Quod placeat sapiente aut odit officiis fuga hic maiores inventore assumenda similique corporis cumque saepe veniam
+                    unde, libero accusamus tenetur id neque debitis repellat magni provident eveniet aspernatur dignissimos?
+                    Repellendus!
+                </p>
+            </div>
+        </div>
+        <!-- Packages -->
+        <div class="row" id="adoptionPackages">
+            {% for package in packages %}
+                <div class="col s12 m6 l4">
+                    <div class="card-panel" style="background-color: #04101B;">
+                        <!-- Adoption cover -->
+                        <div class="row">
+                            <div class="col s12 center">
+                                {% if animal.image %}
+                                    <img src="{{ animal.image.url }}" alt="{{ animal.animal }}"
+                                    class="game-details-img"></a>
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ animal.animal }}"
+                                    class="game-details-img"></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- Package name -->
+                        <div class="row">
+                            <div class="col s12 center">
+                                <h5 class="title">{{ package.friendly_name }}</h5>
+                            </div>
+                        </div>
+                        <!-- Package details -->
+                        <div class="row">
+                            <div class="col s12 center">
+                                <p>{{ package.desc }}</p>
+                            </div>
+                        </div>
+                        <!-- Buy Package -->
+                        <form action="{% url 'add_to_cart' package.pk %}" method="POST" class="update-cart">
+                            {% csrf_token %}
+                            <!-- The quantity is 1 by default-->
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="product_type" value="game">
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <div class="row">
+                                <div class="col s12">
+                                    <button type="submit" value="Buy Now" class="btn purchase-btn btn-folded-corners">Buy Now <span>£{{ package.price }}</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

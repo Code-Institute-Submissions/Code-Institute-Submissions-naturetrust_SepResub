@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.all_adoptions, name='adoptions'),
+    path('adopt/<animal>', views.adoption_package, name='adopt'),
 ]

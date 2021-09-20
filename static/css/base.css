@@ -574,6 +574,47 @@ Adoption page styles
 }
 
 /* ======================================================
+Adopt an animal page styles
+====================================================== */
+
+#adoptionPackages .header-container {
+    background-color: #0A2033;
+}
+
+.animal-details-img {
+    width: 99vw;
+    height: 75vh;
+    object-fit: cover;
+}
+
+#adoptAnimal .hero-text {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#adoptAnimal .btn-folded-corners {
+    width: 225px;
+}
+
+#adoptAnimal .btn-folded-corners span {
+    font-size: 18px !important;
+}
+
+#adoptionPackages .purchase-btn,
+#gameEditions .purchase-btn {
+    width: auto !important;
+    padding: 0 32px !important;
+}
+
+#adoptionPackages .purchase-btn span,
+#gameEditions .purchase-btn span {
+    font-size: 28px !important;
+    padding-left: 15px;
+}
+
+/* ======================================================
 Buy game review styles
 ====================================================== */
 
