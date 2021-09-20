@@ -14,7 +14,9 @@ class AdoptionAdmin(admin.ModelAdmin):
 
     fields = (
         'animal', 'animal_plural', 'desc',
-        'image_url', 'image', 'date_added',
+        'image_url', 'image',
+        'image_header_url', 'image_header', 
+        'date_added',
     )
 
     ordering = (
@@ -25,13 +27,16 @@ class AdoptionAdmin(admin.ModelAdmin):
 class PackageAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
+        'friendly_name',
         'name',
-        'price'
+        'adoption',
+        'price',
     )
 
     fields = (
-        'name', 'friendly_name',
+        'adoption', 'name', 'friendly_name',
         'desc', 'price',
+        'image_url', 'image',
     )
 
     ordering = (
