@@ -21,17 +21,31 @@
                                     <div class="row">
                                         <!-- Image -->
                                         <div class="col s3 m2">
-                                            {% if item.edition.image %}
-                                                <img src="{{ item.edition.image.url }}" alt="{{ item.edition.friendly_name_full }}">
-                                            {% else %}
-                                                <img src="{{ item.edition.game.image.url }}" alt="{{ item.edition.friendly_name }}">
+                                            {% if 'game' in item.product_type  %}
+                                                {% if item.product.image %}
+                                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                                {% else %}
+                                                    <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                                {% endif %}
+                                            {% elif 'adoption in item.product_type' %}
+                                                {% if item.product.image %}
+                                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                                {% else %}
+                                                    <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                                {% endif %}
                                             {% endif %}
                                         </div>
                                         <!-- Name and quantity -->
                                         <div class="col s7">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h6 class="title product-name">{{ item.edition.friendly_name_full }}</h6>
+                                                    <h6 class="title product-name">
+                                                        {% if 'game' in item.product_type  %}
+                                                            {{ item.product.friendly_name_full }}
+                                                        {% elif 'adoption in item.product_type' %}
+                                                            {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
+                                                        {% endif %}
+                                                    </h6>
                                                 </div>
                                                 <div class="col s12" style="padding: 10px 20px;">
                                                     <div class="qty-btn">
@@ -61,13 +75,13 @@
                                         </div>
                                         <!-- Description -->
                                         <div class="col s12">
-                                            <p>{{ item.edition.desc|slice:":162" }}...</p>
+                                            <p>{{ item.product.desc|slice:":162" }}...</p>
                                         </div>
                                         <!-- Subtotal -->
                                         <table>
                                             <tr>
                                                 <th><h6 class="title">Subtotal</h6></th>
-                                                <th class="right"><h6 class="title">£{{ item.edition.price }}</h6></th>
+                                                <th class="right"><h6 class="title">£{{ item.product.price }}</h6></th>
                                             </tr>
                                         </table>
                                     </div>
@@ -93,24 +107,38 @@
                                         <th class="th-first">
                                             <div class="row">
                                                 <div class="col s3">
-                                                    {% if item.edition.image %}
-                                                        <img src="{{ item.edition.image.url }}" alt="{{ item.edition.friendly_name_full }}">
-                                                    {% else %}
-                                                        <img src="{{ item.edition.game.image.url }}" alt="{{ item.edition.friendly_name }}">
+                                                    {% if 'game' in item.product_type  %}
+                                                        {% if item.product.image %}
+                                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                                        {% else %}
+                                                            <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                                        {% endif %}
+                                                    {% elif 'adoption in item.product_type' %}
+                                                        {% if item.product.image %}
+                                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                                        {% else %}
+                                                            <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                                        {% endif %}
                                                     {% endif %}
                                                 </div>
                                                 <div class="col s9">
-                                                    <h6 class="title">{{ item.edition.friendly_name_full }}</h6>
+                                                    <h6 class="title">
+                                                        {% if 'game' in item.product_type  %}
+                                                            {{ item.product.friendly_name_full }}
+                                                        {% elif 'adoption in item.product_type' %}
+                                                            {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
+                                                        {% endif %}
+                                                    </h6>
                                                 </div>
                                             </div>
                                         </th>
                                         <!-- Brief product description -->
                                         <th class="center">
-                                            <p>{{ item.edition.desc|slice:":254" }}...</p>
+                                            <p>{{ item.product.desc|slice:":254" }}...</p>
                                         </th>
                                         <!-- Price -->
                                         <th class="center">
-                                            <h6 class="title">{{ item.edition.price }}</h6>
+                                            <h6 class="title">{{ item.product.price }}</h6>
                                         </th>
                                         <!-- Quantity -->
                                         <form action="{% url 'update_cart' item.item_id %}" method="POST" id="updateCartItem-{{item.item_id}}">
