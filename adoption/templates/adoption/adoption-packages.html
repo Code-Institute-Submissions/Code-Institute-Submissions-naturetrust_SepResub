@@ -78,11 +78,11 @@
                             </div>
                         </div>
                         <!-- Buy Package -->
-                        <form action="{% url 'add_to_cart' package.pk %}" method="POST" class="update-cart">
+                        <form action="{% url 'add_to_cart' package.sku %}" method="POST" class="update-cart">
                             {% csrf_token %}
                             <!-- The quantity is 1 by default-->
                             <input type="hidden" name="quantity" value="1">
-                            <input type="hidden" name="product_type" value="game">
+                            <input type="hidden" name="product_type" value="adoption">
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             <div class="row">
                                 <div class="col s12">

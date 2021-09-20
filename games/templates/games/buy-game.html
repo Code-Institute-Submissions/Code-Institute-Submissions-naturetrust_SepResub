@@ -159,14 +159,15 @@
                             {% endfor %}
                         </div>
                         <!-- Buy edition -->
-                        <form action="{% url 'add_to_cart' e.pk %}" method="POST" class="update-cart">
+                        <form action="{% url 'add_to_cart' e.sku %}" method="POST" class="update-cart">
                             {% csrf_token %}
                             <!-- The quantity is 1 by default-->
                             <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="product_type" value="game">
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             <div class="row">
                                 <div class="col s12">
-                                    <button type="submit" value="Buy Now" class="btn purchase-btn btn-folded-corners">Buy Now</button>
+                                    <button type="submit" value="Buy Now" class="btn purchase-btn btn-folded-corners">Buy Now <span>£{{ e.price }}</span></button>
                                 </div>
                             </div>
                         </form>

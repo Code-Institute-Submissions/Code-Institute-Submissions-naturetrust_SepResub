@@ -1,8 +1,9 @@
+from django.shortcuts import get_object_or_404
 from decimal import Decimal
 from django.conf import settings
-from django.shortcuts import get_object_or_404
 
 from games.models import Edition
+from adoption.models import Adoption, Package
 
 
 def cart_contents(request):
@@ -14,17 +15,37 @@ def cart_contents(request):
     product_count = 0
     cart = request.session.get('cart', {})
 
-    for item_id, quantity in cart.items():
-        game_edition = get_object_or_404(Edition, pk=item_id)
-        subtotal = quantity * game_edition.price
-        total += quantity * game_edition.price
-        product_count += quantity
-        cart_items.append({
-            'item_id': item_id,
-            'edition': game_edition,
-            'quantity': quantity,
-            'subtotal': subtotal,
-        })
+    for product_type in cart.items():
+        if 'game' in product_type:
+            for item in product_type:
+                if isinstance(item, dict):
+                    for item_id, quantity in item.items():
+                        product = get_object_or_404(Edition, sku=item_id)
+                        subtotal = quantity * product.price
+                        total += quantity * product.price
+                        product_count += quantity
+                        cart_items.append({
+                            'item_id': item_id,
+                            'product': product,
+                            'product_type': product_type,
+                            'quantity': quantity,
+                            'subtotal': subtotal,
+                        })
+        elif 'adoption' in product_type:
+            for item in product_type:
+                if isinstance(item, dict):
+                    for item_id, quantity in item.items():
+                        product = get_object_or_404(Package, sku=item_id)
+                        subtotal = quantity * product.price
+                        total += quantity * product.price
+                        product_count += quantity
+                        cart_items.append({
+                            'item_id': item_id,
+                            'product': product,
+                            'product_type': product_type,
+                            'quantity': quantity,
+                            'subtotal': subtotal,
+                        })
 
     context = {
         'cart_items': cart_items,

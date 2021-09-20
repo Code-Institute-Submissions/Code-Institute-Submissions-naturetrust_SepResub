@@ -1,3 +1,4 @@
+from adoption.models import Adoption, Package
 from django.shortcuts import get_object_or_404, render, redirect, HttpResponse
 from django.contrib import messages
 
@@ -14,21 +15,34 @@ def add_to_cart(request, item_id):
     """ Add game and its quanitity
     to shopping cart """
 
-    game_edition = get_object_or_404(Edition, pk=item_id)
-
     quantity = int(request.POST.get('quantity', 1))
     redirect_url = request.POST.get('redirect_url')
 
+    product_type = request.POST.get('product_type')
+
+    if product_type == 'game':
+        game_edition = get_object_or_404(Edition, sku=item_id)
+    elif product_type == 'adoption':
+        adoption_package = get_object_or_404(Package, sku=item_id)
+
     cart = request.session.get('cart', {})
 
-    # Add game to shopping cart or update quantity if it already exists
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+    if cart:
+        if product_type in cart:
+            if item_id in cart[product_type]:
+                cart[product_type][item_id] += quantity
+            else:
+                cart[product_type][item_id] = quantity
+        else:
+            cart[product_type] = {}
+            cart[product_type][item_id] = quantity
     else:
-        cart[item_id] = quantity
+        cart[product_type] = {}
+        cart[product_type][item_id] = quantity
 
     # Overwrite session variable with updated one
     request.session['cart'] = cart
+
     return redirect(redirect_url)
 
 
