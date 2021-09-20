@@ -26,7 +26,7 @@ class AdoptionAdmin(admin.ModelAdmin):
 
 class PackageAdmin(admin.ModelAdmin):
     list_display = (
-        'pk',
+        'sku',
         'friendly_name',
         'name',
         'adoption',
@@ -34,13 +34,14 @@ class PackageAdmin(admin.ModelAdmin):
     )
 
     fields = (
-        'adoption', 'name', 'friendly_name',
-        'desc', 'price',
-        'image_url', 'image',
+        'adoption', 'sku', 'name', 'friendly_name',
+        'desc', 'price', 'image_url', 'image',
     )
 
+    readonly_fields = ('sku',)
+
     ordering = (
-        'pk',
+        'sku',
     )
 
 

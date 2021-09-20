@@ -4,6 +4,15 @@ from .models import Game, Edition, Section, Content
 
 class EditionInlineAdmin(admin.TabularInline):
     model = Edition
+
+    readonly_fields = ('sku',)
+
+    fields = (
+        'name', 'friendly_name',
+        'friendly_name_full', 'desc',
+        'helper_text', 'sku', 'price',
+    )
+
     extra = 0
 
 

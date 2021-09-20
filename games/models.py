@@ -1,8 +1,15 @@
+import random
 from django.db import models
 from django.utils import timezone
 
 
 """ Creating classes for fixtures so that Django can use them """
+
+
+def generate_sku():
+    random_int = str(random.randint(1000000000, 9999999999))
+    unique_ref = 'gg' + random_int
+    return str(unique_ref)
 
 
 class Game(models.Model):
@@ -41,6 +48,17 @@ class Edition(models.Model):
     desc = models.TextField(null=True, blank=True)
     helper_text = models.CharField(max_length=254, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    sku = models.CharField(
+        max_length=12,
+        editable=False,
+        unique=True,
+        default=generate_sku,
+    )
+
+    def save(self, *args, **kwargs):
+        self.sku = generate_sku().lower()
+        super(Edition, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.friendly_name
