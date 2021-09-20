@@ -144,6 +144,8 @@
                                         <form action="{% url 'update_cart' item.item_id %}" method="POST" id="updateCartItem-{{item.item_id}}">
                                             {% csrf_token %}
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <input type="hidden" name="product_type" value="{% if 'game' in item.product_type %}game{% else %}adoption{% endif %}"
+                                            id="productType_{{ item.item_id }}">
                                             <th class="center">
                                                 <div class="qty-btn">
                                                     <div class="row">
