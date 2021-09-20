@@ -11,6 +11,8 @@ class Adoption(models.Model):
     desc = models.TextField()
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    image_header_url = models.URLField(max_length=1024, null=True, blank=True)
+    image_header = models.ImageField(null=True, blank=True)
     date_added = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
@@ -18,10 +20,13 @@ class Adoption(models.Model):
 
 
 class Package(models.Model):
+    adoption = models.ForeignKey(Adoption, on_delete=models.CASCADE)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254)
     desc = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.friendly_name

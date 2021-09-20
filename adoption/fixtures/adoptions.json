@@ -7,7 +7,9 @@
             "animal_plural": "bees",
             "desc": "Bees pollinate 70 of the 100 crop species that feed 90% of the world. Unfortunately, the population of bees has fallen by up to 80 percent in certain parts of the world due to human interaction, climate change, disease, and pesticide usage.\n\nHelp us protect the welfare of our bees by purchasing an adoptation pack today.",
             "image_url": "https://images.unsplash.com/photo-1572586292360-a1be2b20f3ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-            "image": "bee-img.jpg"
+            "image": "bee-img.jpg",
+            "image_header_url": "https://images.unsplash.com/photo-1574864712578-bc3e9356fbfa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
+            "image_header": "bee-header.jpg"
         }
     },
     {
@@ -18,7 +20,9 @@
             "animal_plural": "plankton",
             "desc": "Plankton responsible for around half of the world’s oxygen production via photosynthesis. Plankton might be threatened in the long term if the world’s oceans keep warming. This could limit the amount of breathable air we have available in the future.\n\nHelp us protect the ocean and our marine life by purchasing an adoptation pack today.",
             "image_url": "https://images.unsplash.com/photo-1536625637853-ec02b2b4edbd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
-            "image": "plankton-img.jpg"
+            "image": "plankton-img.jpg",
+            "image_header_url": "https://images.unsplash.com/photo-1454123253751-1fe2b9e0c10d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
+            "image_header": "plankton-header.jpg"
         }
     },
     {
@@ -29,7 +33,9 @@
             "animal_plural": "bats",
             "desc": "Bats help us control insect populations and also help control mosquito populations in areas where malaria and other mosquito borne diseases and viruses might be a problem. Nectar eating bats can also help pollinate and bat droppings help in seed dispersal which help plants grow and stay diverse. They are currently under threat due the loss of habitat through deforestation and other human actions.\n\nHelp us protect the welfare and habitat of our bats by purchasing an adoptation pack today.",
             "image_url": "https://images.unsplash.com/photo-1572610865009-ac1ddf0189f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-            "image": "bat-img.jpg"
+            "image": "bat-img.jpg",
+            "image_header_url": "https://images.unsplash.com/photo-1561487767-1f32d174cce0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1700&q=80",
+            "image_header": "bat-header.jpg"
         }
     },
     {
@@ -40,7 +46,9 @@
             "animal_plural": "frogs",
             "desc": "Frogs serve as bio-indicators because their skin absorbs substances in their surrounding habitat. Consequently, any changes to their skin will indicate contamination or other issues present in the area. Like many other animals, several frog species are under threat due to deforestation.\n\nHelp us protect the welfare and habitat of our frogs by purchasing an adoptation pack today.",
             "image_url": "https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-            "image": "frog-img.jpg"
+            "image": "frog-img.jpg",
+            "image_header_url": "https://images.unsplash.com/photo-1588433656154-8d58ba38183a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2600&q=80",
+            "image_header": "frog-header.jpg"
         }
     },
     {
@@ -51,7 +59,9 @@
             "animal_plural": "sharks",
             "desc": "Sharks play a vital role in helping to maintain the delicately balanced ecosystems that keep our oceans healthy. Their feeding can affect prey population numbers, but also prey distribution as they select a habitat to avoid being eaten.  Large predators like sharks are even effective carbon sinks themselves, so more large fish in our oceans could reduce the carbon dioxide being released into our atmosphere. Overfishing, climate change, and habitat loss have had a staggering effect on populations, with a quarter of the world’s sharks and rays threatened with extinction!\n\nHelp us protect the ocean and our marine life by purchasing an adoptation pack today.",
             "image_url": "https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-            "image": "shark-img.jpg"
+            "image": "shark-img.jpg",
+            "image_header_url": "https://images.unsplash.com/photo-1560038951-b1aad7447af7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80",
+            "image_header": "shark-header.jpg"
         }
     }
 ]
