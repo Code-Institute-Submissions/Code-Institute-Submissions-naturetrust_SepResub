@@ -120,7 +120,7 @@
         "pk": 10,
         "model": "adoption.package",
         "fields": {
-            "adoption": 3,
+            "adoption": 5,
             "name": "shark_warrior",
             "friendly_name": "Warrior Package",
             "desc": "A superb gift pack including a welcome letter, photograph, information leaflet and custom ceramic mug. The information leaflet goes into greater detail about sharks' crucial role within our ecosystem and how you can help protect them and their welfare.",
@@ -172,7 +172,7 @@
         "pk": 14,
         "model": "adoption.package",
         "fields": {
-            "adoption": 2,
+            "adoption": 4,
             "name": "frog_champion",
             "friendly_name": "Champion Package",
             "desc": "An exceptional gift pack including a welcome letter, photograph, information leaflet, custom ceramic mug and phone case. The information leaflet goes into greater detail about frogs' crucial role within our ecosystem and how you can help protect them and their welfare.",
@@ -185,7 +185,7 @@
         "pk": 15,
         "model": "adoption.package",
         "fields": {
-            "adoption": 2,
+            "adoption": 5,
             "name": "shark_champion",
             "friendly_name": "Champion Package",
             "desc": "An exceptional gift pack including a welcome letter, photograph, information leaflet, custom ceramic mug and phone case. The information leaflet goes into greater detail about sharks' crucial role within our ecosystem and how you can help protect them and their welfare.",
