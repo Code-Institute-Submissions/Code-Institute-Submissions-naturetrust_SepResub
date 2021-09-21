@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load materializecss %}
 
 {% block content %}
     <section id="Checkout">
@@ -13,48 +14,7 @@
                 <fieldset class="billing-info">
                     <legend class="center title">Billing Information</legend>
                     <div class="row">
-                        <div class="col s12">
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="email" class="validate" id="email">
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
+                        {{ form|materializecss }}
                         <div class="col s12 center mt-5">
                             <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Confirm Address</a>
                         </div>

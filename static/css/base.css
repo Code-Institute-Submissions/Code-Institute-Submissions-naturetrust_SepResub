@@ -775,6 +775,11 @@ Checkout page
     box-shadow: none;
 }
 
+#Checkout .select-wrapper+label {
+    top: -35px;
+    left: -10px;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */

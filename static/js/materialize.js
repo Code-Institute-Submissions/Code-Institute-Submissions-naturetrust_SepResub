@@ -13,4 +13,7 @@ $(document).ready(function () {
 
     // Initialize parallax
     $('.parallax').parallax();
+
+    // Initialize form select
+    $('select').formSelect();
 });
