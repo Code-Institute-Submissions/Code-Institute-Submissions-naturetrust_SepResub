@@ -380,6 +380,18 @@ Shopping cart sidenav styles
     padding-bottom: 80px;
 }
 
+.qty-btn .decrement-qty,
+.qty-btn .increment-qty {
+    position: relative;
+}
+
+.qty-btn .decrement-qty i,
+.qty-btn .increment-qty i {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 /* ======================================================
 Parallax and image styles
 ====================================================== */
