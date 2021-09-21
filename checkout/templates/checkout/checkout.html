@@ -14,127 +14,134 @@
                 <h1 class="title">Secure Checkout</h1>
             </div>
         </div>
-        <div class="row">
-            <!-- Billing information -->
-            <div class="col s12 m6 l5 xl4 offset-l1 offset-xl2">
-                <fieldset class="billing-info">
-                    <legend class="center title">Billing Information</legend>
+        <form action="{% url 'checkout' %}" method="POST" id="paymentForm">
+            {% csrf_token %}
+            <div class="row">
+                <!-- Billing information -->
+                <div class="col s12 m6 l5 xl4 offset-l1 offset-xl2">
+                    <fieldset class="billing-info">
+                        <legend class="center title">Billing Information</legend>
+                        <div class="row">
+                            {{ form | materializecss }}
+                            <div class="col s12 center mt-5">
+                                <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Confirm Address</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- Payment and order summary -->
+                <div class="col s12 m6 l5 xl4">
+                    <!-- Payment method -->
                     <div class="row">
-                        {{ form|materializecss }}
-                        <div class="col s12 center mt-5">
-                            <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Confirm Address</a>
+                        <div class="col s12">
+                            <fieldset class="payment-method">
+                                <legend class="title center">Payment Method</legend>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <p>
+                                            <label>
+                                                <input name="group1" type="radio" checked />
+                                                <span class="title">Credit card</span>
+                                            </label>
+                                        </p>
+                                        <!-- Stripe card element -->
+                                        <div class="row mt-2">
+                                            <div class="col s12">
+                                                <div id="card-element"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Stripe form errors -->
+                                        <div id="card-errors" role="alert"></div>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
-                </fieldset>
-            </div>
-            <!-- Payment and order summary -->
-            <div class="col s12 m6 l5 xl4">
-                <!-- Payment method -->
-                <div class="row">
-                    <div class="col s12">
-                        <fieldset class="payment-method">
-                            <legend class="title center">Payment Method</legend>
-                            <div class="row">
-                                <div class="col s12">
-                                    <p>
-                                        <label>
-                                            <input name="group1" type="radio" checked />
-                                            <span class="title">Credit card</span>
-                                        </label>
-                                    </p>
-                                    <!-- Stripe card element -->
-                                    <div class="row mt-2">
-                                        <div class="col s12">
-                                            <div id="card-element"></div>
-                                        </div>
-                                    </div>
-                                    <!-- Stripe form errors -->
-                                    <div id="card-errors" role="alert"></div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <!-- Order summary -->
-                <div class="row mt-5">
-                    <div class="col s12">
-                        <fieldset class="order-summary">
-                            <legend class="title center">Order summary</legend>
-                            <div class="row my-2">
-                                {% if cart_items %}
-                                    {% for item in cart_items %}
-                                        <div class="col s12">
-                                            <div class="cart-item">
-                                                <div class="row" style="margin: 0;">
-                                                    <!-- Item image -->
-                                                    <div class="col s4 l3 item-img">
-                                                        {% if 'game' in item.product_type  %}
-                                                            {% if item.product.image %}
-                                                                <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
-                                                            {% else %}
-                                                                <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                    <!-- Order summary -->
+                    <div class="row mt-5">
+                        <div class="col s12">
+                            <fieldset class="order-summary">
+                                <legend class="title center">Order summary</legend>
+                                <div class="row my-2">
+                                    {% if cart_items %}
+                                        {% for item in cart_items %}
+                                            <div class="col s12">
+                                                <div class="cart-item">
+                                                    <div class="row" style="margin: 0;">
+                                                        <!-- Item image -->
+                                                        <div class="col s4 l3 item-img">
+                                                            {% if 'game' in item.product_type  %}
+                                                                {% if item.product.image %}
+                                                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                                                {% else %}
+                                                                    <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                                                {% endif %}
+                                                            {% elif 'adoption in item.product_type' %}
+                                                                {% if item.product.image %}
+                                                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                                                {% else %}
+                                                                    <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                                                {% endif %}
                                                             {% endif %}
-                                                        {% elif 'adoption in item.product_type' %}
-                                                            {% if item.product.image %}
-                                                                <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
-                                                            {% else %}
-                                                                <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
-                                                            {% endif %}
-                                                        {% endif %}
-                                                    </div>
-                                                    <!-- Item details -->
-                                                    <div class="col s8 l9 item-details">
-                                                        <div class="row">
-                                                            <div class="col s12 item-heading">
-                                                                <h6 class="title">
-                                                                    {% if 'game' in item.product_type  %}
-                                                                        {{ item.product.friendly_name_full }}
-                                                                    {% elif 'adoption in item.product_type' %}
-                                                                        {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
-                                                                    {% endif %}
-                                                                </h6>
-                                                            </div>
                                                         </div>
-                                                        <!-- Quantity and price -->
-                                                        <div class="row">
-                                                            <div class="col s12">
-                                                                <p class="quantity-price">Quantity: <span>{{ item.quantity }}</span></p>
-                                                                <p class="quantity-price"><span>£{{ item.subtotal }}</span></p>
+                                                        <!-- Item details -->
+                                                        <div class="col s8 l9 item-details">
+                                                            <div class="row">
+                                                                <div class="col s12 item-heading">
+                                                                    <h6 class="title">
+                                                                        {% if 'game' in item.product_type  %}
+                                                                            {{ item.product.friendly_name_full }}
+                                                                        {% elif 'adoption in item.product_type' %}
+                                                                            {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
+                                                                        {% endif %}
+                                                                    </h6>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Quantity and price -->
+                                                            <div class="row">
+                                                                <div class="col s12">
+                                                                    <p class="quantity-price">Quantity: <span>{{ item.quantity }}</span></p>
+                                                                    <p class="quantity-price"><span>£{{ item.subtotal }}</span></p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <!-- Discount code -->
-                <div class="row mt-5">
-                    <div class="col s12">
-                        <div class="divider my-2"></div>
-                        <h6 class="title center">Discount code</h6>
-                        <div class="input-field">
-                            <input type="text" name="email" class="validate" id="email">
-                            <label for="email">Email</label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
-                    <div class="col s12 center">
-                        <a href="#!" class="btn btn-cyan-solid">Apply discount</a>
-                        <div class="divider my-2"></div>
+                    <!-- Discount code -->
+                    <div class="row mt-5">
+                        <div class="col s12">
+                            <div class="divider my-2"></div>
+                            <h6 class="title center">Discount code</h6>
+                            <div class="input-field">
+                                <input type="text" name="email" class="validate" id="email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col s12 center">
+                            <a href="#!" class="btn btn-cyan-solid">Apply discount</a>
+                            <div class="divider my-2"></div>
+                        </div>
                     </div>
-                </div>
-                <!-- Place order -->
-                <div class="row my-2">
-                    <div class="col s12 center">
-                        <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Place Order</a>
+                    <!-- Place order -->
+                    <div class="row my-2">
+                        <div class="col s12 center">
+                            <button type="submit" class="btn btn-cyan-rounded btn-cyan-linear-bg" id="make-payment">Place Order</button>
+                        </div>
+                        <!-- Payment total -->
+                        <div class="col s12 center">
+                            <p>Your card will be charged <strong>£{{ total|floatformat:2 }}</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 {% endblock %}
 

@@ -27,8 +27,8 @@ class Product(models.Model):
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
 
-    last_name = models.CharField(max_length=50, null=False, blank=False)
     first_name = models.CharField(max_length=50, null=False, blank=False)
+    last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     street_address = models.CharField(max_length=80, null=False, blank=False)
     street_address_2 = models.CharField(max_length=80, null=True, blank=True)

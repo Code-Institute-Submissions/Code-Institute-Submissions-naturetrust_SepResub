@@ -30,10 +30,66 @@ var style = {
     },
     invalid: {
         fontFamily: 'Agency, Helvetica, sans-serif',
-        color: "#dc3545",
-        iconColor: "#dc3545"
+        color: "#FF1744",
+        iconColor: "#FF1744"
     }
 };
 
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
+
+
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function (event) {
+    var errorDiv = $('#card-errors');
+    if (event.error) {
+        console.log('error logged here')
+
+        var html = `
+        <div class="col s12 center">
+            <p class="center red-text text-accent-3">${event.error.message}</p>
+        </div>
+        `;
+        $(errorDiv).html(html);
+
+        card.update({'disabled': false});
+        $('#make-payment').attr('disabled', false);
+    } else {
+        errorDiv.textContent = '';
+    };
+});
+
+// Handle form submit
+var form = document.getElementById('paymentForm');
+
+form.addEventListener('submit', function(ev) {
+
+    // disable card element and submit button to prevent multiple submissions.
+    ev.preventDefault();
+    card.update({'disabled': true});
+    $('#make-payment').attr('disabled', true);
+
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(result) {
+        if (result.error) {
+            console.log('error')
+            var errorDiv = $('#card-errors');
+            var html = `
+                <div class="col s12 center">
+                    <span class="center">${event.error.message}</span>
+                </div>
+            `;
+            $(errorDiv).html(html);
+
+            card.update({'disabled': false});
+            $('#make-payment').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            };
+        }
+    });
+});
