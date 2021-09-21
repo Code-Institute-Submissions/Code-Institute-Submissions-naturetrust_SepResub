@@ -1,7 +1,11 @@
-from django.shortcuts import redirect, render, reverse
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.conf import settings
 from django.contrib import messages
 
+from games.models import Edition
+from adoption.models import Package
+
+from .models import Order, OrderLineItem, Product
 from .forms import OrderForm
 from cart.contexts import cart_contents
 
@@ -13,6 +17,77 @@ def checkout(request):
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+    if request.method == 'POST':
+        cart = request.session.get('cart', {})
+
+        form_data = {
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
+            'email': request.POST['email'],
+            'street_address': request.POST['street_address'],
+            'street_address_2': request.POST['street_address_2'],
+            'country': request.POST['country'],
+            'town_or_city': request.POST['town_or_city'],
+            'county': request.POST['county'],
+            'postcode': request.POST['postcode'],
+            'phone_number': request.POST['phone_number'],
+        }
+        form = OrderForm(form_data)
+
+        if form.is_valid():
+            order = form.save()
+            # Iterate through cart items to create each line item
+            print(cart.items())
+            for product_type in cart.items():
+
+                if 'game' in product_type:
+                    for item in product_type:
+                        if isinstance(item, dict):
+                            for item_id, quantity in item.items():
+                                try:
+                                    game = Edition.objects.get(sku=item_id)
+                                    product = Product.objects.create(game=game, price=game.price)
+                                    order_line_item = OrderLineItem(
+                                        order=order,
+                                        product=product,
+                                        quantity=quantity,
+                                    )
+                                    order_line_item.save()
+
+                                except Edition.DoesNotExist:
+                                    messages.error(request, (
+                                        "Cart item not found in our database. "
+                                        "Please contact us for assistance!"
+                                    ))
+                                    order.delete()
+                                    return redirect(reverse('view_cart'))
+                elif 'adoption' in product_type:
+                    for item in product_type:
+                        if isinstance(item, dict):
+                            for item_id, quantity in item.items():
+                                try:
+                                    adoption = Package.objects.get(sku=item_id)
+                                    product = Product.objects.create(adoption=adoption, price=adoption.price)
+                                    order_line_item = OrderLineItem(
+                                        order=order,
+                                        product=product,
+                                        quantity=quantity,
+                                    )
+                                    order_line_item.save()
+
+                                except Package.DoesNotExist:
+                                    messages.error(request, (
+                                        "Cart item not found in our database. "
+                                        "Please contact us for assistance!"
+                                    ))
+                                    order.delete()
+                                    return redirect(reverse('view_cart'))
+
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
 
     cart = request.session.get('cart', {})
     if not cart:
@@ -35,6 +110,7 @@ def checkout(request):
 
     form = OrderForm()
 
+    # Alert if public key is missing
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
@@ -44,6 +120,28 @@ def checkout(request):
         'form': form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
+
+
+def checkout_success(request, order_number):
+    """ A view to render successful checkouts """
+
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(
+        request, f'Order Successfully Processed! \
+            Your order number is {order_number}. \
+            A confirmation email will be sent to {order.email}'
+    )
+
+    # Delete shopping cart from session
+    if 'cart' in request.session:
+        del request.session['cart']
+
+    template = 'checkout/checkout-success.html'
+    context = {
+        'order': order,
     }
 
     return render(request, template, context)

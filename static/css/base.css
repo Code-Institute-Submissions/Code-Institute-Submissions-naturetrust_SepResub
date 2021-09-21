@@ -35,6 +35,11 @@ p {
     letter-spacing: 1px;
 }
 
+p strong {
+    font-family: 'AgencyCYB', sans-serif, serif;
+    font-weight: 600;
+}
+
 .title {
     font-family: 'Chinese Rocks', Times, serif;
     text-transform: uppercase;

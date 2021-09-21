@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="checkoutSuccess">
+        <div class="row my-5">
+            <div class="col s12 center">
+                <h1 class="title">Thank you for your order</h1>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Order summary -->
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <fieldset class="order-summary">
+                    <legend class="center title">Order Summary</legend>
+                    <div class="row my-2">
+                        <div class="col s12">
+                            <div class="cart-item">
+                                |{{ order }}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+{% endblock %}
