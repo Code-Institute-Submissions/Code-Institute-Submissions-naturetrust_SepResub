@@ -1,4 +1,4 @@
-/* ==========================================================================
+-/* ==========================================================================
 BASE STYLES
 ========================================================================== */
 
@@ -44,6 +44,11 @@ p {
 
 br {
     margin-top: 10px;
+}
+
+.my-1 {
+    margin-top: 10px;
+    margin-bottom: 10px;  
 }
 
 .my-2 {
@@ -780,6 +785,20 @@ Checkout page
     left: -10px;
 }
 
+#Checkout .quantity-price {
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#Checkout .quantity-price span {
+    font-family: 'AgencyCYB';
+}
+
+#Checkout .btn-cyan-rounded.btn-cyan-linear-bg {
+    padding: 0 32px;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -1062,6 +1081,11 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
         line-height: 32px;
         font-size: 14px;
         padding: 0 25px;
+    }
+    /* Checkout styles
+    =========================== */
+    fieldset.payment-method {
+        margin-top: 45px;
     }
 }
 

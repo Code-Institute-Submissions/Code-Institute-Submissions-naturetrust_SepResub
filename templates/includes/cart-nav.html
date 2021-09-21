@@ -30,13 +30,13 @@
                         <div class="col s8 l9 item-details">
                             <div class="row">
                                 <div class="col s12 item-heading">
-                                        <h6 class="title">
-                                            {% if 'game' in item.product_type  %}
-                                                {{ item.product.friendly_name_full }}
-                                            {% elif 'adoption in item.product_type' %}
-                                                {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
-                                            {% endif %}
-                                        </h6>
+                                    <h6 class="title">
+                                        {% if 'game' in item.product_type  %}
+                                            {{ item.product.friendly_name_full }}
+                                        {% elif 'adoption in item.product_type' %}
+                                            {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
+                                        {% endif %}
+                                    </h6>
                                 </div>
                             </div>
                             <!-- Update item quantity -->
