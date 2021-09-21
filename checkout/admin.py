@@ -20,7 +20,7 @@ class OrderAdmin(admin.ModelAdmin):
         'order_number', 'date',
         'first_name', 'last_name',
         'email', 'phone_number', 'street_address',
-        'apartment_no', 'town_or_city', 'country',
+        'street_address_2', 'town_or_city', 'country',
         'county', 'postcode',
         'order_total', 'grand_total',
     )

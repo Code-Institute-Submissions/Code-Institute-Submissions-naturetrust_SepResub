@@ -6,7 +6,7 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 
 from games.models import Edition
-from adoption.models import Adoption, Package
+from adoption.models import Package
 
 
 class Product(models.Model):
@@ -22,6 +22,15 @@ class Product(models.Model):
         blank=True,
         on_delete=models.CASCADE
     )
+
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        if self.game:
+            name = self.game.friendly_name_full
+        elif self.adoption:
+            name = self.adoption.friendly_name
+        return name
 
 
 class Order(models.Model):
@@ -50,7 +59,7 @@ class Order(models.Model):
         """ Update grand total each time a line item is added """
 
         self.order_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total_sum']
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
         self.grand_total = self.order_total
         self.save()
@@ -92,4 +101,8 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        if self.product.game:
+            sku = self.product.game.sku
+        elif self.product.adoption:
+            sku = self.product.adoption.sku
+        return f'SKU {sku.upper()} on order {self.order.order_number}'
