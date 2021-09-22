@@ -1,5 +1,20 @@
 from django.contrib import admin
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, Product
+
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = (
+        'sku',
+        'game',
+        'adoption',
+        'price'
+    )
+
+    readonly_fields = ('sku',)
+
+    fields = (
+        'sku', 'game', 'adoption', 'price'
+    )
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
@@ -14,6 +29,7 @@ class OrderAdmin(admin.ModelAdmin):
     readonly_fields = (
         'order_number', 'date',
         'order_total', 'grand_total',
+        'original_cart', 'stripe_pid',
     )
 
     fields = (
@@ -23,9 +39,11 @@ class OrderAdmin(admin.ModelAdmin):
         'street_address_2', 'town_or_city', 'country',
         'county', 'postcode',
         'order_total', 'grand_total',
+        'original_cart', 'stripe_pid',
     )
 
     ordering = ('-date',)
 
 
+admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)

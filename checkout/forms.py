@@ -8,6 +8,7 @@ class OrderForm(forms.ModelForm):
         exclude = (
             'order_number', 'date',
             'order_total', 'grand_total',
+            'original_cart', 'stripe_pid',
         )
 
     def __init__(self, *args, **kwargs):

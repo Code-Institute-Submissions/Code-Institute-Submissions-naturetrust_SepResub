@@ -58,7 +58,12 @@ def checkout(request):
         form = OrderForm(form_data)
 
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
+
             # Iterate through cart items to create each line item
             for product_type in cart.items():
                 if 'game' in product_type:
