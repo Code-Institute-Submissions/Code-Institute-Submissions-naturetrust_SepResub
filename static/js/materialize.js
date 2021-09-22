@@ -16,4 +16,9 @@ $(document).ready(function () {
 
     // Initialize form select
     $('select').formSelect();
+
+    $('#loaderModal').modal({
+        opacity: 0.8,
+        endingTop: '45%',
+    });
 });
