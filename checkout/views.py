@@ -60,16 +60,22 @@ def checkout(request):
         if form.is_valid():
             order = form.save()
             # Iterate through cart items to create each line item
-            print(cart.items())
             for product_type in cart.items():
-
                 if 'game' in product_type:
                     for item in product_type:
                         if isinstance(item, dict):
                             for item_id, quantity in item.items():
                                 try:
                                     game = Edition.objects.get(sku=item_id)
-                                    product = Product.objects.create(game=game, price=game.price)
+                                    try:
+                                        product = Product.objects.get(
+                                            sku=item_id)
+                                    except Product.DoesNotExist:
+                                        product = Product.objects.create(
+                                            sku=item_id,
+                                            game=game,
+                                            price=game.price,
+                                        )
                                     order_line_item = OrderLineItem(
                                         order=order,
                                         product=product,

@@ -23,13 +23,21 @@ class Product(models.Model):
         on_delete=models.CASCADE
     )
 
+    sku = models.CharField(
+        max_length=12,
+        editable=False,
+        unique=True,
+        blank=True,
+    )
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         if self.game:
             name = self.game.friendly_name_full
         elif self.adoption:
-            name = self.adoption.friendly_name
+            animal = self.adoption.adoption.animal
+            package = self.adoption.friendly_name
+            name = animal.title() + ' ' + package
         return name
 
 
@@ -47,8 +55,18 @@ class Order(models.Model):
     postcode = models.CharField(max_length=20, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=False,
+        default=0
+    )
+    grand_total = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=False,
+        default=0
+    )
 
     def _generate_order_number(self):
         """ Generate a random, unique order number using UUID  """
@@ -83,7 +101,12 @@ class OrderLineItem(models.Model):
         on_delete=models.CASCADE,
         related_name='lineitems'
     )
-    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE
+    )
 
     quantity = models.IntegerField(null=True, blank=True, default=0)
     lineitem_total = models.DecimalField(
