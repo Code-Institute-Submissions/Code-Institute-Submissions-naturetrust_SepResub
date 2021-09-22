@@ -820,6 +820,56 @@ Checkout page
     padding: 0 32px;
 }
 
+/* ======================================================
+Checkout success page
+====================================================== */
+
+#checkoutSuccess fieldset p {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#checkoutSuccess fieldset .card-panel {
+    margin: 0;
+    color: #000;
+}
+
+#checkoutSuccess fieldset .order-image {
+    padding-right: 0;
+}
+
+#checkoutSuccess fieldset .order-image img {
+    width: 145px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#checkoutSuccess fieldset .order-details {
+    padding-left: 0;
+}
+
+#checkoutSuccess fieldset .order-details .card-panel {
+    padding: 15px 24px;
+    background-color: #E8E6ED;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#checkoutSuccess fieldset .order-image .card-panel {
+    background-color: #FFFFFF;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#checkoutSuccess fieldset .card-panel p {
+    color: #a0a0a0;
+    letter-spacing: 1px;
+}
+
+#checkoutSuccess fieldset .card-panel p strong {
+    color: #000000;
+}
+
 /* ==========================================================================
 MEDIA QUERIES FOR RESPONSIVE DESIGN
 ========================================================================== */
@@ -1108,6 +1158,12 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     fieldset.payment-method {
         margin-top: 45px;
     }
+    /* Checkout success styles
+    =========================== */
+    #checkoutSuccess fieldset .order-image img {
+        width: 115px;
+        height: 160px;
+    }
 }
 
 @media (max-width: 970px) {
@@ -1305,6 +1361,18 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     }
 }
 
+@media (max-width: 525px) {
+    /* Checkout success styles
+    =========================== */
+    #checkoutSuccess fieldset .order-image .card-panel {
+        padding: 35px 10px 10px;
+    }
+    #checkoutSuccess fieldset .order-image img {
+        width: 100px;
+        height: 145px;
+    }
+}
+
 @media (max-width: 500px) {
     /* Game details styles
     =========================== */
@@ -1373,6 +1441,18 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     #allAdoptions .img-card img {
         width: 265px;
         height: 260px;
+    }
+    /* Checkout success styles
+    =========================== */
+    #checkoutSuccess fieldset .order-image {
+        display: none;
+    }
+    #checkoutSuccess fieldset .order-details-img {
+        position: relative;
+    }
+    #checkoutSuccess fieldset .order-details {
+        position: absolute;
+        width: 100%;
     }
 }
 

@@ -8,19 +8,182 @@
             </div>
         </div>
         <div class="row">
+            <div class="col s10 offset-s1">
+                <div class="divider"></div>
+            </div>
+            <div class="col s12 center">
+                <p>Your order information is below. A confirmation email will be to sent to {{ order.email }}</p>
+            </div>
+        </div>
+        <div class="row my-5">
             <!-- Order summary -->
-            <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="col s12 m10 offset-m1">
                 <fieldset class="order-summary">
                     <legend class="center title">Order Summary</legend>
-                    <div class="row my-2">
+                    <div class="row">
                         <div class="col s12">
-                            <div class="cart-item">
-                                |{{ order }}
-                            </div>
+                            <table>
+                                <!-- Heading -->
+                                <tr>
+                                    <th>Order Info:</th>
+                                </tr>
+                                <!-- Order details -->
+                                <tr>
+                                    <th>
+                                        <p>Date Ordered: </p>
+                                        <p>Payment: </p>
+                                        <p>Order number: </p>
+                                    </th>
+                                    <th>
+                                        <p>{{ order.date }}</p>
+                                        <p>Paid by card</p>
+                                        <p>{{ order.order_number }}</p>
+                                    </th>
+                                </tr>
+                                <!-- Heading -->
+                                <tr>
+                                    <th>Order Contents:</th>
+                                </tr>
+                                <!-- Order inline products -->
+                                {% for item in order.lineitems.all %}
+                                <tr class="order-details-img">
+                                    <!-- Order Image -->
+                                    <th class="order-image">
+                                        <div class="card-panel">
+                                            <div class="row">
+                                                <div class="col s12 center">
+                                                    {% if item.product.game %}
+                                                        {% with item.product.game as edition %}
+                                                            {% if edition.image %}
+                                                                <img src="{{ edition.image.url }}" alt="{{ edition.friendly_name_full }}">
+                                                            {% else %}
+                                                                <img src="{{ edition.game.image.url }}" alt="{{ edition.friendly_name }}">
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    {% elif item.product.adoption %}
+                                                        {% with item.product.adoption as package %}
+                                                            {% if package.image %}
+                                                                <img src="{{ package.image.url }}" alt="{{ package.friendly_name }} for {{ package.adoption.animal_plural }}">
+                                                            {% else %}
+                                                                <img src="{{ package.adoption.image.url }}" alt="{{ package.friendly_name }} for {{ package.adoption.animal_plural }}">
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </th>
+                                    <!-- Product details -->
+                                    <th class="order-details">
+                                        <div class="card-panel">
+                                            <div class="row">
+                                                <div class="col s12">
+                                                    <p>
+                                                        <strong>
+                                                            {% if item.product.game %}
+                                                                {% with item.product.game as edition %}
+                                                                    {{ edition.friendly_name_full }}
+                                                                {% endwith %}
+                                                            {% elif item.product.adoption %}
+                                                                {% with item.product.adoption as package %}
+                                                                    {{ package.adoption.animal }} {{ package.friendly_name }}
+                                                                {% endwith %}
+                                                            {% endif %}
+                                                        </strong>
+                                                    </p>
+                                                    <p><strong>Date ordered:</strong> {{ order.date }}</p>
+
+                                                    {% if item.product.game %}
+                                                        {% with item.product.game as edition %}
+                                                            <p><strong>Product number:</strong> {{ edition.sku }}</p>
+                                                        {% endwith %}
+                                                    {% elif item.product.adoption %}
+                                                        {% with item.product.adoption as adoption %}
+                                                        <p><strong>Product number:</strong> {{ adoption.sku }}</p>
+                                                        {% endwith %}
+                                                    {% endif %}
+
+                                                    <p><strong>Qty:</strong> {{ item.quantity }}</p>
+                                                    <p><strong>£{{ item.lineitem_total }}</strong></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                {% endfor %}
+                                <!-- Heading -->
+                                <tr>
+                                    <th>Billing Address:</th>
+                                </tr>
+                                <!-- Billing address -->
+                                <tr>
+                                    <th>
+                                        <p>Full name: </p>
+                                        <p>Email Address: </p>
+
+                                        {% if order.phone_number %}
+                                            <p>Phone Number: </p>
+                                        {% endif %}
+                                        
+                                        {% if order.street_address_2 %}
+                                            <p>Street Address 1: </p>
+                                            <p>Street Address 2: </p>
+                                        {% else %}
+                                            <p>Street Address: </p>
+                                        {% endif %}
+                                        
+                                        <p>Town or City: </p>
+
+                                        {% if order.county %}
+                                            <p>County: </p>
+                                        {% endif %}
+                                        
+                                        <p>Country: </p>
+                                        <p>Postcode: </p>
+                                    </th>
+                                    <th>
+                                        <p>{{ order.first_name }} {{ order.last_name }}</p>
+                                        <p>{{ order.email }}</p>
+
+                                        {% if order.phone_number %}
+                                            <p>{{ order.phone_number }}</p>
+                                        {% endif %}
+
+                                        <p>{{ order.street_address }}</p>
+                                        
+                                        {% if order.street_address_2 %}
+                                            <p>{{ order.street_address_2 }}</p>
+                                        {% endif %}
+
+                                        <p>{{ order.town_or_city }}</p>
+
+                                        {% if order.county %}
+                                            <p>{{ order.county }}</p>
+                                        {% endif %}
+
+                                        <p>{{ order.country }}</p>
+                                        <p>{{ order.postcode }}</p>
+                                    </th>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </fieldset>
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript">
+        // Fix table height values
+        $(document).ready(function() {
+            var orderHeight = $('.order-details').height()
+            var height = orderHeight + 10
+            $('.order-image .card-panel').css('height', `${height}px`);
+            $('.order-details .card-panel').css('height', `${height}px`);
+
+            $('.order-details-img').css('height', `${height + 35}px`);
+        });
+    </script>
 {% endblock %}
