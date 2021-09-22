@@ -114,9 +114,16 @@ br {
     color: #FFFFFF;
 }
 
-#shopping-cart-icon {
+#shopping-cart-icon,
+#sign-in-icon {
     width: 22px;
     height: 22px;
+}
+
+#profile-icon {
+    margin-top: 12px;
+    width: 28px;
+    height: 28px;
 }
 
 /* I used the following source to add a border to the clip-path element:
@@ -215,6 +222,10 @@ nav {
     box-shadow: none;
 }
 
+nav .games-btn {
+    margin-right: 25px;
+}
+
 .purchase-btn-list-item {
     height: 64px;
 }
@@ -222,7 +233,7 @@ nav {
 #nav-purchase-btn {
     width: 165px;
     height: 35px;
-    margin: 12px auto;
+    margin: 8px auto;
     font-size: 22px;
 }
 
@@ -1094,6 +1105,29 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
     .btn-cyan-rounded {
         font-size: 22px !important;
     }
+    /* Navbar styles
+    =========================== */
+    nav li,
+    nav li a {
+        height: 42px !important;
+    }
+    nav a.sidenav-trigger {
+        line-height: 60px;
+        padding-left: 10px;
+    }
+    #profile-icon {
+        width: 24px;
+        height: 24px;
+    }
+    nav .purchase-btn {
+        width: 125px !important;
+        height: 35px !important;
+        font-size: 18px !important;
+        padding: 10px 5px;
+    }
+    nav .games-btn {
+        margin-right: 10px;
+    }
     /* Home parallax styles
     =========================== */
     .parallax-title {
@@ -1484,6 +1518,11 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
 }
 
 @media (max-width: 345px){
+    /* Navbar styles
+    =========================== */
+    nav .games-btn {
+        display: none;
+    }
     /* Adoption page styles
     =========================== */
     #allAdoptions .contrast-card {

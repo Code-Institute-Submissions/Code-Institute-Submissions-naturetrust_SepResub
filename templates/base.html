@@ -42,8 +42,17 @@
                 <a href="#" data-target="sidenav-main" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
                 <a href="{% url 'home' %}" class="brand-logo title hide-on-med-and-down">NatureTrust</a>
                 <ul class="right">
-                    <li><a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners" id="nav-purchase-btn">Buy Games</a></li>
-                    <li><a href="#shoppingCartNav" class="sidenav-trigger show-on-large">
+                    <li class="games-btn"><a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners" id="nav-purchase-btn">Buy Games</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="#!"  style="max-height: 64px;">
+                            <img src="{{ MEDIA_URL }}icons/profile.svg" alt="User Profile icon" id="profile-icon">
+                        </a></li>
+                    {% else %}
+                        <li><a href="{% url 'account_login' %}">
+                            <img src="{{ MEDIA_URL }}icons/user.svg" alt="User Profile icon" id="sign-in-icon">
+                        </a></li>
+                    {% endif %}
+                    <li><a href="#shoppingCartNav" class="sidenav-trigger show-on-large" style="margin-left: 0;">
                         <img src="{{ MEDIA_URL }}icons/shopping-cart.svg" alt="Shopping cart icon" id="shopping-cart-icon">
                     </a></li>
                 </ul>
