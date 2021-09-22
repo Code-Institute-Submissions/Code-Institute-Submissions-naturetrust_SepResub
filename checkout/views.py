@@ -96,7 +96,15 @@ def checkout(request):
                             for item_id, quantity in item.items():
                                 try:
                                     adoption = Package.objects.get(sku=item_id)
-                                    product = Product.objects.create(adoption=adoption, price=adoption.price)
+                                    try:
+                                        product = Product.objects.get(
+                                            sku=item_id)
+                                    except Product.DoesNotExist:
+                                        product = Product.objects.create(
+                                            sku=item_id,
+                                            adoption=adoption,
+                                            price=adoption.price,
+                                        )
                                     order_line_item = OrderLineItem(
                                         order=order,
                                         product=product,
