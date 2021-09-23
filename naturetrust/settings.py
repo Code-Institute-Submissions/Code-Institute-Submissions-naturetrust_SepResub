@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'adoption',
     'cart',
     'checkout',
+    'profiles',
 
     # Other
     'materializecssform',
