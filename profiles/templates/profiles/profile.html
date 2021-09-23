@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load materializecss %}
 
 {% block content %}
 
@@ -28,15 +29,32 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="card" style="background-color: #000;">
-                        <div class="card-content">
-                            <span class="card-title title center">Contact information</span>
-                            <p>full name</p>
-                            <p>email</p>
+                        <div class="card-content center">
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="card-title title center">Contact information</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                                </div>
+                                <div class="col s12">
+                                    <p>{{ profile.user.email }}</p>
+                                </div>
+                                <div class="col s12">
+                                    {% for field in form %}
+                                        {% if field.name == 'default_phone_number' %}
+                                            <p>{{ field.value|default_if_none:"" }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <div class="row center">
                                 <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Edit Information</a>
+                                    <a href="{% url 'profile_form' %}" class="btn btn-cyan-rounded">Edit Information</a>
                                 </div>
                             </div>
                             <div class="row center">
@@ -60,14 +78,28 @@
                 <div class="col s12 m6">
                     <div class="card" style="background-color: #000;">
                         <div class="card-content">
-                            <span class="card-title title center">Billing Address</span>
-                            <p>full name</p>
-                            <p>email</p>
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="card-title title center">Billing Address</span>
+                                </div>
+                            </div>
+                            <div class="row center">
+                                <div class="col s12">
+                                    <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                                </div>
+                                <div class="col s12">
+                                    {% for field in form %}
+                                        {% if field.name != 'default_phone_number' %}
+                                            <p>{{ field.value|default_if_none:"" }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <div class="row center">
                                 <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Change Address</a>
+                                    <a href="{% url 'profile_form' %}" class="btn btn-cyan-rounded">Change Address</a>
                                 </div>
                             </div>
                         </div>
@@ -76,14 +108,28 @@
                 <div class="col s12 m6">
                     <div class="card" style="background-color: #000;">
                         <div class="card-content">
-                            <span class="card-title title center">Shipping Address</span>
-                            <p>full name</p>
-                            <p>email</p>
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="card-title title center">Shipping Address</span>
+                                </div>
+                            </div>
+                            <div class="row center">
+                                <div class="col s12">
+                                    <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                                </div>
+                                <div class="col s12">
+                                    {% for field in form %}
+                                        {% if field.name != 'default_phone_number' %}
+                                            <p>{{ field.value|default_if_none:"" }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <div class="row center">
                                 <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Change Address</a>
+                                    <a href="{% url 'profile_form' %}" class="btn btn-cyan-rounded">Change Address</a>
                                 </div>
                             </div>
                         </div>

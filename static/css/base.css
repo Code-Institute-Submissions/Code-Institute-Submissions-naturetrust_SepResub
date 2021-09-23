@@ -977,6 +977,16 @@ Profile styles
     border: 1px solid #EBD9FF;
 }
 
+#Profile .card-content p {
+    font-family: 'AgencyFB', sans-serif;
+    color: #D5D5D5;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 2px auto;
+}
+
 .profile .btn-cyan-rounded {
     font-size: 22px !important;
 }
