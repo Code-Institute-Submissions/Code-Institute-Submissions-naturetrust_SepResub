@@ -182,6 +182,24 @@ br {
     padding: 0 35px;
 }
 
+.btn-purple {
+    font-family: 'AgencyCYB';
+    font-size: 16px;
+    letter-spacing: 2px;
+    background: #050A32;
+    border: 1px solid #D5DAFF;
+    border-radius: 25px;
+    padding: 0 35px;
+}
+
+.btn-purple:hover,
+.btn-purple:focus,
+#profileNav .btn-purple:hover,
+#profileNav .btn-purple:focus {
+    background: #49cfe6;
+    border: 2px solid #00FBEF;
+}
+
 .btn-cyan-solid {
     font-family: 'Agency';
     font-size: 16px;
@@ -937,6 +955,25 @@ Checkout success page
 
 #checkoutSuccess fieldset .card-panel p strong {
     color: #000000;
+}
+
+/* ======================================================
+Profile styles
+====================================================== */
+
+#profileNav .nav-wrapper {
+    height: 84px;
+    background-color: rgba(12, 0, 32, 75%);
+}
+
+#profileNav .btn-purple {
+    font-size: 18px !important;
+    margin: 15px 10px;
+    border: 1px solid #EBD9FF;
+}
+
+#Profile .btn-cyan-rounded {
+    font-size: 22px !important;
 }
 
 /* ==========================================================================

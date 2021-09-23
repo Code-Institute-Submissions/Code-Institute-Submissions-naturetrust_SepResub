@@ -44,7 +44,7 @@
                 <ul class="right">
                     <li class="games-btn"><a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners" id="nav-purchase-btn">Buy Games</a></li>
                     {% if request.user.is_authenticated %}
-                        <li><a href="#!"  style="max-height: 64px;">
+                        <li><a href="{% url 'profile' %}"  style="max-height: 64px;">
                             <img src="{{ MEDIA_URL }}icons/profile.svg" alt="User Profile icon" id="profile-icon">
                         </a></li>
                     {% else %}
