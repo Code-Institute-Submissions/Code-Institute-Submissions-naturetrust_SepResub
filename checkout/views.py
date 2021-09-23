@@ -138,46 +138,47 @@ def checkout(request):
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
+    # Handle get requests
+    else:
+        cart = request.session.get('cart', {})
+        if not cart:
+            messages.error(request, "There's nothing in your shopping cart!")
+            return redirect(reverse('games'))
 
-    cart = request.session.get('cart', {})
-    if not cart:
-        messages.error(request, "There's nothing in your shopping cart!")
-        return redirect(reverse('games'))
+        current_cart = cart_contents(request)
+        total = current_cart['total']
 
-    current_cart = cart_contents(request)
-    total = current_cart['total']
+        stripe_total = round(total * 100)
 
-    stripe_total = round(total * 100)
+        # Set secret key on stripe
+        stripe.api_key = stripe_secret_key
 
-    # Set secret key on stripe
-    stripe.api_key = stripe_secret_key
+        # Create Stripe payment intent
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
-    # Create Stripe payment intent
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+        form = OrderForm()
 
-    form = OrderForm()
-
-    if request.user.is_authenticated:
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-            form = OrderForm(initial={
-                'first_name': profile.user.first_name,
-                'last_name': profile.user.last_name,
-                'email': profile.user.email,
-                'street_address': profile.default_street_address,
-                'street_address_2': profile.default_street_address_2,
-                'country': profile.default_country,
-                'town_or_city': profile.default_town_or_city,
-                'county': profile.default_county,
-                'postcode': profile.default_postcode,
-                'phone_number': profile.default_phone_number,
-            })
-        except UserProfile.DoesNotExist:
-            # Render form empty
-            form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                form = OrderForm(initial={
+                    'first_name': profile.user.first_name,
+                    'last_name': profile.user.last_name,
+                    'email': profile.user.email,
+                    'street_address': profile.default_street_address,
+                    'street_address_2': profile.default_street_address_2,
+                    'country': profile.default_country,
+                    'town_or_city': profile.default_town_or_city,
+                    'county': profile.default_county,
+                    'postcode': profile.default_postcode,
+                    'phone_number': profile.default_phone_number,
+                })
+            except UserProfile.DoesNotExist:
+                # Render form empty
+                form = OrderForm()
 
     # Alert if public key is missing
     if not stripe_public_key:

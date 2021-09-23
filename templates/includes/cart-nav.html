@@ -94,6 +94,8 @@
         <li class="center">You have no items in your shopping cart</li>
     {% endif %}
     </div>
+
+    {% if cart_items %}
     <!-- Footer -->
     <li class="sidenav-footer">
         <!-- Subtotal -->
@@ -110,4 +112,5 @@
         <!-- Checkout -->
         <a href="{% url 'checkout' %}" class="btn btn-cyan-rounded btn-cyan-linear-bg">Secure checkout</a>
     </li>
+    {% endif %}
 </ul>

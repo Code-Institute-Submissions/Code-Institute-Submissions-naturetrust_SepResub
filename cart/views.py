@@ -80,7 +80,14 @@ def remove_from_cart(request, item_id):
         cart = request.session.get('cart', {})
         cart[product_type].pop(item_id)
 
-        request.session['cart'] = cart
+        cart_item_len = sum(map(len, cart.values()))
+
+        if cart_item_len == 0:
+            # Delete shopping cart from session if no items are present
+            # in order to prevent users from trying to go to checkout
+            del request.session['cart']
+        else:
+            request.session['cart'] = cart
 
         if product_type == 'game':
             messages.success(
