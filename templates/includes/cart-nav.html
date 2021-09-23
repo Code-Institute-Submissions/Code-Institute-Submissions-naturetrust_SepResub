@@ -4,7 +4,7 @@
         <h4 class="title center">My Cart <span style="font-size: 18px;">{{ product_count }} items</span></h4>
     </li>
     <!-- Cart contents -->
-    <div class="cart-items">
+    <ul class="cart-items">
         {% if cart_items %}
         {% for item in cart_items %}
             <li class="outer-cart-item">
@@ -93,7 +93,7 @@
     {% else %}
         <li class="center">You have no items in your shopping cart</li>
     {% endif %}
-    </div>
+    </ul>
 
     {% if cart_items %}
     <!-- Footer -->
