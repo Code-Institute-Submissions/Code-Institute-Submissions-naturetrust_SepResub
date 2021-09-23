@@ -1,0 +1,1 @@
+Your NATURETRUST.com Order confirmation {{ order.order_number }}

@@ -1,0 +1,34 @@
+YOUR ORDER IS COMPLETE.
+
+ORDER NUMBER: {{ order.order_number }}
+PLACED ON: {{ order.date }}
+
+Hi {{ order.first_name }} {{ order.last_name }},
+
+This is a confirmation of your order at NATURETRUST.com.
+
+If you have purchased a game key then you should recieve an email with your code within 24 hours. Alternatively, you can log into your NATURETRUST.com account and retrieve your code via your user profile. If you do not recieve this code then please contact us via our website and we will help resolve your issue.
+
+If you have purchased an adoption pack, then your order will be dispatched within 2 working days and shipped to {{ order.street_address }} in {{ order.town_or_city }}, {{ order.country }}.
+
+We've got your phone number on file as {{ order.phone_number }}.
+
+If you have any questions, then please contact us at {{ contact_email }}.
+
+
+ORDER NUMBER: {{ order.order_number }}
+ORDER DATE: {{ order.date }}
+CUSTOMER NAME: { order.first_name }} {{ order.last_name }}
+
+BILLING ADDRESS: {{ order.street_address }}, {{ order.town_or_city }}, {{ order.country }}
+
+ORDER TOTAL: £{{ order.order_total }}
+DELIVERY: £
+GRAND_TOTAL: £{{ order.grand_total }}
+
+
+Thank you for your order!
+
+Sincerely,
+
+NATURETRUST
