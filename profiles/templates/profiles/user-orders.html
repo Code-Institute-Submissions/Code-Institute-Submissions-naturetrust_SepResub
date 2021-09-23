@@ -5,106 +5,46 @@
 
     {% include 'profiles/includes/profile-nav.html' %}
 
-    <section class="profile" id="Profile">
-        <div class="container my-5">
+    <section class="profile" id="profile-userOrders">
+        <div class="container">
             <!-- Heading -->
-            <div class="row">
+            <div class="row my-5">
                 <div class="col s12">
-                    <h1 class="title center">My Profile</h1>
+                    <h1 class="title center">My Orders</h1>
                 </div>
-                <div class="col s12">
+                <div class="col s12 my-5">
                     <div class="divider"></div>
                 </div>
             </div>
-    
-            <!-- Account info -->
-            <div class="row mt-5">
-                <div class="col s12">
-                    <h5 class="title">Account Information</h5>
-                </div>
-            </div>
-    
-            <!-- Contact information -->
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="card" style="background-color: #000;">
-                        <div class="card-content">
-                            <span class="card-title title center">Contact information</span>
-                            <p>full name</p>
-                            <p>email</p>
-                        </div>
-                        <div class="card-action">
-                            <div class="row center">
-                                <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Edit Information</a>
-                                </div>
-                            </div>
-                            <div class="row center">
-                                <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Change password</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row mt-5">
-                <div class="col s12">
-                    <h5 class="title">Address Book</h5>
-                </div>
-            </div>
-    
-            <!-- Address book -->
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="card" style="background-color: #000;">
-                        <div class="card-content">
-                            <span class="card-title title center">Billing Address</span>
-                            <p>full name</p>
-                            <p>email</p>
-                        </div>
-                        <div class="card-action">
-                            <div class="row center">
-                                <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Change Address</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <div class="card" style="background-color: #000;">
-                        <div class="card-content">
-                            <span class="card-title title center">Shipping Address</span>
-                            <p>full name</p>
-                            <p>email</p>
-                        </div>
-                        <div class="card-action">
-                            <div class="row center">
-                                <div class="col s12">
-                                    <a href="#!" class="btn btn-cyan-rounded">Change Address</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Games purchased -->
-            <div class="row mt-5">
-                <div class="col s12 mt-5">
-                    <h3 class="title center">Games purchased</h3>
-                </div>
-                <div class="col s12">
-                    <div class="divider"></div>
-                </div>
-            </div>
-
+            <!-- Orders -->
             <div class="row">
                 <div class="col s12">
                     <table>
                         {% for order in orders %}
+                            <tr>
+                                <th class="order-header"
+                                style="padding-bottom: 0; padding-right: 0;">
+                                    <div class="card-panel" style="margin: 0; background-color: rgba(12, 0, 32, 75%);">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <p>Order Info:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="order-main-details"
+                                style="padding-bottom: 0; padding-left: 0;">
+                                    <div class="card-panel" style="margin: 0; background-color: #141429;">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <p>Date Ordered: {{ order.date }}</p>
+                                                <p>Payment: Paid by card</p>
+                                                <p>Order number: {{ order.order_number }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
                             {% for item in order.lineitems.all %}
                                 {% if item.product.game %}
                                 <tr class="order-details-img">
@@ -136,12 +76,6 @@
                                                             {% endwith %}
                                                         </strong>
                                                     </p>
-                                                    <p><strong>Date ordered:</strong> {{ order.date }}</p>
-            
-                                                    {% with item.product.game as edition %}
-                                                        <p><strong>Product number:</strong> {{ edition.sku }}</p>
-                                                    {% endwith %}
-            
                                                     <p><strong>Qty:</strong> {{ item.quantity }}</p>
                                                     <p><strong>£{{ item.lineitem_total }}</strong></p>
 
@@ -155,29 +89,7 @@
                                         </div>
                                     </th>
                                 </tr>
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-                    </table>
-                </div>
-            </div>
-            
-            <!-- Adoptions purchased -->
-            <div class="row mt-5">
-                <div class="col s12 mt-5">
-                    <h3 class="title center">Animals Adopted</h3>
-                </div>
-                <div class="col s12">
-                    <div class="divider"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12">
-                    <table>
-                        {% for order in orders %}
-                            {% for item in order.lineitems.all %}
-                                {% if item.product.adoption %}
+                                {% elif item.product.adoption %}
                                 <tr class="order-details-img">
                                     <!-- Order Image -->
                                     <th class="order-image">
@@ -207,12 +119,6 @@
                                                             {% endwith %}
                                                         </strong>
                                                     </p>
-                                                    <p><strong>Date ordered:</strong> {{ order.date }}</p>
-            
-                                                    {% with item.product.adoption as package %}
-                                                        <p><strong>Product number:</strong> {{ package.sku }}</p>
-                                                    {% endwith %}
-            
                                                     <p><strong>Qty:</strong> {{ item.quantity }}</p>
                                                     <p><strong>£{{ item.lineitem_total }}</strong></p>
 
@@ -232,7 +138,6 @@
                     </table>
                 </div>
             </div>
-
         </div>
     </section>
 {% endblock %}
@@ -241,6 +146,11 @@
     <script type="text/javascript">
         // Fix table height values
         $(document).ready(function() {
+            var tableHeaderHeight = $('.order-main-details').height()
+            var height = tableHeaderHeight + 10
+            $('.order-header .card-panel').css('height', `${height}px`);
+            $('.order-main-details .card-panel').css('height', `${height}px`);
+
             var orderHeight = $('.order-details').height()
             var height = orderHeight + 10
             $('.order-image .card-panel').css('height', `${height}px`);

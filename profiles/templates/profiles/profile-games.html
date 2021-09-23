@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% include 'profiles/includes/profile-nav.html' %}
+
+    <section class="profile">
+        <div class="container">
+            <!-- Heading -->
+            <div class="row my-5">
+                <div class="col s12">
+                    <h1 class="title center">My Games</h1>
+                </div>
+                <div class="col s12 my-5">
+                    <div class="divider"></div>
+                </div>
+            </div>
+            <!-- Orders -->
+            <div class="row">
+                <div class="col s12">
+                    <table>
+                        {% for order in orders %}
+                            {% for item in order.lineitems.all %}
+                                {% if item.product.game %}
+                                <tr class="order-details-img">
+                                    <!-- Order Image -->
+                                    <th class="order-image">
+                                        <div class="card-panel">
+                                            <div class="row">
+                                                <div class="col s12 center">
+                                                    {% with item.product.game as edition %}
+                                                        {% if edition.image %}
+                                                            <img src="{{ edition.image.url }}" alt="{{ edition.friendly_name_full }}">
+                                                        {% else %}
+                                                            <img src="{{ edition.game.image.url }}" alt="{{ edition.friendly_name }}">
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </th>
+                                    <!-- Product details -->
+                                    <th class="order-details">
+                                        <div class="card-panel">
+                                            <div class="row">
+                                                <div class="col s12 py-2">
+                                                    <p>
+                                                        <strong>
+                                                            {% with item.product.game as edition %}
+                                                                {{ edition.friendly_name_full }}
+                                                            {% endwith %}
+                                                        </strong>
+                                                    </p>
+                                                    <p><strong>Date ordered:</strong> {{ order.date }}</p>
+            
+                                                    {% with item.product.game as edition %}
+                                                        <p><strong>Product number:</strong> {{ edition.sku }}</p>
+                                                    {% endwith %}
+            
+                                                    <p><strong>Qty:</strong> {{ item.quantity }}</p>
+                                                    <p><strong>£{{ item.lineitem_total }}</strong></p>
+
+                                                    <div class="divider"></div>
+                                                    
+                                                    {% with item.product.game as edition %}
+                                                        <p>{{ edition.desc|slice:":325" }}...</p>
+                                                    {% endwith %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript">
+        // Fix table height values
+        $(document).ready(function() {
+            var tableHeaderHeight = $('.order-main-details').height()
+            var height = tableHeaderHeight + 10
+            $('.order-header .card-panel').css('height', `${height}px`);
+            $('.order-main-details .card-panel').css('height', `${height}px`);
+
+            var orderHeight = $('.order-details').height()
+            var height = orderHeight + 10
+            $('.order-image .card-panel').css('height', `${height}px`);
+            $('.order-details .card-panel').css('height', `${height}px`);
+
+            $('.order-details-img').css('height', `${height + 35}px`);
+        });
+    </script>
+{% endblock %}
