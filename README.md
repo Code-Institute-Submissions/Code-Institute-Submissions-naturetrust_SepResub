@@ -3,6 +3,8 @@
 
 ## Contents 
 
+- [UX](#ux)
+
 
 - [Deployment](#deployment)
 
@@ -12,6 +14,34 @@
 
 
 -----
+
+## UX
+
+
+-----
+
+
+### User Stories
+
+
+#### Viewing and Navigation
+
+![User stories](documentation/media/user-stories-1.png)
+
+
+#### Registration and User Accounts
+
+![User stories](documentation/media/user-stories-2.png)
+
+
+#### Making a Purchase at Checkout
+
+![User stories](documentation/media/user-stories-3.png)
+
+
+-----
+
+
 
 ## Deployment
 
