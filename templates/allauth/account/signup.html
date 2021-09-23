@@ -1,21 +1,54 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% load materializecss %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<h2 class="title center">{% trans "Create an account" %}</h2>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<section class="my-5" id="Signup">
+    <div class="row">
+        <div class="col s12 l10 offset-l1">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                <fieldset class="signup">
+                    <legend class="title center">Sign up</legend>
+                    <div class="row">
+                        {{ form | materializecss }}
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col s12 center">
+                            <button type="submit" class="account-btn btn btn-cyan-rounded btn-cyan-linear-bg">
+                                {% trans "Sign Up" %}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 center">
+                            <p class="standard-text-link-muted">{% blocktrans %}Already have an account? <a href="{{ login_url }}" class="standard-text-link">Log in here</a>.{% endblocktrans %}</p>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- Remove placeholders -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var inputs = $('input');
+            inputs.removeAttr('placeholder');
+        });
+    </script>
 {% endblock %}

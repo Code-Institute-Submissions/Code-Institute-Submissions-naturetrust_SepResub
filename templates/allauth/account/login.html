@@ -2,45 +2,127 @@
 
 {% load i18n %}
 {% load account socialaccount %}
+{% load materializecss %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
-
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="socialaccount_ballot">
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
+    <ul class="socialaccount_providers">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
 
-  <div class="login-or">{% trans 'or' %}</div>
+    <div class="login-or">{% trans 'or' %}</div>
 
 </div>
 
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
+<section class="my-5" id="Login">
+    <div class="row">
+        <!-- Log in -->
+        <div class="col s12 m7 l8 my-5">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                <fieldset class="login">
+                    <legend class="title center">Log In</legend>
+                    <div class="row">
+                        {% for field in form %}
+                            {% if field.name == "remember" %}
+                                <div class="col s12 mt-5" style="padding-left: 0;">
+                                    {{ field | materializecss }}
+                                </div>
+                            {% else %}
+                                {{ field | materializecss }}
+                            {% endif %}
+                            {% if field.name == 'password' %}
+                                <div class="col s12">
+                                    <a href="{% url 'account_reset_password' %}" class="button secondaryAction standard-text-link">
+                                        {% trans "Forgot Password?" %}
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
 
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col s12 center">
+                            <button type="submit" class="primaryAction account-btn btn btn-cyan-rounded btn-cyan-linear-bg">
+                                {% trans "Log In" %}
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <!-- Sign up -->
+        <div class="col s12 m5 l4 my-5">
+            <fieldset class="login">
+                <legend class="title center">Sign Up</legend>
+                    <div class="row">
+                        <div class="col s12">
+                            <p class="center">
+                                Simply click the register button below and fill out the registration form to make an account to become a member of
+                                our community. it’s quick and easy!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" class="icons-and-text">
+                        <div class="col s12 center">
+                            <p style="display: inline-flex; align-items: center;">
+                                <i class="material-icons">redeem</i>
+                                <span>Recieve discounts & benefits</span>
+                            </p>
+                        </div>
+                        <div class="col s12 center">
+                            <p style="display: inline-flex; align-items: center;">
+                                <i class="material-icons">people_outline</i>
+                                Be part of a commmunity
+                            </p>
+                        </div>
+                        <div class="col s12 center">
+                            <p style="display: inline-flex; align-items: center;">
+                                <i class="material-icons">nature_people</i>
+                                Help protect the earth
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 center">
+                            <a href="{{ signup_url }}" class="primaryAction account-btn btn btn-cyan-rounded btn-cyan-linear-bg">
+                                Sign Up
+                            </a>
+                        </div>
+                    </div>
+            </fieldset>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- Remove placeholders -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var inputs = $('input');
+            inputs.removeAttr('placeholder');
+        });
+    </script>
 {% endblock %}

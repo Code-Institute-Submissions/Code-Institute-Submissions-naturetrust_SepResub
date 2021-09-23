@@ -266,6 +266,57 @@ Sidenav styles
 }
 
 /* ======================================================
+Authentication styles
+====================================================== */
+
+.standard-text-link {
+    font-family: 'AgencyFB', sans-serif, serif;
+    color: #10E7DD;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.standard-text-link-muted {
+    font-family: 'AgencyFB', sans-serif, serif;
+    color: rgba(16, 231, 221, 75%);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.login p {
+    font-family: 'AgencyFB', sans-serif, serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.login p i {
+    font-size: 36px;
+    padding-right: 5px;
+}
+
+.account-btn {
+    width: auto !important;
+    height: 45px !important;
+    font-family: 'AgencyFB', sans-serif, serif;
+    padding: 0 65px;
+    font-weight: 400;
+    line-height: 45px !important;
+}
+
+.account-btn-sm,
+.btn-cyan-rounded.account-btn-sm {
+    height: 40px !important;
+    font-size: 16px !important;
+    padding: 0 45px;
+    line-height: 40px !important;
+}
+
+/* ======================================================
 Shopping cart sidenav styles
 ====================================================== */
 
@@ -755,14 +806,14 @@ Shopping cart page styles
 Checkout page
 ====================================================== */
 
-#Checkout fieldset {
+fieldset {
     background: #0A2033;
     color: #FFFFFF;
     padding: 25px;
     border: 1px solid rgba(0, 251, 239, 75%);
 }
 
-#Checkout fieldset legend {
+fieldset legend {
     background-color: #207975;  /* fallback color */
     background-image: linear-gradient(to top, #18385E 0%, #42AFAA  100%);
     background-size: 200% auto;
@@ -772,14 +823,14 @@ Checkout page
     letter-spacing: 3px;
 }
 
-#Checkout .input-field {
+.input-field {
     height: 50px;
     background: rgba(3, 0, 9, 50%);
     border-radius: 15px;
     margin-bottom: 30px;
 }
 
-#Checkout .input-field input {
+.input-field input {
     width: 90%;
     color: #FFFFFF;
     font-family: 'AgencyCYB';
@@ -789,12 +840,19 @@ Checkout page
     border-bottom: none;
 }
 
-#Checkout .input-field label {
-    margin-left: 5%;
+.input-field label {
     font-family: 'AgencyCYB';
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 16px;
+}
+
+.input-field label.active {
+    top: -5px;
+}
+
+#Checkout .input-field label {
+    margin-left: 5%;
 }
 
 #Checkout .input-field label.active {
@@ -802,17 +860,17 @@ Checkout page
     left: -10px;
 }
 
-#Checkout .input-field:focus {
+.input-field:focus {
     border: 2px solid red;
 }
 
-#Checkout .input-field input.validate,
-#Checkout .input-field input.validate.valid {
+.input-field input.validate,
+.input-field input.validate.valid {
     border-bottom: none;
     box-shadow: none;
 }
 
-#Checkout .select-wrapper+label {
+.select-wrapper+label {
     top: -35px;
     left: -10px;
 }
@@ -1301,6 +1359,11 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
 }
 
 @media (max-width: 675px) {
+    /* Authentication styles
+    =========================== */
+    .account-btns {
+        padding: 0 45px;
+    }
     /* Game details styles
     =========================== */
     .content-img {
@@ -1582,6 +1645,12 @@ RESPONSIVE STYLES FOR SMALLER SCREENS
 }
 
 @media (max-width: 325px) {
+    /* Global styles
+    =========================== */
+    .account-btns {
+        padding: 0 50px;
+        font-size: 18px;
+    }
     /* Game details styles
     =========================== */
     .content-img {
