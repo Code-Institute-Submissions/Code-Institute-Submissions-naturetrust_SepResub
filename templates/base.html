@@ -44,7 +44,7 @@
                 <ul class="right">
                     <li class="games-btn"><a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners" id="nav-purchase-btn">Buy Games</a></li>
                     {% if request.user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}"  style="max-height: 64px;">
+                        <li><a href="#!" data-target="profile-dropdown" class='dropdown-trigger center' style="width: 115px; max-height: 64px;;">
                             <img src="{{ MEDIA_URL }}icons/profile.svg" alt="User Profile icon" id="profile-icon">
                         </a></li>
                     {% else %}
@@ -58,6 +58,7 @@
                 </ul>
             </div>
         </nav>
+        <!-- Main sidenav -->
         <ul class="sidenav" id="sidenav-main">
             <li><a href="#!" class="sidenav-close"><i class="material-icons white-text">close</i></a></li>
             <li><h4 class="title">NatureTrust</h4></li>
@@ -66,6 +67,13 @@
             <li class="title"><a href="{% url 'adoptions' %}">Adoption Packs</a></li>
             <li class="title"><a href="#!">Contact Us</a></li>
         </ul>
+        <!-- Profile dropdown -->
+        <ul id='profile-dropdown' class='dropdown-content' style="background: #050A32;">
+            <li><a href="{% url 'profile' %}" class="center title">Profile</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="{% url 'account_logout' %}" class="center title">Sign Out</a></li>
+        </ul>
+        <!-- Shopping cart sidenav -->
         {% include 'includes/cart-nav.html' %}
     </header>
 

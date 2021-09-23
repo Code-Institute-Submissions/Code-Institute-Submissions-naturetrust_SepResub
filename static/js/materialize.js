@@ -21,4 +21,11 @@ $(document).ready(function () {
         opacity: 0.8,
         endingTop: '45%',
     });
+
+    // Initialize dropdown
+    $('.dropdown-trigger').dropdown({
+        aligment: 'right',
+        coverTrigger: false,
+        constrainWidth: false,
+    });
 });
