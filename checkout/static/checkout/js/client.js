@@ -66,12 +66,13 @@ form.addEventListener('submit', function(ev) {
 
     $('#loaderModal').modal('open');
 
-
+    var saveInfo = Boolean($('#save-info').attr('checked'));
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
 
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
+        'save-info': saveInfo,
     }
 
     var url = '/checkout/cache_checkout_data/';

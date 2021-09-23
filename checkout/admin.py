@@ -33,7 +33,7 @@ class OrderAdmin(admin.ModelAdmin):
     )
 
     fields = (
-        'order_number', 'date',
+        'order_number', 'date', 'user_profile',
         'first_name', 'last_name',
         'email', 'phone_number', 'street_address',
         'street_address_2', 'town_or_city', 'country',

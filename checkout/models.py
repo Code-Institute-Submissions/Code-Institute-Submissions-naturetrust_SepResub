@@ -2,11 +2,13 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
+from django.db.models.deletion import SET_NULL
 
 from django_countries.fields import CountryField
 
 from games.models import Edition
 from adoption.models import Package
+from profiles.models import UserProfile
 
 
 class Product(models.Model):
@@ -43,6 +45,14 @@ class Product(models.Model):
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=SET_NULL,
+        null=True,
+        blank=True,
+        related_name='orders'
+    )
 
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)

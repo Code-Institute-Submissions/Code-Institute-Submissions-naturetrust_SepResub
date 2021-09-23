@@ -9,6 +9,7 @@ class OrderForm(forms.ModelForm):
             'order_number', 'date',
             'order_total', 'grand_total',
             'original_cart', 'stripe_pid',
+            'user_profile',
         )
 
     def __init__(self, *args, **kwargs):

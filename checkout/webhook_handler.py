@@ -1,4 +1,6 @@
+from profiles.models import UserProfile
 from django import http
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 
 from .models import Order, OrderLineItem, Product
@@ -26,17 +28,36 @@ class StripeWH_Handler:
         """ Handle the payment_intent.succeeded webhook from Stripe """
 
         intent = event.data.object
-        print(intent)
         pid = intent.id
         cart = intent.metadata.cart
+        save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
+        # Replace empty strings with None
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+
+        # Update user profile if save_info is checked
+
+        # To allow anoynmous users to checkout
+        profile = None
+        username = intent.metadata.username 
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address = shipping_details.address.line1
+                profile.default_street_address_2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+
+                profile.save()
 
         order_exists = False
 
@@ -47,6 +68,7 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     first_name__iexact=shipping_details.name.split(' ')[0],
                     last_name__iexact=shipping_details.name.split(' ')[1],
+                    user_profile=profile,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,

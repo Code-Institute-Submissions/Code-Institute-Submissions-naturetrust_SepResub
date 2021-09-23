@@ -78,6 +78,21 @@
                         <legend class="center title">Billing Information</legend>
                         <div class="row">
                             {{ form | materializecss }}
+                            <div class="col s12">
+                                {% if user.is_authenticated %}
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" name="save-info" id="save-info" class="filled-in" checked="checked" />
+                                            <span>Save this delivery information to my profile</span>
+                                        </label>
+                                    </p>
+                                {% else %}
+                                    <p class="right">
+                                        <a href="{% url 'account_signup' %}" class="standard-text-link">Create an account</a> or <a
+                                            href="{% url 'account_login' %}" class="standard-text-link">log in</a> to save this information
+                                    </p>
+                                {% endif %}
+                            </div>
                             <div class="col s12 center mt-5">
                                 <a href="#!" class="btn btn-cyan-rounded btn-cyan-linear-bg">Confirm Address</a>
                             </div>
