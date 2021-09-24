@@ -182,35 +182,35 @@
 {% block postloadjs %}
     {{ block.super }}
     <!-- Hide section headers that do not have content  -->
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
             var sectionContent = $('.game-card-edition-content');
             for (i=0; i < sectionContent.length; i++) {
-                var findString = $(sectionContent[i]).text().match(/[abcdefghijklmnopqrstuvwxyz]/g)
+                var findString = $(sectionContent[i]).text().match(/[abcdefghijklmnopqrstuvwxyz]/g);
                 if (!findString) {
                     $(sectionContent[i]).prev('.game-card-section-title').addClass('hide');
-                };
-            };
+                }
+            }
         });
     </script>
     <!-- Trigger shopping cart sidenav once the purchase button is clicked -->
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
             function showCart() {
                 $('#shoppingCartNav').sidenav('open');
                 setTimeout(() => {
-                    sessionStorage['addedToCart'] = false;
+                    sessionStorage.setItem('addedToCart', false);
                 }, 100);
-            };
+            }
 
             $('.purchase-btn').on('click', function() {
-                sessionStorage['addedToCart'] = true;
+                sessionStorage.setItem('addedToCart', true);
             });
 
-            var addedToCart = sessionStorage['addedToCart'];
+            var addedToCart = sessionStorage.getItem('addedToCart');
             if (addedToCart == 'true') {
                 showCart();
-            };
+            }
         });
     </script>
 {% endblock %}

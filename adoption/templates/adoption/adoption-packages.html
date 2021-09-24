@@ -23,7 +23,7 @@
         <div class="row hero-text">
             <h4 class="title my-5">Purchase your adoption pack today</h4>
             <!-- See packages button -->
-            <a href="#!" class="btn btn-cyan btn-folded-corners game-details-btn">
+            <a href="#adoptionPackages" class="btn btn-cyan btn-folded-corners game-details-btn">
                 <span class="border-hack"></span>
                 <span class="btn-text">Compare Packages</span>
             </a>
@@ -55,13 +55,13 @@
                             <div class="col s12 center">
                                 {% if package.image %}
                                     <img src="{{ package.image.url }}" alt="{{ animal.animal }}"
-                                    class="game-details-img"></a>
+                                    class="game-details-img">
                                 {% elif animal.image %}
                                     <img src="{{ animal.image.url }}" alt="{{ animal.animal }}"
-                                    class="game-details-img"></a>
+                                    class="game-details-img">
                                 {% else %}
                                     <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ animal.animal }}"
-                                    class="game-details-img"></a>
+                                    class="game-details-img">
                                 {% endif %}
                             </div>
                         </div>

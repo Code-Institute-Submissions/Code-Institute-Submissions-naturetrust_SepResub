@@ -51,7 +51,7 @@ card.addEventListener('change', function (event) {
         $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
-    };
+    }
 });
 
 // Handle form submit
@@ -73,7 +73,7 @@ form.addEventListener('submit', function(ev) {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save-info': saveInfo,
-    }
+    };
 
     var url = '/checkout/cache_checkout_data/';
 

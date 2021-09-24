@@ -14,10 +14,10 @@
                 <div class="col s12 l5 offset-l1 xl4 offset-xl2">
                     {% if game.image %}
                         <img src="{{ game.image.url }}" alt="{{ game.name }}"
-                        class="game-details-img"></a>
+                        class="game-details-img">
                     {% else %}
                         <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ game.name }}"
-                        class="game-details-img"></a>
+                        class="game-details-img">
                     {% endif %}
                 </div>
                 <!-- Game editions -->
@@ -119,5 +119,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script src="{% static 'games/js/scripts.js' %}" type="text/javascript"></script>
+    <script src="{% static 'games/js/scripts.js' %}"></script>
 {% endblock %}

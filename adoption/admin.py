@@ -15,7 +15,7 @@ class AdoptionAdmin(admin.ModelAdmin):
     fields = (
         'animal', 'animal_plural', 'desc',
         'image_url', 'image',
-        'image_header_url', 'image_header', 
+        'image_header_url', 'image_header',
         'date_added',
     )
 

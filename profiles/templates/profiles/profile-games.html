@@ -106,17 +106,17 @@
     <script>
         // Fix table height values
         $(document).ready(function() {
-            var tableHeaderHeight = $('.order-main-details').height()
-            var height = tableHeaderHeight + 10
+            var tableHeaderHeight = $('.order-main-details').height();
+            var height = tableHeaderHeight + 10;
             $('.order-header .card-panel').css('height', `${height}px`);
             $('.order-main-details .card-panel').css('height', `${height}px`);
 
-            var orderHeight = $('.order-details').height()
-            var height = orderHeight + 10
-            $('.order-image .card-panel').css('height', `${height}px`);
-            $('.order-details .card-panel').css('height', `${height}px`);
+            var orderHeight = $('.order-details').height();
+            var height2 = orderHeight + 10;
+            $('.order-image .card-panel').css('height', `${height2}px`);
+            $('.order-details .card-panel').css('height', `${height2}px`);
 
-            $('.order-details-img').css('height', `${height + 35}px`);
+            $('.order-details-img').css('height', `${height2 + 35}px`);
         });
     </script>
 {% endblock %}

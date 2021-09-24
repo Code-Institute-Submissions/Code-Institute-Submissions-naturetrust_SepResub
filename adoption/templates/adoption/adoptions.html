@@ -44,7 +44,9 @@
                             <div class="card-image">
                                 <div class="contrast-card"></div>
                                 <div class="img-card">
-                                    <img src="{{ animal.image.url }}" alt="{{ animal.animal }}">
+                                    <a href="{% url 'adopt' animal.animal %}">
+                                        <img src="{{ animal.image.url }}" alt="{{ animal.animal }}">
+                                    </a>
                                 </div>
                             </div>
                             <div class="card-content">
@@ -53,7 +55,7 @@
                         <div class="card-action">
                                 <div class="row">
                                     <div class="col s5">
-                                        <a href="#!" class="text-link">More info</a>
+                                        <a href="{% url 'adopt' animal.animal %}" class="text-link">More info</a>
                                     </div>
                                     <div class="col s7">
                                         <a href="{% url 'adopt' animal.animal %}" class="btn btn-cyan img-overlay-btn btn-folded-corners">

@@ -8,6 +8,15 @@
             </div>
         </div>
         <div class="row">
+
+            {% if cart_items %}
+                {% for item in cart_items %}
+            <form action="{% url 'update_cart' item.item_id %}" method="POST" id="updateCartItem-{{item.item_id}}">
+                {% csrf_token %}
+            </form>
+                {% endfor %}
+            {% endif %}
+
             <div class="col s12 xl10 offset-xl1">
                 <!-- Product count -->
                 <h6 class="right title">{{ product_count }} items</h6>
@@ -80,8 +89,8 @@
                                         <!-- Subtotal -->
                                         <table>
                                             <tr>
-                                                <th><h6 class="title">Subtotal</h6></th>
-                                                <th class="right"><h6 class="title">£{{ item.product.price }}</h6></th>
+                                                <th><span class="title">Subtotal</span></th>
+                                                <th class="right"><span class="title">£{{ item.product.price }}</span></th>
                                             </tr>
                                         </table>
                                     </div>
@@ -92,19 +101,19 @@
                         <table class="hide-on-med-and-down">
                             <!-- Table header -->
                             <tr class="table-header">
-                                <th style="width: 35%;"><h6 class="title center">Product</h6></th>
-                                <th style="width: 20%;"><h6 class="title center">Desc</h6></th>
-                                <th style="width: 8%;"><h6 class="title center">Price</h6></th>
-                                <th style="width: 15%;"><h6 class="title center">Quantity</h6></th>
-                                <th style="width: 10%;"><h6 class="title center">Subtotal</h6></th>
-                                <th style="width: 12%;"></th>
+                                <th class="center" style="width: 35%;"><span class="title">Product</span></th>
+                                <th class="center" style="width: 20%;"><span class="title">Desc</span></th>
+                                <th class="center" style="width: 8%;"><span class="title">Price</span></th>
+                                <th class="center" style="width: 15%;"><span class="title">Quantity</span></th>
+                                <th class="center" style="width: 10%;"><span class="title">Subtotal</span></th>
+                                <th class="center" style="width: 12%;"></th>
                             </tr>
                             {% if cart_items %}
                                 {% for item in cart_items %}
                                     <!-- Shopping cart items -->
                                     <tr class="table-cart-item {% if forloop.last %}last{% endif %}">
                                         <!-- Product image and name -->
-                                        <th class="th-first">
+                                        <td class="th-first">
                                             <div class="row">
                                                 <div class="col s3">
                                                     {% if 'game' in item.product_type  %}
@@ -122,63 +131,62 @@
                                                     {% endif %}
                                                 </div>
                                                 <div class="col s9">
-                                                    <h6 class="title">
+                                                    <span class="title">
                                                         {% if 'game' in item.product_type  %}
                                                             {{ item.product.friendly_name_full }}
                                                         {% elif 'adoption in item.product_type' %}
                                                             {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
                                                         {% endif %}
-                                                    </h6>
+                                                    </span>
                                                 </div>
                                             </div>
-                                        </th>
+                                        </td>
                                         <!-- Brief product description -->
-                                        <th class="center">
+                                        <td class="center">
                                             <p>{{ item.product.desc|slice:":254" }}...</p>
-                                        </th>
+                                        </td>
                                         <!-- Price -->
-                                        <th class="center">
-                                            <h6 class="title">{{ item.product.price }}</h6>
-                                        </th>
+                                        <td class="center">
+                                            <span class="title">{{ item.product.price }}</span>
+                                        </td>
                                         <!-- Quantity -->
-                                        <form action="{% url 'update_cart' item.item_id %}" method="POST" id="updateCartItem-{{item.item_id}}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        <td class="center">
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}" form="updateCartItem-{{item.item_id}}">
                                             <input type="hidden" name="product_type" value="{% if 'game' in item.product_type %}game{% else %}adoption{% endif %}"
-                                            id="productType_{{ item.item_id }}">
-                                            <th class="center">
-                                                <div class="qty-btn">
-                                                    <div class="row">
-                                                        <div class="col s3 offset-s2" style="padding-left: 0;">
-                                                            <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
-                                                                <i class="material-icons white-text">remove</i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="col s3">
-                                                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                            data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
-                                                        </div>
-                                                        <div class="col s3">
-                                                            <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
-                                                                <i class="material-icons white-text">add</i>
-                                                            </button>
-                                                        </div>
+                                                id="productType_{{ item.item_id }}" form="updateCartItem-{{item.item_id}}">
+                                            <div class="qty-btn">
+                                                <div class="row">
+                                                    <div class="col s3 offset-s2" style="padding-left: 0;">
+                                                        <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
+                                                            <i class="material-icons white-text">remove</i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val"
+                                                        form="updateCartItem-{{item.item_id}}" readonly>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
+                                                            <i class="material-icons white-text">add</i>
+                                                        </button>
                                                     </div>
                                                 </div>
-                                                <!-- Update quantity -->
-                                                <div class="col s12">
-                                                    <button type="submit" class="btn btn-green update-qty" id="updateQty-{{ item.item_id }}">Update</button>
-                                                </div>
-                                            </th>
-                                        </form>
+                                            </div>
+                                            <!-- Update quantity -->
+                                            <div class="col s12">
+                                                <button type="submit" class="btn btn-green update-qty" id="updateQty-{{ item.item_id }}"
+                                                form="updateCartItem-{{item.item_id}}">Update</button>
+                                            </div>
+                                        </td>
                                         <!-- Subtotal -->
-                                        <th class="center">
-                                            <h5 class="title">£{{ item.subtotal }}</h5>
-                                        </th>
+                                        <td class="center">
+                                            <span class="title">£{{ item.subtotal }}</span>
+                                        </td>
                                         <!-- Remove item -->
-                                        <th class="center th-last">
+                                        <td class="center th-last">
                                             <a href="#!" class="remove-item-from-cart" id="remove_{{ item.item_id }}"><i class="material-icons white-text">delete_forever</i></a>
-                                        </th>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             {% endif %}
@@ -214,16 +222,16 @@
                             <!-- Order total -->
                             <table>
                                 <tr>
-                                    <th><h5 class="title">Subtotal</h5></th>
-                                    <th class="right"><h5 class="title">{{quantity}} £{{ total }}</h5></th>
+                                    <th><span class="title">Subtotal</span></th>
+                                    <th class="right"><span class="title">{{quantity}} £{{ total }}</span></th>
                                 </tr>
                                 <tr>
-                                    <th><h5 class="title">Discount</h5></th>
-                                    <th class="right"><h5 class="title"> -£50.00</h5></th>
+                                    <th><span class="title">Discount</span></th>
+                                    <th class="right"><span class="title"> -£50.00</span></th>
                                 </tr>
                                 <tr class="order-total">
-                                    <th><h4 class="title">Order total</h4></th>
-                                    <th class="right"><h4 class="title">£40.00</h4></th>
+                                    <th><span class="title">Order total</span></th>
+                                    <th class="right"><span class="title">£40.00</span></th>
                                 </tr>
                             </table>
                             <!-- Checkout -->

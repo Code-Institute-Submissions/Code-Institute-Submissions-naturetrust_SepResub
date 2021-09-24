@@ -365,7 +365,7 @@ Shopping cart sidenav styles
 .cart-item {
     background: linear-gradient( to bottom,  #42AFAA 10%, #18385E 90% ) no-repeat center center fixed;
     background-image: linear-gradient(to top, #30cfd0 0%, #112947 100%);
-    padding: 15px 10px;
+    padding: 15px 10px !important;
     border-radius: 5px;
     border: 1px solid #029A93;
 }
@@ -408,7 +408,6 @@ Shopping cart sidenav styles
     padding:0;
     font-family: 'AgencyFB';
     font-size: 16px;
-    line-height: auto;
     letter-spacing: 1px;
 }
 
@@ -422,7 +421,6 @@ Shopping cart sidenav styles
     padding:0;
     font-family: 'AgencyCYB';
     font-size: 22px !important;
-    line-height: auto;
     letter-spacing: 1px;
     color: #00FF85;
 }
@@ -561,7 +559,6 @@ Games page styles
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
 }
 
 .btn-cyan.btn-folded-corners.img-overlay-btn .border-hack {
@@ -778,7 +775,8 @@ Shopping cart page styles
     background-color: #0A2033;
 }
 
-#shoppingCart .table-cart-item th {
+#shoppingCart .table-cart-item th,
+#shoppingCart .table-cart-item td {
     border: 1px solid rgba(0, 251, 239, 50%);
 } 
 

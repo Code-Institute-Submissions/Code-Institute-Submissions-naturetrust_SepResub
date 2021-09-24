@@ -59,7 +59,7 @@ class Order(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     street_address = models.CharField(max_length=80, null=False, blank=False)
     street_address_2 = models.CharField(max_length=80, null=True, blank=True)
-    country = CountryField(blank_label='', null=False, blank=False)
+    country = CountryField(blank_label='Select country *', null=False, blank=False)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
     postcode = models.CharField(max_length=20, null=False, blank=False)

@@ -5,14 +5,16 @@ $(document).ready(function() {
         var minusDisabled = currentValue < 2;
         var plusDisabled = currentValue > 98;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`#nav-decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-    };
+        $(`#nav-increment-qty_${itemId}`).prop('disabled', plusDisabled);
+    }
 
     var allQtyInputs = $('.qty_input');
     for(var i = 0; i < allQtyInputs.length; i++){
         var itemId = $(allQtyInputs[i]).data('item_id');
         handleEnableDisable(itemId);
-    };
+    }
 
     $('.qty_input').change(function() {
         var itemId = $(this).data('item_id');
@@ -58,6 +60,6 @@ $(document).ready(function() {
             idNumber = idNumber[1]
             $(`#updateQtyNav-${idNumber}`).fadeIn(400);
             $(`#updateQty-${idNumber}`).fadeIn(400);
-        };
+        }
     });
 });

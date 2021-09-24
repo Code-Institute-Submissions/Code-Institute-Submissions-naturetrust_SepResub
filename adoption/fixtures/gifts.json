@@ -1,0 +1,242 @@
+[
+    {
+        "pk": 1,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [1, 2, 3, 4],
+            "name": "leaflet_bee",
+            "friendly_name": "Bee Informpation Leaflet",
+            "desc": "This leaflet provides a detailed into the the bees' crucial role within the ecosystem.",
+            "image": "book-bee.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 2,
+            "package": [1, 2, 3, 4],
+            "name": "leaflet_plankton",
+            "friendly_name": "Plankton Information Leaflet",
+            "desc": "This leaflet provides a detailed into plankton's crucial role within the ecosystem.",
+            "image": "book-plankton.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 3,
+            "package": [1, 2, 3, 4],
+            "name": "leaflet_bat",
+            "friendly_name": "Bat Information Leaflet",
+            "desc": "This leaflet provides a detailed into bats' crucial role within the ecosystem.",
+            "image": "book-bat.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 4,
+            "package": [1, 2, 3, 4],
+            "name": "leaflet_frog",
+            "friendly_name": "frog Information Leaflet",
+            "desc": "This leaflet provides a detailed into frogs' crucial role within the ecosystem.",
+            "image": "book-frog.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 5,
+            "package": [1, 2, 3, 4],
+            "name": "leaflet_shark",
+            "friendly_name": "Shark Information Leaflet",
+            "desc": "This leaflet provides a detailed into sharks' crucial role within the ecosystem.",
+            "image": "book-shark.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [2, 3, 4],
+            "name": "mug_bee",
+            "friendly_name": "Custom Bee Mug",
+            "desc": "A cozy ceramic mug for enjoying warm beverages.",
+            "image": "mug-bee.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 2,
+            "package": [2, 3, 4],
+            "name": "mug_plankton",
+            "friendly_name": "Custom Plankton Mug",
+            "desc": "A cozy ceramic mug for enjoying warm beverages.",
+            "image": "mug-plankton.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [2, 3, 4],
+            "name": "mug_bat",
+            "friendly_name": "Custom Bat Mug",
+            "desc": "A cozy ceramic mug for enjoying warm beverages.",
+            "image": "mug-bat.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [2, 3, 4],
+            "name": "mug_frog",
+            "friendly_name": "Custom Frog Mug",
+            "desc": "A cozy ceramic mug for enjoying warm beverages.",
+            "image": "mug-frog.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [2, 3, 4],
+            "name": "mug_shark",
+            "friendly_name": "Custom Shark Mug",
+            "desc": "A cozy ceramic mug for enjoying warm beverages.",
+            "image": "mug-shark.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [3, 4],
+            "name": "phonecase_bee",
+            "friendly_name": "Custom Bee Phonecase",
+            "desc": "A beautiful, unique phonecase for your mobile phone.",
+            "image": "phonecase-bee.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 2,
+            "package": [3, 4],
+            "name": "phonecase_plankton",
+            "friendly_name": "Custom Plankton Phonecase",
+            "desc": "A beautiful, unique phonecase for your mobile phone.",
+            "image": "phonecase-plankton.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [3, 4],
+            "name": "phonecase_bat",
+            "friendly_name": "Custom Bat Phonecase",
+            "desc": "A beautiful, unique phonecase for your mobile phone.",
+            "image": "phonecase-bat.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [3, 4],
+            "name": "phonecase_frog",
+            "friendly_name": "Custom Frog Phonecase",
+            "desc": "A beautiful, unique phonecase for your mobile phone.",
+            "image": "phonecase-frog.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [3, 4],
+            "name": "phonecase_shark",
+            "friendly_name": "Custom Shark Phonecase",
+            "desc": "A beautiful, unique phonecase for your mobile phone.",
+            "image": "phonecase-shark.jpg"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 1,
+            "package": [5],
+            "name": "bag_bee",
+            "friendly_name": "Custom Bee bag",
+            "desc": "A beautiful, tote bag for travel, shopping and more!",
+            "image": "bag-bee.jpg"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 2,
+            "package": [5],
+            "name": "bag_plankton",
+            "friendly_name": "Custom Plankton bag",
+            "desc": "A beautiful, tote bag for travel, shopping and more!",
+            "image": "bag-plankton.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 3,
+            "package": [5],
+            "name": "bag_bat",
+            "friendly_name": "Custom Bat bag",
+            "desc": "A beautiful, tote bag for travel, shopping and more!",
+            "image": "bag-bat.jpg"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 4,
+            "package": [5],
+            "name": "bag_frog",
+            "friendly_name": "Custom Frog bag",
+            "desc": "A beautiful, tote bag for travel, shopping and more!",
+            "image": "bag-frog.jpg"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "adoption.gift",
+        "fields": {
+            "adoption": 5,
+            "package": [5],
+            "name": "bag_shark",
+            "friendly_name": "Custom Shark bag",
+            "desc": "A beautiful, tote bag for travel, shopping and more!",
+            "image": "bag-shark.jpg"
+        }
+    }
+]

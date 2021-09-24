@@ -14,9 +14,21 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    default_street_address = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address_2 = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_street_address = models.CharField(
+        max_length=80,
+        null=True,
+        blank=True
+    )
+    default_street_address_2 = models.CharField(
+        max_length=80,
+        null=True,
+        blank=True
+    )
+    default_town_or_city = models.CharField(
+        max_length=40,
+        null=True,
+        blank=True
+    )
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(
         max_length=20,
@@ -24,7 +36,7 @@ class UserProfile(models.Model):
         blank=True
     )
     default_country = CountryField(
-        blank_label='',
+        blank_label='Select country *',
         null=True,
         blank=True
     )

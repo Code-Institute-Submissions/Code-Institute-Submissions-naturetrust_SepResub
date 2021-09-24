@@ -26,29 +26,31 @@
                                 <!-- Heading -->
                                 <tr>
                                     <th>Order Info:</th>
+                                    <th></th>
                                 </tr>
                                 <!-- Order details -->
                                 <tr>
-                                    <th>
+                                    <td>
                                         <p>Date Ordered: </p>
                                         <p>Payment: </p>
                                         <p>Order number: </p>
-                                    </th>
-                                    <th>
+                                    </td>
+                                    <td>
                                         <p>{{ order.date }}</p>
                                         <p>Paid by card</p>
                                         <p>{{ order.order_number }}</p>
-                                    </th>
+                                    </td>
                                 </tr>
                                 <!-- Heading -->
                                 <tr>
                                     <th>Order Contents:</th>
+                                    <th></th>
                                 </tr>
                                 <!-- Order inline products -->
                                 {% for item in order.lineitems.all %}
                                 <tr class="order-details-img">
                                     <!-- Order Image -->
-                                    <th class="order-image">
+                                    <td class="order-image">
                                         <div class="card-panel">
                                             <div class="row">
                                                 <div class="col s12 center">
@@ -72,9 +74,9 @@
                                                 </div>
                                             </div>
                                         </div>        
-                                    </th>
+                                    </td>
                                     <!-- Product details -->
-                                    <th class="order-details">
+                                    <td class="order-details">
                                         <div class="card-panel">
                                             <div class="row">
                                                 <div class="col s12">
@@ -108,16 +110,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </th>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                                 <!-- Heading -->
                                 <tr>
                                     <th>Billing Address:</th>
+                                    <th></th>
                                 </tr>
                                 <!-- Billing address -->
                                 <tr>
-                                    <th>
+                                    <td>
                                         <p>Full name: </p>
                                         <p>Email Address: </p>
 
@@ -140,8 +143,8 @@
                                         
                                         <p>Country: </p>
                                         <p>Postcode: </p>
-                                    </th>
-                                    <th>
+                                    </td>
+                                    <td>
                                         <p>{{ order.first_name }} {{ order.last_name }}</p>
                                         <p>{{ order.email }}</p>
 
@@ -163,7 +166,7 @@
 
                                         <p>{{ order.country }}</p>
                                         <p>{{ order.postcode }}</p>
-                                    </th>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -175,11 +178,12 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script type="text/javascript">
+    {{ block.super }}
+    <script>
         // Fix table height values
         $(document).ready(function() {
-            var orderHeight = $('.order-details').height()
-            var height = orderHeight + 10
+            var orderHeight = $('.order-details').height();
+            var height = orderHeight + 10;
             $('.order-image .card-panel').css('height', `${height}px`);
             $('.order-details .card-panel').css('height', `${height}px`);
 
