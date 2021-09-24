@@ -74,6 +74,10 @@ br {
     margin-top: 50px;
 }
 
+.mb-5 {
+    margin-bottom: 50px;
+}
+
 .py-2 {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -653,6 +657,12 @@ Game details styles
 /* ======================================================
 Adoption page styles
 ====================================================== */
+
+#allAdoptions .about p {
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 15px;
+}
 
 #allAdoptions .card {
     max-width: 460px;
