@@ -17,98 +17,95 @@
                 {% endfor %}
             {% endif %}
 
+            {% if cart_items %}
             <div class="col s12 xl10 offset-xl1">
                 <!-- Product count -->
                 <h6 class="right title">{{ product_count }} items</h6>
                 <!-- Shopping cart items -->
                 <div class="row">
                     <div class="col s12">
-                        <!-- For smaller screens -->
-                        {% if cart_items %}
-                            {% for item in cart_items %}
-                                <div class="card-panel hide-on-large-only card-item-card">
-                                    <div class="row">
-                                        <!-- Image -->
-                                        <div class="col s3 m2">
-                                            {% if 'game' in item.product_type  %}
-                                                {% if item.product.image %}
-                                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
-                                                {% else %}
-                                                    <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
-                                                {% endif %}
-                                            {% elif 'adoption in item.product_type' %}
-                                                {% if item.product.image %}
-                                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
-                                                {% else %}
-                                                    <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
-                                                {% endif %}
+                        {% for item in cart_items %}
+                            <!-- For smaller screens -->
+                            <div class="card-panel hide-on-large-only card-item-card">
+                                <div class="row">
+                                    <!-- Image -->
+                                    <div class="col s3 m2">
+                                        {% if 'game' in item.product_type  %}
+                                            {% if item.product.image %}
+                                                <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                            {% else %}
+                                                <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
                                             {% endif %}
-                                        </div>
-                                        <!-- Name and quantity -->
-                                        <div class="col s7">
-                                            <div class="row">
-                                                <div class="col s12">
-                                                    <h6 class="title product-name">
-                                                        {% if 'game' in item.product_type  %}
-                                                            {{ item.product.friendly_name_full }}
-                                                        {% elif 'adoption in item.product_type' %}
-                                                            {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
-                                                        {% endif %}
-                                                    </h6>
-                                                </div>
-                                                <div class="col s12" style="padding: 10px 20px;">
-                                                    <div class="qty-btn">
-                                                        <div class="row">
-                                                            <div class="col s3 m1 offset-s1 offset-m1" style="padding-left: 0;">
-                                                                <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
-                                                                    <i class="material-icons white-text">remove</i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="col s3 m2">
-                                                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                                data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
-                                                            </div>
-                                                            <div class="col s3 m1">
-                                                                <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
-                                                                    <i class="material-icons white-text">add</i>
-                                                                </button>
-                                                            </div>
+                                        {% elif 'adoption in item.product_type' %}
+                                            {% if item.product.image %}
+                                                <img src="{{ item.product.image.url }}" alt="{{ item.product.friendly_name_full }}">
+                                            {% else %}
+                                                <img src="{{ item.product.game.image.url }}" alt="{{ item.product.friendly_name }}">
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                    <!-- Name and quantity -->
+                                    <div class="col s7">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <h6 class="title product-name">
+                                                    {% if 'game' in item.product_type  %}
+                                                        {{ item.product.friendly_name_full }}
+                                                    {% elif 'adoption in item.product_type' %}
+                                                        {{ item.product.adoption.animal }} {{ item.product.friendly_name }}
+                                                    {% endif %}
+                                                </h6>
+                                            </div>
+                                            <div class="col s12" style="padding: 10px 20px;">
+                                                <div class="qty-btn">
+                                                    <div class="row">
+                                                        <div class="col s3 m1 offset-s1 offset-m1" style="padding-left: 0;">
+                                                            <button type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" class="decrement-qty">
+                                                                <i class="material-icons white-text">remove</i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col s3 m2">
+                                                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                            data-item_id="{{ item.item_id }}" id="id-qty_{{ item.item_id }}" class="qty-val" readonly>
+                                                        </div>
+                                                        <div class="col s3 m1">
+                                                            <button type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" class="increment-qty">
+                                                                <i class="material-icons white-text">add</i>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Remove item -->
-                                        <div class="col s2 right">
-                                            <a href="#!"><i class="material-icons white-text">delete_forever</i></a>
-                                        </div>
-                                        <!-- Description -->
-                                        <div class="col s12">
-                                            <p>{{ item.product.desc|slice:":162" }}...</p>
-                                        </div>
-                                        <!-- Subtotal -->
-                                        <table>
-                                            <tr>
-                                                <th><span class="title">Subtotal</span></th>
-                                                <th class="right"><span class="title">£{{ item.product.price }}</span></th>
-                                            </tr>
-                                        </table>
                                     </div>
+                                    <!-- Remove item -->
+                                    <div class="col s2 right">
+                                        <a href="#!"><i class="material-icons white-text">delete_forever</i></a>
+                                    </div>
+                                    <!-- Description -->
+                                    <div class="col s12">
+                                        <p>{{ item.product.desc|slice:":162" }}...</p>
+                                    </div>
+                                    <!-- Subtotal -->
+                                    <table>
+                                        <tr>
+                                            <th><span class="title">Subtotal</span></th>
+                                            <th class="right"><span class="title">£{{ item.product.price }}</span></th>
+                                        </tr>
+                                    </table>
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                        <!-- For larger screens -->
-                        <table class="hide-on-med-and-down">
-                            <!-- Table header -->
-                            <tr class="table-header">
-                                <th class="center" style="width: 35%;"><span class="title">Product</span></th>
-                                <th class="center" style="width: 20%;"><span class="title">Desc</span></th>
-                                <th class="center" style="width: 8%;"><span class="title">Price</span></th>
-                                <th class="center" style="width: 15%;"><span class="title">Quantity</span></th>
-                                <th class="center" style="width: 10%;"><span class="title">Subtotal</span></th>
-                                <th class="center" style="width: 12%;"></th>
-                            </tr>
-                            {% if cart_items %}
+                            </div>
+                            <!-- For larger screens -->
+                            <table class="hide-on-med-and-down">
+                                <!-- Table header -->
+                                <tr class="table-header">
+                                    <th class="center" style="width: 35%;"><span class="title">Product</span></th>
+                                    <th class="center" style="width: 20%;"><span class="title">Desc</span></th>
+                                    <th class="center" style="width: 8%;"><span class="title">Price</span></th>
+                                    <th class="center" style="width: 15%;"><span class="title">Quantity</span></th>
+                                    <th class="center" style="width: 10%;"><span class="title">Subtotal</span></th>
+                                    <th class="center" style="width: 12%;"></th>
+                                </tr>
                                 {% for item in cart_items %}
                                     <!-- Shopping cart items -->
                                     <tr class="table-cart-item {% if forloop.last %}last{% endif %}">
@@ -189,8 +186,8 @@
                                         </td>
                                     </tr>
                                 {% endfor %}
-                            {% endif %}
-                        </table>
+                            </table>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="row">
@@ -246,6 +243,11 @@
                     </div>
                 </div>
             </div>
+            {% else %}
+                <div class="col s12 m10 offset-m1 l8 offset-l2">
+                    <h6 class="title center">You have no items in your shopping cart</h6>
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}
