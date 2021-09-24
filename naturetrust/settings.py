@@ -92,6 +92,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -102,6 +104,21 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+# Tells allauth what we want to allow authentication: usernames or emails
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+
+# Makes email required for registration
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Ensures that we know users are using a real email
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+
+# Specify login URL and a URL to redirect back to after loggin in
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/profile/'
 
 WSGI_APPLICATION = 'naturetrust.wsgi.application'
 
@@ -160,6 +177,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -167,16 +185,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-ACCOUNT_AUTHENTICATED_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
-ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/profile/'
-
 
 if 'USE_AWS' in os.environ:
     # Cache control
@@ -212,6 +220,7 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 
 # Send emails
+
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'support@naturetrust.com'
