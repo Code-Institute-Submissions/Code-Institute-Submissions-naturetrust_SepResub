@@ -20,60 +20,80 @@
             <div class="row">
                 <div class="col s12">
                     <table>
-                        {% for order in orders %}
-                            {% for item in order.lineitems.all %}
-                                {% if item.product.adoption %}
-                                <tr class="order-details-img">
-                                    <!-- Order Image -->
-                                    <th class="order-image">
-                                        <div class="card-panel">
-                                            <div class="row">
-                                                <div class="col s12 center">
-                                                    {% with item.product.adoption as package %}
-                                                        {% if package.image %}
-                                                            <img src="{{ package.image.url }}" alt="{{ package.friendly_name_full }}">
-                                                        {% else %}
-                                                            <img src="{{ package.adoption.image.url }}" alt="{{ package.friendly_name }}">
-                                                        {% endif %}
-                                                    {% endwith %}
-                                                </div>
-                                            </div>
-                                        </div>        
-                                    </th>
-                                    <!-- Product details -->
-                                    <th class="order-details">
-                                        <div class="card-panel">
-                                            <div class="row">
-                                                <div class="col s12 py-2">
-                                                    <p>
-                                                        <strong>
+                        {% if orders %}
+                            {% for order in orders %}
+                                {% for item in order.lineitems.all %}
+                                    {% if item.product.adoption %}
+                                        <tr class="order-details-img">
+                                            <!-- Order Image -->
+                                            <th class="order-image">
+                                                <div class="card-panel">
+                                                    <div class="row">
+                                                        <div class="col s12 center">
                                                             {% with item.product.adoption as package %}
-                                                            {{ package.adoption.animal }} {{ package.friendly_name }}
+                                                                {% if package.image %}
+                                                                    <img src="{{ package.image.url }}" alt="{{ package.friendly_name_full }}">
+                                                                {% else %}
+                                                                    <img src="{{ package.adoption.image.url }}" alt="{{ package.friendly_name }}">
+                                                                {% endif %}
                                                             {% endwith %}
-                                                        </strong>
-                                                    </p>
-                                                    <p><strong>Date ordered:</strong> {{ order.date }}</p>
-            
-                                                    {% with item.product.adoption as package %}
-                                                        <p><strong>Product number:</strong> {{ package.sku }}</p>
-                                                    {% endwith %}
-            
-                                                    <p><strong>Qty:</strong> {{ item.quantity }}</p>
-                                                    <p><strong>£{{ item.lineitem_total }}</strong></p>
+                                                        </div>
+                                                    </div>
+                                                </div>        
+                                            </th>
+                                            <!-- Product details -->
+                                            <th class="order-details">
+                                                <div class="card-panel">
+                                                    <div class="row">
+                                                        <div class="col s12 py-2">
+                                                            <p>
+                                                                <strong>
+                                                                    {% with item.product.adoption as package %}
+                                                                    {{ package.adoption.animal }} {{ package.friendly_name }}
+                                                                    {% endwith %}
+                                                                </strong>
+                                                            </p>
+                                                            <p><strong>Date ordered:</strong> {{ order.date }}</p>
+                    
+                                                            {% with item.product.adoption as package %}
+                                                                <p><strong>Product number:</strong> {{ package.sku }}</p>
+                                                            {% endwith %}
+                    
+                                                            <p><strong>Qty:</strong> {{ item.quantity }}</p>
+                                                            <p><strong>£{{ item.lineitem_total }}</strong></p>
 
-                                                    <div class="divider"></div>
-                                                    
-                                                    {% with item.product.adoption as package %}
-                                                        <p>{{ package.desc }}</p>
-                                                    {% endwith %}
+                                                            <div class="divider"></div>
+                                                            
+                                                            {% with item.product.adoption as package %}
+                                                                <p>{{ package.desc }}</p>
+                                                            {% endwith %}
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            </th>
+                                        </tr>
+                                    {% else %}
+                                        <div class="row">
+                                            <div class="col s12 center">
+                                                <span class="title">You haven't adopted any animals yet</span>
+                                            </div>
+                                            <div class="col s12 mt-5">
+                                                <a href="{% url 'adoptions' %}" class="btn purchase-btn btn-folded-corners">Adopt Now</a>
                                             </div>
                                         </div>
-                                    </th>
-                                </tr>
-                                {% endif %}
+                                    {% endif %}
+                                {% endfor %}
                             {% endfor %}
-                        {% endfor %}
+                        {% else %}
+                            <div class="row">
+                                <div class="col s12 center">
+                                    <span class="title">You haven't adopted any animals yet</span>
+                                </div>
+                                <div class="col s12 mt-5">
+                                    <a href="{% url 'adoptions' %}" class="btn purchase-btn btn-folded-corners">Adopt Now</a>
+                                </div>
+                            </div>
+                        {% endif %}
                     </table>
                 </div>
             </div>
@@ -82,7 +102,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script type="text/javascript">
+    {{ block.super }}
+    <script>
         // Fix table height values
         $(document).ready(function() {
             var tableHeaderHeight = $('.order-main-details').height()

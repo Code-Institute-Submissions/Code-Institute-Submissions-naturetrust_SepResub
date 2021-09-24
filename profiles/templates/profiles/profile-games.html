@@ -20,60 +20,80 @@
             <div class="row">
                 <div class="col s12">
                     <table>
-                        {% for order in orders %}
-                            {% for item in order.lineitems.all %}
-                                {% if item.product.game %}
-                                <tr class="order-details-img">
-                                    <!-- Order Image -->
-                                    <th class="order-image">
-                                        <div class="card-panel">
-                                            <div class="row">
-                                                <div class="col s12 center">
-                                                    {% with item.product.game as edition %}
-                                                        {% if edition.image %}
-                                                            <img src="{{ edition.image.url }}" alt="{{ edition.friendly_name_full }}">
-                                                        {% else %}
-                                                            <img src="{{ edition.game.image.url }}" alt="{{ edition.friendly_name }}">
-                                                        {% endif %}
-                                                    {% endwith %}
-                                                </div>
-                                            </div>
-                                        </div>        
-                                    </th>
-                                    <!-- Product details -->
-                                    <th class="order-details">
-                                        <div class="card-panel">
-                                            <div class="row">
-                                                <div class="col s12 py-2">
-                                                    <p>
-                                                        <strong>
+                        {% if orders %}
+                            {% for order in orders %}
+                                {% for item in order.lineitems.all %}
+                                    {% if item.product.game %}
+                                        <tr class="order-details-img">
+                                            <!-- Order Image -->
+                                            <th class="order-image">
+                                                <div class="card-panel">
+                                                    <div class="row">
+                                                        <div class="col s12 center">
                                                             {% with item.product.game as edition %}
-                                                                {{ edition.friendly_name_full }}
+                                                                {% if edition.image %}
+                                                                    <img src="{{ edition.image.url }}" alt="{{ edition.friendly_name_full }}">
+                                                                {% else %}
+                                                                    <img src="{{ edition.game.image.url }}" alt="{{ edition.friendly_name }}">
+                                                                {% endif %}
                                                             {% endwith %}
-                                                        </strong>
-                                                    </p>
-                                                    <p><strong>Date ordered:</strong> {{ order.date }}</p>
-            
-                                                    {% with item.product.game as edition %}
-                                                        <p><strong>Product number:</strong> {{ edition.sku }}</p>
-                                                    {% endwith %}
-            
-                                                    <p><strong>Qty:</strong> {{ item.quantity }}</p>
-                                                    <p><strong>£{{ item.lineitem_total }}</strong></p>
+                                                        </div>
+                                                    </div>
+                                                </div>        
+                                            </th>
+                                            <!-- Product details -->
+                                            <th class="order-details">
+                                                <div class="card-panel">
+                                                    <div class="row">
+                                                        <div class="col s12 py-2">
+                                                            <p>
+                                                                <strong>
+                                                                    {% with item.product.game as edition %}
+                                                                        {{ edition.friendly_name_full }}
+                                                                    {% endwith %}
+                                                                </strong>
+                                                            </p>
+                                                            <p><strong>Date ordered:</strong> {{ order.date }}</p>
+                    
+                                                            {% with item.product.game as edition %}
+                                                                <p><strong>Product number:</strong> {{ edition.sku }}</p>
+                                                            {% endwith %}
+                    
+                                                            <p><strong>Qty:</strong> {{ item.quantity }}</p>
+                                                            <p><strong>£{{ item.lineitem_total }}</strong></p>
 
-                                                    <div class="divider"></div>
-                                                    
-                                                    {% with item.product.game as edition %}
-                                                        <p>{{ edition.desc|slice:":325" }}...</p>
-                                                    {% endwith %}
+                                                            <div class="divider"></div>
+                                                            
+                                                            {% with item.product.game as edition %}
+                                                                <p>{{ edition.desc|slice:":325" }}...</p>
+                                                            {% endwith %}
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            </th>
+                                        </tr>
+                                    {% else %}
+                                        <div class="row">
+                                            <div class="col s12 center">
+                                                <span class="title">You haven't purchased any games yet</span>
+                                            </div>
+                                            <div class="col s12 mt-5">
+                                                <a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners">Buy Games</a>
                                             </div>
                                         </div>
-                                    </th>
-                                </tr>
-                                {% endif %}
+                                    {% endif %}
+                                {% endfor %}
                             {% endfor %}
-                        {% endfor %}
+                        {% else %}
+                            <div class="row">
+                                <div class="col s12 center">
+                                    <span class="title">You haven't purchased any games yet</span>
+                                </div>
+                                <div class="col s12 mt-5">
+                                    <a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners">Buy Games</a>
+                                </div>
+                            </div>
+                        {% endif %}
                     </table>
                 </div>
             </div>
@@ -82,7 +102,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script type="text/javascript">
+    {{ block.super }}
+    <script>
         // Fix table height values
         $(document).ready(function() {
             var tableHeaderHeight = $('.order-main-details').height()

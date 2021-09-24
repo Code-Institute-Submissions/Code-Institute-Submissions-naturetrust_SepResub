@@ -20,121 +20,135 @@
             <div class="row">
                 <div class="col s12">
                     <table>
-                        {% for order in orders %}
-                            <tr>
-                                <th class="order-header"
-                                style="padding-bottom: 0; padding-right: 0;">
-                                    <div class="card-panel" style="margin: 0; background-color: rgba(12, 0, 32, 75%);">
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <p>Order Info:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th class="order-main-details"
-                                style="padding-bottom: 0; padding-left: 0;">
-                                    <div class="card-panel" style="margin: 0; background-color: #141429;">
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <p>Date Ordered: {{ order.date }}</p>
-                                                <p>Payment: Paid by card</p>
-                                                <p>Order number: {{ order.order_number }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </th>
-                            </tr>
-                            {% for item in order.lineitems.all %}
-                                {% if item.product.game %}
-                                <tr class="order-details-img">
-                                    <!-- Order Image -->
-                                    <th class="order-image">
-                                        <div class="card-panel">
+                        {% if orders %}
+                            {% for order in orders %}
+                                <tr>
+                                    <th class="order-header"
+                                    style="padding-bottom: 0; padding-right: 0;">
+                                        <div class="card-panel" style="margin: 0; background-color: rgba(12, 0, 32, 75%);">
                                             <div class="row">
-                                                <div class="col s12 center">
-                                                    {% with item.product.game as edition %}
-                                                        {% if edition.image %}
-                                                            <img src="{{ edition.image.url }}" alt="{{ edition.friendly_name_full }}">
-                                                        {% else %}
-                                                            <img src="{{ edition.game.image.url }}" alt="{{ edition.friendly_name }}">
-                                                        {% endif %}
-                                                    {% endwith %}
+                                                <div class="col s12">
+                                                    <p>Order Info:</p>
                                                 </div>
                                             </div>
-                                        </div>        
+                                        </div>
                                     </th>
-                                    <!-- Product details -->
-                                    <th class="order-details">
-                                        <div class="card-panel">
+                                    <th class="order-main-details"
+                                    style="padding-bottom: 0; padding-left: 0;">
+                                        <div class="card-panel" style="margin: 0; background-color: #141429;">
                                             <div class="row">
-                                                <div class="col s12 py-2">
-                                                    <p>
-                                                        <strong>
-                                                            {% with item.product.game as edition %}
-                                                                {{ edition.friendly_name_full }}
-                                                            {% endwith %}
-                                                        </strong>
-                                                    </p>
-                                                    <p><strong>Qty:</strong> {{ item.quantity }}</p>
-                                                    <p><strong>£{{ item.lineitem_total }}</strong></p>
-
-                                                    <div class="divider"></div>
-                                                    
-                                                    {% with item.product.game as edition %}
-                                                        <p>{{ edition.desc|slice:":325" }}...</p>
-                                                    {% endwith %}
+                                                <div class="col s12">
+                                                    <p>Date Ordered: {{ order.date }}</p>
+                                                    <p>Payment: Paid by card</p>
+                                                    <p>Order number: {{ order.order_number }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </th>
                                 </tr>
-                                {% elif item.product.adoption %}
-                                <tr class="order-details-img">
-                                    <!-- Order Image -->
-                                    <th class="order-image">
-                                        <div class="card-panel">
-                                            <div class="row">
-                                                <div class="col s12 center">
-                                                    {% with item.product.adoption as package %}
-                                                        {% if package.image %}
-                                                            <img src="{{ package.image.url }}" alt="{{ package.friendly_name_full }}">
-                                                        {% else %}
-                                                            <img src="{{ package.adoption.image.url }}" alt="{{ package.friendly_name }}">
-                                                        {% endif %}
-                                                    {% endwith %}
+                                {% for item in order.lineitems.all %}
+                                    {% if item.product.game %}
+                                    <tr class="order-details-img">
+                                        <!-- Order Image -->
+                                        <th class="order-image">
+                                            <div class="card-panel">
+                                                <div class="row">
+                                                    <div class="col s12 center">
+                                                        {% with item.product.game as edition %}
+                                                            {% if edition.image %}
+                                                                <img src="{{ edition.image.url }}" alt="{{ edition.friendly_name_full }}">
+                                                            {% else %}
+                                                                <img src="{{ edition.game.image.url }}" alt="{{ edition.friendly_name }}">
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>        
-                                    </th>
-                                    <!-- Product details -->
-                                    <th class="order-details">
-                                        <div class="card-panel">
-                                            <div class="row">
-                                                <div class="col s12 py-2">
-                                                    <p>
-                                                        <strong>
-                                                            {% with item.product.adoption as package %}
-                                                            {{ package.adoption.animal }} {{ package.friendly_name }}
-                                                            {% endwith %}
-                                                        </strong>
-                                                    </p>
-                                                    <p><strong>Qty:</strong> {{ item.quantity }}</p>
-                                                    <p><strong>£{{ item.lineitem_total }}</strong></p>
+                                            </div>        
+                                        </th>
+                                        <!-- Product details -->
+                                        <th class="order-details">
+                                            <div class="card-panel">
+                                                <div class="row">
+                                                    <div class="col s12 py-2">
+                                                        <p>
+                                                            <strong>
+                                                                {% with item.product.game as edition %}
+                                                                    {{ edition.friendly_name_full }}
+                                                                {% endwith %}
+                                                            </strong>
+                                                        </p>
+                                                        <p><strong>Qty:</strong> {{ item.quantity }}</p>
+                                                        <p><strong>£{{ item.lineitem_total }}</strong></p>
 
-                                                    <div class="divider"></div>
-                                                    
-                                                    {% with item.product.adoption as package %}
-                                                        <p>{{ package.desc }}</p>
-                                                    {% endwith %}
+                                                        <div class="divider"></div>
+                                                        
+                                                        {% with item.product.game as edition %}
+                                                            <p>{{ edition.desc|slice:":325" }}...</p>
+                                                        {% endwith %}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </th>
-                                </tr>
-                                {% endif %}
+                                        </th>
+                                    </tr>
+                                    {% elif item.product.adoption %}
+                                    <tr class="order-details-img">
+                                        <!-- Order Image -->
+                                        <th class="order-image">
+                                            <div class="card-panel">
+                                                <div class="row">
+                                                    <div class="col s12 center">
+                                                        {% with item.product.adoption as package %}
+                                                            {% if package.image %}
+                                                                <img src="{{ package.image.url }}" alt="{{ package.friendly_name_full }}">
+                                                            {% else %}
+                                                                <img src="{{ package.adoption.image.url }}" alt="{{ package.friendly_name }}">
+                                                            {% endif %}
+                                                        {% endwith %}
+                                                    </div>
+                                                </div>
+                                            </div>        
+                                        </th>
+                                        <!-- Product details -->
+                                        <th class="order-details">
+                                            <div class="card-panel">
+                                                <div class="row">
+                                                    <div class="col s12 py-2">
+                                                        <p>
+                                                            <strong>
+                                                                {% with item.product.adoption as package %}
+                                                                {{ package.adoption.animal }} {{ package.friendly_name }}
+                                                                {% endwith %}
+                                                            </strong>
+                                                        </p>
+                                                        <p><strong>Qty:</strong> {{ item.quantity }}</p>
+                                                        <p><strong>£{{ item.lineitem_total }}</strong></p>
+
+                                                        <div class="divider"></div>
+                                                        
+                                                        {% with item.product.adoption as package %}
+                                                            <p>{{ package.desc }}</p>
+                                                        {% endwith %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    {% endif %}
+                                {% endfor %}
                             {% endfor %}
-                        {% endfor %}
+                        {% else %}
+                            <div class="row">
+                                <div class="col s12 center">
+                                    <span class="title">You haven't made any purchases with this account yet</span>
+                                </div>
+                                <div class="col s12 m6 l5 offset-l1 xl4 offset-xl2 mt-5">
+                                    <a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners">Buy Games</a>
+                                </div>
+                                <div class="col s12 m6 l5 xl4 mt-5">
+                                    <a href="{% url 'adoptions' %}" class="btn purchase-btn btn-folded-corners">Adopt</a>
+                                </div>
+                            </div>
+                        {% endif %}
                     </table>
                 </div>
             </div>
@@ -143,7 +157,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script type="text/javascript">
+    {{ block.super }}
+    <script>
         // Fix table height values
         $(document).ready(function() {
             var tableHeaderHeight = $('.order-main-details').height()
