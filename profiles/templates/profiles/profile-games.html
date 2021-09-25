@@ -72,15 +72,6 @@
                                                 </div>
                                             </th>
                                         </tr>
-                                    {% else %}
-                                        <div class="row">
-                                            <div class="col s12 center">
-                                                <span class="title">You haven't purchased any games yet</span>
-                                            </div>
-                                            <div class="col s12 mt-5">
-                                                <a href="{% url 'games' %}" class="btn purchase-btn btn-folded-corners">Buy Games</a>
-                                            </div>
-                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}

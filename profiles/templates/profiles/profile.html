@@ -208,15 +208,6 @@
                                                 </div>
                                             </th>
                                         </tr>
-                                    {% else %}
-                                        <div class="row my-5">
-                                            <div class="col s12 center">
-                                                <span class="title">You haven't purchased any games yet</span>
-                                            </div>
-                                            <div class="col s12 mt-5">
-                                                <a href="{% url 'buy_game' game.url_name %}" class="btn purchase-btn btn-folded-corners">Buy Games</a>
-                                            </div>
-                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}
@@ -299,15 +290,6 @@
                                                 </div>
                                             </th>
                                         </tr>
-                                    {% else %}
-                                        <div class="row my-5">
-                                            <div class="col s12 center">
-                                                <span class="title">You haven't adopted any animals yet</span>
-                                            </div>
-                                            <div class="col s12 mt-5">
-                                                <a href="{% url 'adoptions' %}" class="btn purchase-btn btn-folded-corners">Adopt Now</a>
-                                            </div>
-                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}
