@@ -178,9 +178,28 @@ Each wireframe can be viewed via the links below.
 ## Database Schema
 
 
-To handle fixtures, dynamic data in the backend, NOSQL and PostGres was used. NOSQl was used in the development and PostGres is used in the deployed version. Below is a diagram depicting the relationships between each model within the database:
-
 ![Database model](documentation/media/data-model.png)
+
+
+To handle fixtures, dynamic data in the backend, NOSQL and PostGres was used. NOSQl was used in the development and PostGres is used in the deployed version. 
+
+The database model is centered around the `product` class. The product class acts as link between the `order` class and `edition` and `package` class, which is the product that is used for users to make purchases with.
+
+#### Games
+
+Although the `game` class holds key information, it is not what connects the game to the `order`, for that the `edition` class is used. There may be many editions for one game, and each edition may have a different price, which is why the `product` class calls to `edition` to construct the order. The ForeignKey is named `game` to cleary identify what app model it is associated with.
+
+
+#### Adoptions
+
+Like the edition class, the `adoption` class is **not** used to connect an adoption pack to an order, for that purpose the `package` class is used. This works in a very similar way to the edition class, as each adoption can have many packages, with each one potentially having a different price. This is why the `product` class calls to `package` to construct the order. The ForeignKey is named `adoption` to cleary identify what app model it is associated with.#
+
+
+#### Order
+
+The order model uses `user_profile` to retrieve contact and shipping/billing information and inject that data into the order object. The order model is linked to an inline `orderlineitem` class which is used to store product information including, the `product` ForeignKey, the quantity, product price and total. 
+
+The `product` class is there to act as a link between the `edition` and `package` class. A user may not purchase from both categories at a time, so a class needed to be constructed to retrieve data from the correct class.
 
 
 -----
