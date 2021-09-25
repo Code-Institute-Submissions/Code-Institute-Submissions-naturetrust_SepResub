@@ -16,15 +16,15 @@ PLEASE NOTE: This website is a business concept created as a milestone project t
 
 - [UX](#ux)
 
-    -[Strategy Plane](#strategy-plane)
+    - [Strategy Plane](#strategy-plane)
 
-    -[User Stories](#user-stories)
+    - [User Stories](#user-stories)
 
-    -[Scope Plane](#scope-plane)
+    - [Scope Plane](#scope-plane)
     
-    -[Skeleton Plane](#skeleton-plane)
+    - [Skeleton Plane](#skeleton-plane)
 
-    -[Surface Plane](##surface-plane)
+    - [Surface Plane](##surface-plane)
 
 - [Database Schema](#database-schema)
 
@@ -281,6 +281,9 @@ The `product` class is there to act as a link between the `edition` and `package
 
 - [JQuery 3.5.1](https://jquery.com/)
     - JQuery 3.5.1 was used to initialize certian features within the [Materialize 1.0.0](https://getbootstrap.com/) framework. It was also used to write custom JS code.
+
+- [Figma](https://www.figma.com/)
+  - Figma is a powerful website design system that can be used to construct prototypes. I used Figma to create my wireframes for this project.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Visual Studio Code was the software used to write the code. 
