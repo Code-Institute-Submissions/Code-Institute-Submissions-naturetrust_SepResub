@@ -16,12 +16,31 @@ PLEASE NOTE: This website is a business concept created as a milestone project t
 
 - [UX](#ux)
 
+    -[Strategy Plane](#strategy-plane)
+
+    -[User Stories](#user-stories)
+
+    -[Scope Plane](#scope-plane)
+    
+    -[Skeleton Plane](#skeleton-plane)
+
+    -[Surface Plane](##surface-plane)
+
+- [Database Schema](#database-schema)
+
+- [Accessibility](#accessibility)
+
+- [Technologies Used](#technologies-used)
+
+- [Testing](#testing)
 
 - [Deployment](#deployment)
 
     - [Heroku](#heroku)
 
     - [AWS](#aws)
+
+- [Credits](#credits)
 
 
 -----
