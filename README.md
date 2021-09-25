@@ -177,6 +177,25 @@ Each wireframe can be viewed via the links below.
 
 -----
 
+### Surface Plane
+
+
+#### Typography
+
+The two main fonts that were used were **AgencyFB** and **Chinese Rocks**. CHinese rocks is an icon font within [Rockstar Red Dead Redemption Official Site](https://www.rockstargames.com/reddeadredemption2/), and I felt that the Agency had a strong sci-fi aesthetic. This helped incorporate a modern, fresh and clean look to the website's design, while the bold contrast of Chinese Rocks was perfect to make certain text stand out. 
+
+I chose to use Chinese Rocks as the font would be recognisable to many of the target audience, helps the overall theme which resolves a lot around selling games.
+
+
+#### Colour
+
+The site's colour scheme consisted of red and blues. The blue is reminiscent of the ocean, and provided a soft foreground to alot of the text and images. The red was used to make buttons stand out and provide good colour contrast which improves accessibility. Cyan blues and linear gradient where implemented to help create a glow effect which adde visual variety and improved the overall UI and theme.
+
+
+
+-----
+
+
 ## Database Schema
 
 
