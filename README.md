@@ -463,3 +463,41 @@ https://naturetrust.herokuapp.com/checkout/wh/` and check *recieve all events**.
 5. Ensure all your variable names match the names defined in `settings.py`.
 
 6. Send a test webhook from Stripe to ensure that the listener is working by clicking **send test webhook**.
+
+
+-----
+
+## Credits
+
+
+### Content
+
+- All content was written by the developer.
+
+- Game details were taken from [Rockstar Games](https://www.rockstargames.com/) and [Frontier Games](https://www.frontier.co.uk/our-games/planet-zoo)
+
+
+
+### Inspiration
+
+- [Rockstar Red Dead Redemption Official Site](https://www.rockstargames.com/reddeadredemption2/)
+
+- [CD Keys](https://www.cdkeys.com/)
+
+
+### Acknowledgements
+
+
+- [CodeInstitute](https://codeinstitute.net/) for the course material, knowledge and inspiration.
+
+- [StackOverflow](https://stackoverflow.com/) for the perpetual source of help and inspiration.
+
+- [Slack Community](https://slack.com/intl/en-gb/) for all the help, advice and inspiration.
+
+- [Rockstar Games](https://www.rockstargames.com/) for the game content and UI inspiration
+
+- [Frontier Games](https://www.frontier.co.uk/our-games/planet-zoo) for the game content
+
+- I also want to thank my mentor, Can Sucullu, for his help and valuable suggestions throughout this project.
+
+- Finally, I want to thank friends and family members for their continual support and feedback. 
