@@ -274,3 +274,58 @@ The only errors that was flagged was `line too long`. When able, this was prompt
 - It is not neccessary for users to make an account in order to complete a purchase. As long as they fill out the checkout form correctly, their order will processed normally and with no issues. They will be redirected to a checkout success page displaying their order confirmation when checkout is complete and will recieve an order confirmation to the email.
 
 - However, users who are not logged into an account are not able to save their details on checkout. This functionality is only available to those who are signed in.
+
+
+-----
+
+
+### C-R-U-D Testing
+
+| No. |   Action    |   Input   |   Expected Output |   Actual Output   |   Result |  Further Comments |
+| --- | ----------- | --------- | ----------------- | ----------------- | ---------| ----------------- |
+| 1 | Add to cart | Navigate to a [games details page](https://naturetrust.herokuapp.com/games/buy/reddeadredemption2/) and click 'buy now' on one of the packages | The item should add to cart | The game item is added to the shopping cart | Pass |
+| 2 | Update item quantity in shopping cart | Open the shopping cart sidenav and update the quantity by clicking on the increment/decrement buttons. Click 'update' once the button appears | The quantity value should update to the new value | The quantity updates | Pass |
+|  3  | Remove item from shopping cart |  Open the shopping cart sidenav and click the bin icon on one of the items | The item should be removed from the shopping cart | The item is removed and a toast message is triggered, which says 'Removed <order name> from your cart' | Pass |
+|  4  | Checkout | Add an item to your shopping cart, open the shopping cart and click 'secure checkout' to go to checkout. Fill in all required details and submit the form by clicking the 'place order' button | If successful you should see an order confirmation at the checkout success page | Checkout successful. I am redirected to the checkout success page where I can see a confirmation of my order which contains my order and information. On page load a toast message is triggered which says 'Order Successfully Processed! Your order number is <order number>. A confirmation email will be sent to <email>' | Pass |
+| 5 | Save details at Checkout | Make an account if you haven't done so already and log in. Take all the required steps to go to checkout and once there ensure that 'Save this delivery information to my profile' is checked. Proceed with checkout and then navigate to your profile by clicking on the profile icon in the navbar | Your personal details should have saved and present with the account information and address book cards on the first page of your profile | All information is there | Pass |
+| 6 | Update personal information | Make an account if you haven't done so already and log in. Navigate to your profile by clicking on the profile icon in the navbar and click 'edit information' in the first card. Update the content of an input field, or several, and click 'update details' | Your new data is saved | The new values are saved and can be seen on the profile page | Pass |
+
+
+-----
+
+## Further Testing
+
+### Desktop
+
+- Hardware 
+    - Desktop PC with a AOC 2560 x 1440 monitor
+    - MSI GE72MVR Apache Pro 17'3" Laptop
+    - HP Spectre x360 15'6" Laptop 
+
+- Operating Sytems 
+    - Windows 10
+
+- Browsers 
+    - Google Chrome
+    - Brave
+    - Microsoft Edge
+
+
+### Mobile Devices
+
+- Hardware
+    - Honor 20 Pro
+    - Sony Xperia Z3 Plus
+    - Realme x50 Pro
+    - Samsung A20
+
+- Operating Systems
+    - Android
+
+- Browsers
+    - Google Chrome
+    - Brave
+    - Opera 
+    - Microsoft Edge
+
+-----
