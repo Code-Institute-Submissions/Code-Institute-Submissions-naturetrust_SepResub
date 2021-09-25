@@ -1,4 +1,13 @@
-# naturetrust
+# NATURETRUST
+
+[View live project here](https://naturetrust.herokuapp.com/)
+
+[NATURETRUST](https://naturetrust.herokuapp.com/) is an aspiring e-commerice site which aims to create a collaborative relationship between gaming companies and charitable organisations to help contribute towards the planet's sustainabilty. Users can buy games or adoptions pack on the site, and by purchasing with NatureTrust they can contribute towards an environmental charity. The bussiness schema behind Naturetrust is: for each game purchased with, Naturetrust will contribute 12% of its total price to one of the partnered charities. Adoption packs would count towards a 70% donation to the associated charity.
+
+Naturetrust aims to bring awareness to vital role many wildlife plays in the ecosystem. These are often not the animals you would typically see in adoption packs for many renowned charities, but that is what makes Naturetrust unique. Currently, NatureTrust offers adoption packs for bees, sharks, and even plankton,
+because we recognise that losing them could be detrimental for everyone living on Earth. 
+
+PLEASE NOTE: This website is a business concept created as a milestone project to be assessed. I do not own any rights to the game content used in this site, and do not affiliate with these companies, nor do I accept real payments or sell real keys and/or adoption packs.
 
 
 ## Contents 
@@ -16,6 +25,22 @@
 -----
 
 ## UX
+
+
+### Strategy Plane
+
+#### Project Goals 
+
+The primary aim of this website is to sell games and adoption packs, and contribute a percentage of those profits to charities that help protect the ecosystem. I also wish to spread awareness about some of these animals in order to encourage people to take better care of the earth.
+
+
+#### Site Owner Goals
+
+The primary goal is to establish a community platform that would have the potential to grow and thrive as a real-world application. It is imperative that the application has a high-quality layout and UX design, meets acccessibility guidelines, prioritizes its information appropriately and handles the back-end intuitively. 
+
+#### Target Audience 
+
+The primary target audience is gamers as the main product that is sold will be games. However the site is suitable for any target audience who wish to purchase a a game and/or adoption pack.
 
 
 -----
@@ -42,6 +67,123 @@
 -----
 
 
+### Scope Plane
+
+
+#### Functional Specifications and Requirements
+
+- Good UX design that is repsonsive, user friendly and easy to navigate.
+
+- Clear and accessible navigation options for the site. This can be in the form of a fixed navbar at the top of the page, which will allow users to navigate to any part of the site easily and efficiently.
+
+- Data must be dynamic, and must be organised in a way that is intuitive and clear.
+
+- The site should not restrict users who are not logged in. Users should be able to purchase items without the need to create an account.
+
+- The site should be intuitive and enjoyable for the user.
+
+
+
+
+-----
+
+
+### Skeleton Plane
+
+#### Wireframes
+
+I used [Figma](https://www.figma.com/) to construct the surface plane. After delving into writing the code for the application, some design alterations were made. This included using a separate page for the Log In and Register process rather than using a modal, which may have been obstructive on smaller and/or touchscreen devices.
+
+Each page has a wireframe for both desktop and mobile devices. I did not include a tablet wireframe in the design phase because I wanted the site to look nearly identical on larger tablet and desktop devices. Particularly as many laptops now can also function as a touchscreen tablet, I thought it was important that there were no stark differences between the two as this may have compromised good UX design. Nevertheless, the mobile wireframe can represent tablet devices with smaller screens.
+
+Each wireframe can be viewed via the links below.
+
+
+##### Basic Wireframes
+
+
+##### Home page
+
+![Basic wireframe](documentation/media/wireframe-basic-home.png)
+
+
+##### Games page
+
+![Basic wireframe](documentation/media/wireframe-basic-games.png)
+
+
+##### Product details page
+
+![Basic wireframe](documentation/media/wireframe-basic-details.png)
+
+
+##### Shopping cart
+
+![Basic wireframe](documentation/media/wireframe-basic-checkout.png)
+
+
+##### Checkout page
+
+![Basic wireframe](documentation/media/wireframe-basic-cart.png)
+
+
+
+##### Detailed Wireframes
+
+
+##### Home page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-home.png)
+
+
+##### Log in and Sign Up page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-account.png)
+
+
+##### Games page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-games.png)
+
+
+##### Buy game page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-buygame.png)
+
+
+##### Adoptions page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-adoptions.png)
+
+
+##### Product details page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-details.png)
+
+
+##### Shopping cart
+
+![Detailed wireframe](documentation/media/wireframe-detailed-checkout.png)
+
+
+
+##### Checkout page
+
+![Detailed wireframe](documentation/media/wireframe-detailed-cart.png)
+
+
+
+-----
+
+## Database Schema
+
+
+To handle fixtures, dynamic data in the backend, NOSQL and PostGres was used. NOSQl was used in the development and PostGres is used in the deployed version. Below is a diagram depicting the relationships between each model within the database:
+
+![Database model](documentation/media/data-model.png)
+
+
+-----
 
 ## Deployment
 
