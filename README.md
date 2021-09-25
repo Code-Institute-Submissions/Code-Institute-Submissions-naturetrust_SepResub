@@ -2,6 +2,8 @@
 
 [View live project here](https://naturetrust.herokuapp.com/)
 
+![Mockup](documentation/media/mockup.jpg)
+
 [NATURETRUST](https://naturetrust.herokuapp.com/) is an aspiring e-commerice site which aims to create a collaborative relationship between gaming companies and charitable organisations to help contribute towards the planet's sustainabilty. Users can buy games or adoptions pack on the site, and by purchasing with NatureTrust they can contribute towards an environmental charity. The bussiness schema behind Naturetrust is: for each game purchased with, Naturetrust will contribute 12% of its total price to one of the partnered charities. Adoption packs would count towards a 70% donation to the associated charity.
 
 Naturetrust aims to bring awareness to vital role many wildlife plays in the ecosystem. These are often not the animals you would typically see in adoption packs for many renowned charities, but that is what makes Naturetrust unique. Currently, NatureTrust offers adoption packs for bees, sharks, and even plankton,
@@ -203,6 +205,78 @@ The `product` class is there to act as a link between the `edition` and `package
 
 
 -----
+
+
+----
+
+## Accessibility 
+
+- All images imported via img tags in the HTML files have been given meaningful, clear and descriptive alt attributes to conform to accessibility guidelines.
+
+- Most of the font size is relatively large in order to cater for audiences who have difficulties with their vision.
+
+- Good colour contrast has been used throughout the project to ensure that all the content is readable.
+
+
+-----
+
+
+## Technologies Used
+
+### Languages 
+
+- HTML (5)
+- CSS (3)
+- Javascript
+- Python 3
+
+### Frameworks, Libraries and Programs 
+
+- [Django](https://www.djangoproject.com/)
+    - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It was the used to build the project, implement security features and more.
+
+- [Heroku](https://www.heroku.com/)
+    - Heroku is a platform service that enables developers to build, ruin and operate applications within its cloud server. It was used to deploy my web-application.
+
+- [Materialize 1.0.0](https://getbootstrap.com/)
+    - Materialize 1.0.0 is a modern responsive CSS framework based on Material Design by Google. It was used to help with the site's responsiveness, implement useful and intuitive features and provide a clean foundation for the website's design.
+
+- [JQuery 3.5.1](https://jquery.com/)
+    - JQuery 3.5.1 was used to initialize certian features within the [Materialize 1.0.0](https://getbootstrap.com/) framework. It was also used to write custom JS code.
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+  - Visual Studio Code was the software used to write the code. 
+  
+- [Git](https://git-scm.com/)
+  - Git was used for version control by utilising the GitBash terminal in Visual Studio Code to commit to Git and push to [GitHub](https://github.com/).
+  
+- [GitHub](https://github.com/)
+  - GitHub is used to store the project's code after being pushed to Git. It acts as a cloud-based service to store the project’s assets and code. My GitHub account was linked to [Heroku](https://www.heroku.com/) to trigger automatic deployment of my web-application.
+
+- [Smartmockups - Free Product Mockup Generator](https://smartmockups.com/)
+  - Smartmockups is a web-application that allows you to create free mockup images. I used it in this readme file to present a mockup image of the project.
+
+- [Responsively App](https://responsively.app/)
+  - Responsively App is DevTool software that allows you to see an instant preview of all target screens for your website in a single window, side-by-side. It was used to check the responsiveness of my site.
+
+- [Asana](https://app.asana.com/0/home/1192103038725952)
+  - Asana is a web and mobile application designed to help you organise, track and manage your projects. It was used to organise my project and schedule each task efficiently.
+
+- [Creatrly](https://creately.com/)
+    - Creatrly is an online sketching/whiteboard tool. I used it to visually demonstrate the relationships between each collection in the database.
+
+- [Coolors](https://coolors.co/)
+    - Coolors is a visual workspace where you can create diagrams, flowcharts and more. It was used to demonstrate the colours used in on the website.
+
+-----
+
+## Testing
+
+Testing documentation can be found in a separate [TESTING.md](TESTING.md) file
+
+
+-----
+
 
 ## Deployment
 
